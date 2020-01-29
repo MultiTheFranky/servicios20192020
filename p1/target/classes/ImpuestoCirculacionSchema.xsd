@@ -8,5 +8,11 @@
 	<complexType name="turismo">
 		<attribute name="potencia" type="decimal" use="required"></attribute>
 	</complexType>
+	<complexType name="turismo">
+		<attribute name="potencia" type="decimal" use="required"></attribute>
+	</complexType>
+	<complexType name="turismo">
+		<attribute name="potencia" type="decimal" use="required"></attribute>
+	</complexType>
 	
 </schema>
