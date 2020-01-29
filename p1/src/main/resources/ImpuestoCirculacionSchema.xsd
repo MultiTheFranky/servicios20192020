@@ -5,14 +5,18 @@
 	xmlns:tns="http://www.unican.es/ss/ImpuestoCirculacion" 
 	elementFormDefault="qualified">
 	
-	<complexType name="turismo">
+	<complexType name="Turismo">
 		<attribute name="potencia" type="decimal" use="required"></attribute>
 	</complexType>
-	<complexType name="turismo">
-		<attribute name="potencia" type="decimal" use="required"></attribute>
+	<complexType name="Contribuyente">
+		<attribute name="nombre" type="string" use="required"></attribute>
+		<attribute name="apellido1" type="string"></attribute>
+		<attribute name="apellido2" type="string"></attribute>
+		<attribute name="dni" type="string" use="required"></attribute>
 	</complexType>
-	<complexType name="turismo">
-		<attribute name="potencia" type="decimal" use="required"></attribute>
+	
+	<complexType name="Motocicleta">
+		<attribute name="cilindrada" type="integer" use="required"></attribute>
 	</complexType>
 	
 </schema>
