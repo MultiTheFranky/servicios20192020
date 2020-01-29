@@ -8,6 +8,7 @@
 	<complexType name="Turismo">
 		<attribute name="potencia" type="decimal" use="required"></attribute>
 	</complexType>
+	
 	<complexType name="Contribuyente">
 		<attribute name="nombre" type="string" use="required"></attribute>
 		<attribute name="apellido1" type="string"></attribute>
@@ -17,6 +18,16 @@
 	
 	<complexType name="Motocicleta">
 		<attribute name="cilindrada" type="integer" use="required"></attribute>
+	</complexType>
+	
+	<complexType name="Furgoneta">
+		<attribute name="potencia" type="double" use="required"></attribute>
+		<attribute name="comercial" type="boolean" use="required"></attribute>
+	</complexType>
+	
+	<complexType name="Vehiculo">
+		<attribute name="matricula" type="string" use="required"></attribute>
+		<attribute name="fecha1Matriculacion" type="date"></attribute>
 	</complexType>
 	
 </schema>
