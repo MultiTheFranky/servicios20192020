@@ -2,13 +2,14 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantaci�n de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perder�n si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.02.04 a las 04:01:02 PM CET 
+// Generado el: 2020.02.04 a las 04:18:59 PM CET 
 //
 
 
 package es.unican.ps.impuestoCirculacion.domain;
 
-import java.math.BigDecimal;
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -39,17 +40,17 @@ public class Turismo
 {
 
     @XmlAttribute(name = "potencia", required = true)
-    protected BigDecimal potencia;
+    protected double potencia;
 
     /**
      * Obtiene el valor de la propiedad potencia.
      * 
      * @return
      *     possible object is
-     *     {@link BigDecimal }
+     *     {@link double }
      *     
      */
-    public BigDecimal getPotencia() {
+    public double getPotencia() {
         return potencia;
     }
 
@@ -58,11 +59,41 @@ public class Turismo
      * 
      * @param value
      *     allowed object is
-     *     {@link BigDecimal }
+     *     {@link double }
      *     
      */
-    public void setPotencia(BigDecimal value) {
+    public void setPotencia(double value) {
         this.potencia = value;
+    }
+
+     /**
+     * Calcula el impuesto a pagar
+     *  @return precio
+     */
+    @SuppressWarnings("deprecation")
+	@Override
+    public double calculaPrecio() {
+    	Date d = new Date();
+    	double precio;
+    	
+    	if(d.getYear()-fecha1Matriculacion.getYear() > 25) {
+    		precio= 0.0;
+    	} else {
+    		if (potencia < 8) {
+    			precio = 25.24;
+        	} else if (potencia < 11.99) {
+        		precio = 68.16;
+        	} else if (potencia < 15.99) {
+        		precio = 143.88;
+        	} else if(potencia <19.99) {
+        		precio = 179.22;
+        	} else {
+        		precio = 224.0;
+        	}
+    		
+    	}	
+    	
+    	return precio;
     }
 
 }

@@ -52,11 +52,20 @@
 		<attribute name="fecha1Matriculacion" type="date"></attribute>
 	</complexType>
 
+	<complexType name="Factura">
+		<attribute name="matricula" type="tns:MatriculaType" use="required"></attribute>
+		<attribute name="fecha" type="date" use="required"></attribute>
+		<attribute name="importe" type="double" use="required"></attribute>
+	</complexType>
+
 	<complexType name="Ayuntamiento">
 		<choice maxOccurs="unbounded">
 			<element name="vehiculos" type="tns:Vehiculo"></element>
 			<element name="contribuyentes" type="tns:Contribuyente"></element>
+			<element name="facturas" type="tns:Factura"></element>
 		</choice>
 	</complexType>
+
 	<element name="ayuntamiento" type="tns:Ayuntamiento"></element>
+	
 </schema>

@@ -1,8 +1,8 @@
 //
-// Este archivo ha sido generado por la arquitectura JavaTM para la implantaciï¿½n de la referencia de enlace (JAXB) XML v2.3.2 
+// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
-// Todas las modificaciones realizadas en este archivo se perderï¿½n si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.02.04 a las 04:01:02 PM CET 
+// Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+// Generado el: 2020.02.04 a las 04:18:59 PM CET 
 //
 
 
@@ -17,7 +17,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the Prueba package. 
+ * generated in the es.unican.ps.impuestoCirculacion.domain package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -34,7 +34,7 @@ public class ObjectFactory {
     private final static QName _Ayuntamiento_QNAME = new QName("http://www.unican.es/ss/ImpuestoCirculacion", "ayuntamiento");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: Prueba
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: es.unican.ps.impuestoCirculacion.domain
      * 
      */
     public ObjectFactory() {
@@ -78,6 +78,14 @@ public class ObjectFactory {
      */
     public Contribuyente createContribuyente() {
         return new Contribuyente();
+    }
+
+    /**
+     * Create an instance of {@link Factura }
+     * 
+     */
+    public Factura createFactura() {
+        return new Factura();
     }
 
     /**

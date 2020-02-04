@@ -2,12 +2,19 @@
 <tns:ayuntamiento xmlns:tns="http://www.unican.es/ss/ImpuestoCirculacion" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.unican.es/ss/ImpuestoCirculacion ImpuestoCirculacionSchema.xsd ">
 
   <tns:vehiculos matricula="1111ABC" xsi:type="tns:Motocicleta" cilindrada="100" contribuyente="C1"/>
-  <tns:vehiculos matricula="1111ABC" xsi:type="tns:Turismo" potencia="100" contribuyente="C2"/>
-  <tns:vehiculos matricula="1111ABC" xsi:type="tns:Furgoneta" comercial="true" potencia="100" contribuyente="C3"/>
-  <tns:vehiculos matricula="1111ABC" xsi:type="tns:Motocicleta" cilindrada="100" contribuyente="C2"/>
-  <tns:vehiculos matricula="1111ABC" xsi:type="tns:Turismo" potencia="100" contribuyente="C1"/>
+  <tns:vehiculos matricula="1112ABC" xsi:type="tns:Turismo" potencia="100" contribuyente="C2"/>
+  <tns:vehiculos matricula="1113ABC" xsi:type="tns:Furgoneta" comercial="true" potencia="50" contribuyente="C3"/>
+  <tns:vehiculos matricula="1114ABC" xsi:type="tns:Motocicleta" cilindrada="20" contribuyente="C2"/>
+  <tns:vehiculos matricula="1115ABC" xsi:type="tns:Turismo" potencia="10" contribuyente="C1"/>
+
+  <tns:facturas matricula="1111ABC" fecha="2019-08-19" importe="8.84"/>
+  <tns:facturas matricula="1112ABC" fecha="2019-06-23" importe="224.00"/>
+  <tns:facturas matricula="1113ABC" fecha="2019-07-19" importe="224.00"/>
+  <tns:facturas matricula="1114ABC" fecha="2019-08-25" importe="8.84"/>
+  <tns:facturas matricula="1115ABC" fecha="2018-08-19" importe="68.16"/>
 
   <tns:contribuyentes id="C1" dni="11111111A" nombre="Francisco"/>
   <tns:contribuyentes id="C2" dni="11111111B" nombre="Alvaro"/>
   <tns:contribuyentes id="C3" dni="11111111C" nombre="Patricia"/>
+
 </tns:ayuntamiento>

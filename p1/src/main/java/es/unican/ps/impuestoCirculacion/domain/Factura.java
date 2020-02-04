@@ -13,25 +13,23 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Clase Java para Vehiculo complex type.
+ * <p>Clase Java para Factura complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="Vehiculo"&gt;
+ * &lt;complexType name="Factura"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;attribute name="contribuyente" type="{http://www.w3.org/2001/XMLSchema}IDREF" /&gt;
  *       &lt;attribute name="matricula" use="required" type="{http://www.unican.es/ss/ImpuestoCirculacion}MatriculaType" /&gt;
- *       &lt;attribute name="fecha1Matriculacion" type="{http://www.w3.org/2001/XMLSchema}date" /&gt;
+ *       &lt;attribute name="fecha" use="required" type="{http://www.w3.org/2001/XMLSchema}date" /&gt;
+ *       &lt;attribute name="importe" use="required" type="{http://www.w3.org/2001/XMLSchema}double" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -40,47 +38,16 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Vehiculo")
-@XmlSeeAlso({
-    Turismo.class,
-    Motocicleta.class,
-    Furgoneta.class
-})
-public abstract class Vehiculo {
+@XmlType(name = "Factura")
+public class Factura {
 
-    @XmlAttribute(name = "contribuyente")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object contribuyente;
     @XmlAttribute(name = "matricula", required = true)
     protected String matricula;
-    @XmlAttribute(name = "fecha1Matriculacion")
+    @XmlAttribute(name = "fecha", required = true)
     @XmlSchemaType(name = "date")
-    protected Date fecha1Matriculacion;
-
-    /**
-     * Obtiene el valor de la propiedad contribuyente.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
-    public Object getContribuyente() {
-        return contribuyente;
-    }
-
-    /**
-     * Define el valor de la propiedad contribuyente.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setContribuyente(Object value) {
-        this.contribuyente = value;
-    }
+    protected Date fecha;
+    @XmlAttribute(name = "importe", required = true)
+    protected double importe;
 
     /**
      * Obtiene el valor de la propiedad matricula.
@@ -107,36 +74,43 @@ public abstract class Vehiculo {
     }
 
     /**
-     * Obtiene el valor de la propiedad fecha1Matriculacion.
+     * Obtiene el valor de la propiedad fecha.
      * 
      * @return
      *     possible object is
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public Date getFecha1Matriculacion() {
-        return fecha1Matriculacion;
+    public Date getFecha() {
+        return fecha;
     }
 
     /**
-     * Define el valor de la propiedad fecha1Matriculacion.
+     * Define el valor de la propiedad fecha.
      * 
      * @param value
      *     allowed object is
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setFecha1Matriculacion(Date value) {
-        this.fecha1Matriculacion = value;
+    public void setFecha(Date value) {
+        this.fecha = value;
     }
 
     /**
-     * Calcula el impuesto a pagar. Sera sobreescrito por cada clase hija
-     *  @return precio
+     * Obtiene el valor de la propiedad importe.
+     * 
      */
-	public double calculaPrecio () {
-		
-    	return 0.0;
+    public double getImporte() {
+        return importe;
     }
-    
+
+    /**
+     * Define el valor de la propiedad importe.
+     * 
+     */
+    public void setImporte(double value) {
+        this.importe = value;
+    }
+
 }
