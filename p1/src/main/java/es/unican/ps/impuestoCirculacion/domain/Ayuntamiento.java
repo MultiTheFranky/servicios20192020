@@ -45,52 +45,34 @@ import javax.xml.bind.annotation.XmlType;
 })
 @XmlRootElement
 public class Ayuntamiento {
-    @XmlElements({
-        @XmlElement(name = "vehiculos", type = Vehiculo.class),
-        @XmlElement(name = "contribuyentes", type = Contribuyente.class),
-        @XmlElement(name = "facturas", type = Factura.class)
-    })
-    protected List<Object> vehiculosOrContribuyentesOrFacturas;
 
-    /**
-     * Gets the value of the vehiculosOrContribuyentesOrFacturas property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the vehiculosOrContribuyentesOrFacturas property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getVehiculosOrContribuyentesOrFacturas().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Vehiculo }
-     * {@link Contribuyente }
-     * {@link Factura }
-     * 
-     * 
-     */
-    public List<Object> getVehiculosOrContribuyentesOrFacturas() {
-        if (vehiculosOrContribuyentesOrFacturas == null) {
-            vehiculosOrContribuyentesOrFacturas = new ArrayList<Object>();
-        }
-        return this.vehiculosOrContribuyentesOrFacturas;
-    }
+    @XmlElements({@XmlElement(name = "vehiculos", type = Vehiculo.class)})
+    protected List<Vehiculo> vehiculos;
+	@XmlElements({@XmlElement(name = "contribuyentes", type = Contribuyente.class)})
+    protected List<Contribuyente> contribuyentes;
+    @XmlElements({@XmlElement(name = "facturas", type = Factura.class)})
+    protected List<Factura> facturas;
     
-    public double totalAPagarContribuyente(Contribuyente c) {
-    	double precio = 0.0;
-    	for(Object o: vehiculosOrContribuyentesOrFacturas) {
-    		if(o instanceof Vehiculo && ((Contribuyente)((Vehiculo) o).getContribuyente()).getId().equals(c.getId())) {
-    			precio+=((Vehiculo)o).calculaPrecio();
-    		}
-    	}
-    	return precio;
-    }
+    
+    
+    public List<Vehiculo> getVehiculos() {
+		return vehiculos;
+	}
+	public void setVehiculos(List<Vehiculo> vehiculos) {
+		this.vehiculos = vehiculos;
+	}
+	public List<Contribuyente> getContribuyentes() {
+		return contribuyentes;
+	}
+	public void setContribuyentes(List<Contribuyente> contribuyentes) {
+		this.contribuyentes = contribuyentes;
+	}
+	public List<Factura> getFacturas() {
+		return facturas;
+	}
+	public void setFacturas(List<Factura> facturas) {
+		this.facturas = facturas;
+	}
 
+    
 }
