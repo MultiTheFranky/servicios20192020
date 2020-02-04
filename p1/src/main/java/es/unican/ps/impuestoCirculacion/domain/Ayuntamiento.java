@@ -1,7 +1,7 @@
 //
-// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+// Este archivo ha sido generado por la arquitectura JavaTM para la implantaciï¿½n de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
-// Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+// Todas las modificaciones realizadas en este archivo se perderï¿½n si se vuelve a compilar el esquema de origen. 
 // Generado el: 2020.02.04 a las 04:18:59 PM CET 
 //
 
@@ -44,42 +44,33 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Ayuntamiento {
 
-    @XmlElements({
-        @XmlElement(name = "vehiculos", type = Vehiculo.class),
-        @XmlElement(name = "contribuyentes", type = Contribuyente.class),
-        @XmlElement(name = "facturas", type = Factura.class)
-    })
-    protected List<Object> vehiculosOrContribuyentesOrFacturas;
+    @XmlElements({@XmlElement(name = "vehiculos", type = Vehiculo.class)})
+    protected List<Vehiculo> vehiculos;
+	@XmlElements({@XmlElement(name = "contribuyentes", type = Contribuyente.class)})
+    protected List<Contribuyente> contribuyentes;
+    @XmlElements({@XmlElement(name = "facturas", type = Factura.class)})
+    protected List<Factura> facturas;
+    
+    
+    
+    public List<Vehiculo> getVehiculos() {
+		return vehiculos;
+	}
+	public void setVehiculos(List<Vehiculo> vehiculos) {
+		this.vehiculos = vehiculos;
+	}
+	public List<Contribuyente> getContribuyentes() {
+		return contribuyentes;
+	}
+	public void setContribuyentes(List<Contribuyente> contribuyentes) {
+		this.contribuyentes = contribuyentes;
+	}
+	public List<Factura> getFacturas() {
+		return facturas;
+	}
+	public void setFacturas(List<Factura> facturas) {
+		this.facturas = facturas;
+	}
 
-    /**
-     * Gets the value of the vehiculosOrContribuyentesOrFacturas property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the vehiculosOrContribuyentesOrFacturas property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getVehiculosOrContribuyentesOrFacturas().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Vehiculo }
-     * {@link Contribuyente }
-     * {@link Factura }
-     * 
-     * 
-     */
-    public List<Object> getVehiculosOrContribuyentesOrFacturas() {
-        if (vehiculosOrContribuyentesOrFacturas == null) {
-            vehiculosOrContribuyentesOrFacturas = new ArrayList<Object>();
-        }
-        return this.vehiculosOrContribuyentesOrFacturas;
-    }
-
+    
 }
