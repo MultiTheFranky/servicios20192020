@@ -6,7 +6,7 @@
 //
 
 
-package Prueba;
+package es.unican.ps.impuestoCirculacion.domain;
 
 import java.util.ArrayList;
 import java.util.List;

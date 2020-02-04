@@ -1,22 +1,21 @@
 //
-// Este archivo ha sido generado por la arquitectura JavaTM para la implantaci�n de la referencia de enlace (JAXB) XML v2.2.8-b130911.1802 
-// Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Este archivo ha sido generado por la arquitectura JavaTM para la implantaci�n de la referencia de enlace (JAXB) XML v2.3.2 
+// Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perder�n si se vuelve a compilar el esquema de origen. 
-// Generado el: 2014.10.08 a las 09:44:31 AM CEST 
+// Generado el: 2020.02.04 a las 04:01:02 PM CET 
 //
 
 
 package es.unican.ps.impuestoCirculacion.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElements;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -25,86 +24,38 @@ import javax.xml.bind.annotation.XmlType;
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="Contribuyente">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;choice maxOccurs="unbounded">
- *         &lt;element name="turismo" type="{http://www.example.org/ss/ImpuestoCirculacion}Turismo"/>
- *         &lt;element name="furgoneta" type="{http://www.example.org/ss/ImpuestoCirculacion}Furgoneta"/>
- *         &lt;element name="motocicleta" type="{http://www.example.org/ss/ImpuestoCirculacion}Motocicleta"/>
- *       &lt;/choice>
- *       &lt;attribute name="Nombre" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="Apellido1" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="Apellido2" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="dni" use="required" type="{http://www.example.org/ss/ImpuestoCirculacion}DNI" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="Contribuyente"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="nombre" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="apellido1" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="apellido2" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="dni" use="required" type="{http://www.unican.es/ss/ImpuestoCirculacion}DniType" /&gt;
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Contribuyente")
 public class Contribuyente {
 
-    @XmlElements({
-        @XmlElement(name = "turismo", type = Turismo.class),
-        @XmlElement(name = "furgoneta", type = Furgoneta.class),
-        @XmlElement(name = "motocicleta", type = Motocicleta.class)
-    })
-    private List<Vehiculo> vehiculos;
-    @XmlAttribute(required = true)
-    private String nombre;
-    @XmlAttribute(required = true)
-    private String apellido1;
-    @XmlAttribute(required = true)
-    private String apellido2;
-    @XmlAttribute(required = true)
-    private String dni;
-    
-    
-    public Contribuyente(){}
-    
-
-    public Contribuyente(String nombre, String apellido1, String apellido2, String dni) {
-		super();
-		this.nombre = nombre;
-		this.apellido1 = apellido1;
-		this.apellido2 = apellido2;
-		this.dni = dni;
-	}
-
-
-	/**
-     * Gets the value of the turismoOrFurgonetaOrMotocicleta property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the turismoOrFurgonetaOrMotocicleta property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getTurismoOrFurgonetaOrMotocicleta().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Turismo }
-     * {@link Furgoneta }
-     * {@link Motocicleta }
-     * 
-     * 
-     */
-    public List<Vehiculo> getVehiculos() {
-        if (vehiculos == null) {
-        	vehiculos = new ArrayList<Vehiculo>();
-        }
-        return this.vehiculos;
-    }
+    @XmlAttribute(name = "nombre", required = true)
+    protected String nombre;
+    @XmlAttribute(name = "apellido1")
+    protected String apellido1;
+    @XmlAttribute(name = "apellido2")
+    protected String apellido2;
+    @XmlAttribute(name = "dni", required = true)
+    protected String dni;
+    @XmlAttribute(name = "id", required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlID
+    @XmlSchemaType(name = "ID")
+    protected String id;
 
     /**
      * Obtiene el valor de la propiedad nombre.
@@ -201,24 +152,29 @@ public class Contribuyente {
     public void setDni(String value) {
         this.dni = value;
     }
-    
-    
+
     /**
-     * Calcula el precio total a pagar por todos los vehiculos del contribuyente
-     * @return precio total
+     * Obtiene el valor de la propiedad id.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public double totalAPagar() {
-    	double total=0.0;
-    	for (Vehiculo v: vehiculos) {
-    		total+=v.calculaPrecio();
-    	}
-    	
-    	return total;
+    public String getId() {
+        return id;
     }
 
-	public void setVehiculos(List<Vehiculo> lista) {
-		this.vehiculos = lista;
-		
-	}
+    /**
+     * Define el valor de la propiedad id.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setId(String value) {
+        this.id = value;
+    }
 
 }

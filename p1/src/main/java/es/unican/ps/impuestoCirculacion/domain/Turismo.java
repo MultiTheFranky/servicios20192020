@@ -1,15 +1,14 @@
 //
-// Este archivo ha sido generado por la arquitectura JavaTM para la implantaci�n de la referencia de enlace (JAXB) XML v2.2.8-b130911.1802 
-// Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Este archivo ha sido generado por la arquitectura JavaTM para la implantaci�n de la referencia de enlace (JAXB) XML v2.3.2 
+// Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perder�n si se vuelve a compilar el esquema de origen. 
-// Generado el: 2014.10.08 a las 09:44:31 AM CEST 
+// Generado el: 2020.02.04 a las 04:01:02 PM CET 
 //
 
 
 package es.unican.ps.impuestoCirculacion.domain;
 
-import java.util.Date;
-
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -22,13 +21,13 @@ import javax.xml.bind.annotation.XmlType;
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="Turismo">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.example.org/ss/ImpuestoCirculacion}Vehiculo">
- *       &lt;attribute name="potencia" use="required" type="{http://www.w3.org/2001/XMLSchema}int" />
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="Turismo"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://www.unican.es/ss/ImpuestoCirculacion}Vehiculo"&gt;
+ *       &lt;attribute name="potencia" use="required" type="{http://www.w3.org/2001/XMLSchema}decimal" /&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -39,54 +38,31 @@ public class Turismo
     extends Vehiculo
 {
 
-    @XmlAttribute(required = true)
-    private double potencia;
+    @XmlAttribute(name = "potencia", required = true)
+    protected BigDecimal potencia;
 
     /**
      * Obtiene el valor de la propiedad potencia.
      * 
+     * @return
+     *     possible object is
+     *     {@link BigDecimal }
+     *     
      */
-    public double getPotencia() {
+    public BigDecimal getPotencia() {
         return potencia;
     }
 
     /**
      * Define el valor de la propiedad potencia.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link BigDecimal }
+     *     
      */
-    public void setPotencia(double value) {
+    public void setPotencia(BigDecimal value) {
         this.potencia = value;
-    }
-       
-    
-    /**
-     * Calcula el impuesto a pagar
-     *  @return precio
-     */
-    @SuppressWarnings("deprecation")
-	@Override
-    public double calculaPrecio() {
-    	Date d = new Date();
-    	double precio=0.0;
-    	
-    	if(d.getYear()-fecha1Matriculacion.getYear() > 25) {
-    		precio=0.0;
-    	} else {
-    		if (potencia < 8) {
-    			precio = 25.24;
-        	} else if (potencia < 11.99) {
-        		precio = 68.16;
-        	} else if (potencia < 15.99) {
-        		precio = 143.88;
-        	} else if(potencia <19.99) {
-        		precio = 179.22;
-        	} else {
-        		precio = 224.0;
-        	}
-    		
-    	}	
-    	
-    	return precio;
     }
 
 }

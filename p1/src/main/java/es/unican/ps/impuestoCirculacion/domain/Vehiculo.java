@@ -1,22 +1,22 @@
 //
-// Este archivo ha sido generado por la arquitectura JavaTM para la implantaci�n de la referencia de enlace (JAXB) XML v2.2.8-b130911.1802 
-// Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Este archivo ha sido generado por la arquitectura JavaTM para la implantaci�n de la referencia de enlace (JAXB) XML v2.3.2 
+// Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perder�n si se vuelve a compilar el esquema de origen. 
-// Generado el: 2014.10.08 a las 09:44:31 AM CEST 
+// Generado el: 2020.02.04 a las 04:01:02 PM CET 
 //
 
 
 package es.unican.ps.impuestoCirculacion.domain;
 
-import java.util.Date;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
+
 
 /**
  * <p>Clase Java para Vehiculo complex type.
@@ -24,14 +24,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="Vehiculo">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="matricula" use="required" type="{http://www.example.org/ss/ImpuestoCirculacion}Matricula" />
- *       &lt;attribute name="Fecha1Matriculacion" use="required" type="{http://www.w3.org/2001/XMLSchema}date" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="Vehiculo"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="contribuyente" type="{http://www.w3.org/2001/XMLSchema}IDREF" /&gt;
+ *       &lt;attribute name="matricula" use="required" type="{http://www.unican.es/ss/ImpuestoCirculacion}MatriculaType" /&gt;
+ *       &lt;attribute name="fecha1Matriculacion" type="{http://www.w3.org/2001/XMLSchema}date" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -39,17 +40,45 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Vehiculo")
 @XmlSeeAlso({
+    Turismo.class,
     Motocicleta.class,
-    Furgoneta.class,
-    Turismo.class
+    Furgoneta.class
 })
 public abstract class Vehiculo {
 
-    @XmlAttribute(required = true)
-    private String matricula;
-    @XmlAttribute(required = true)
+    @XmlAttribute(name = "contribuyente")
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object contribuyente;
+    @XmlAttribute(name = "matricula", required = true)
+    protected String matricula;
+    @XmlAttribute(name = "fecha1Matriculacion")
     @XmlSchemaType(name = "date")
-    protected Date fecha1Matriculacion;
+    protected XMLGregorianCalendar fecha1Matriculacion;
+
+    /**
+     * Obtiene el valor de la propiedad contribuyente.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getContribuyente() {
+        return contribuyente;
+    }
+
+    /**
+     * Define el valor de la propiedad contribuyente.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setContribuyente(Object value) {
+        this.contribuyente = value;
+    }
 
     /**
      * Obtiene el valor de la propiedad matricula.
@@ -83,7 +112,7 @@ public abstract class Vehiculo {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public Date getFecha1Matriculacion() {
+    public XMLGregorianCalendar getFecha1Matriculacion() {
         return fecha1Matriculacion;
     }
 
@@ -95,30 +124,8 @@ public abstract class Vehiculo {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setFecha1Matriculacion(Date value) {
+    public void setFecha1Matriculacion(XMLGregorianCalendar value) {
         this.fecha1Matriculacion = value;
     }
-    
-    public double getPotencia(){
-    	return 0.0;
-    }
-    
-    public int getCilindrada(){
-    	return 0;
-    }
-    
-    /**
-     * Calcula el impuesto a pagar. Sera sobreescrito por cada clase hija
-     *  @return precio
-     */
-	public double calculaPrecio () {
-		
-    	return 0.0;
-    }
-    
-    
-    
-    
-   
 
 }
