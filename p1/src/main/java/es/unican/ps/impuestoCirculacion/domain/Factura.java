@@ -78,7 +78,7 @@ public class Factura {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
     public Date getFecha() {
@@ -90,7 +90,7 @@ public class Factura {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
     public void setFecha(Date value) {

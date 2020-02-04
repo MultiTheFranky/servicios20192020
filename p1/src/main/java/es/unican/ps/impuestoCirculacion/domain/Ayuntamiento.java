@@ -1,7 +1,7 @@
 //
-// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+// Este archivo ha sido generado por la arquitectura JavaTM para la implantaciï¿½n de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
-// Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+// Todas las modificaciones realizadas en este archivo se perderï¿½n si se vuelve a compilar el esquema de origen. 
 // Generado el: 2020.02.04 a las 04:18:59 PM CET 
 //
 
@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -42,8 +43,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Ayuntamiento", propOrder = {
     "vehiculosOrContribuyentesOrFacturas"
 })
+@XmlRootElement
 public class Ayuntamiento {
-
     @XmlElements({
         @XmlElement(name = "vehiculos", type = Vehiculo.class),
         @XmlElement(name = "contribuyentes", type = Contribuyente.class),
@@ -80,6 +81,16 @@ public class Ayuntamiento {
             vehiculosOrContribuyentesOrFacturas = new ArrayList<Object>();
         }
         return this.vehiculosOrContribuyentesOrFacturas;
+    }
+    
+    public double totalAPagarContribuyente(Contribuyente c) {
+    	double precio = 0.0;
+    	for(Object o: vehiculosOrContribuyentesOrFacturas) {
+    		if(o instanceof Vehiculo && ((Contribuyente)((Vehiculo) o).getContribuyente()).getId().equals(c.getId())) {
+    			precio+=((Vehiculo)o).calculaPrecio();
+    		}
+    	}
+    	return precio;
     }
 
 }

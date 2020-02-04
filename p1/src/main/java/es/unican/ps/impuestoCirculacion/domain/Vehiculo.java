@@ -111,7 +111,7 @@ public abstract class Vehiculo {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
     public Date getFecha1Matriculacion() {
@@ -123,7 +123,7 @@ public abstract class Vehiculo {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
     public void setFecha1Matriculacion(Date value) {

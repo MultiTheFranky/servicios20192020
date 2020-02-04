@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tns:ayuntamiento xmlns:tns="http://www.unican.es/ss/ImpuestoCirculacion" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.unican.es/ss/ImpuestoCirculacion ImpuestoCirculacionSchema.xsd ">
+<tns:ayuntamiento xmlns:tns="http://www.unican.es/ss/ImpuestoCirculacion" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.unican.es/ss/ImpuestoCirculacion ImpuestoCirculacionSchema.xsd ">
 
   <tns:vehiculos matricula="1111ABC" xsi:type="tns:Motocicleta" cilindrada="100" contribuyente="C1"/>
   <tns:vehiculos matricula="1112ABC" xsi:type="tns:Turismo" potencia="100" contribuyente="C2"/>
