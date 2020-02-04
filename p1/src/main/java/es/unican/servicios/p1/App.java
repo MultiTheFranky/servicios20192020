@@ -24,13 +24,11 @@ public class App
             Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
             Ayuntamiento ayu = (Ayuntamiento) unmarshaller.unmarshal(new File("src\\main\\resources\\ImpuestoCirculacion.xml"));
 
-            for (Object o:ayu.getVehiculosOrContribuyentesOrFacturas()) {
-                if (o instanceof Contribuyente) {
-                    Contribuyente c = (Contribuyente)o;
-                    Double totalPago = ayu.totalAPagarContribuyente(c);
-                    System.out.println(c.getNombre() + totalPago);
-                }
-            }  
+           
+            for (Contribuyente c: ayu.getContribuyentes()){
+                Double totalPago = ayu.getPrecioContribuyente(c);
+                System.out.println(c.getNombre() + " " + totalPago);
+            }
 
             Contribuyente c = new Contribuyente();
             c.setId("C6");
@@ -38,7 +36,7 @@ public class App
             c.setNombre("Manuel");
             c.setApellido1("Gonzalez");
             c.setApellido2("Díaz");
-            ayu.getVehiculosOrContribuyentesOrFacturas().add(c);
+            ayu.getContribuyentes().add(c);
             // Volcamos a un nuevo fichero xml (marshall)
             Marshaller marshaller = jaxbctx.createMarshaller();
             marshaller.marshal(ayu, new File("src\\main\\resources\\ayuntamiento_v2.xml"));

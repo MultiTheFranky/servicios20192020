@@ -73,25 +73,18 @@ public class Turismo
     @SuppressWarnings("deprecation")
 	@Override
     public double calculaPrecio() {
-    	Date d = new Date();
     	double precio;
-    	
-    	if(d.getYear()-fecha1Matriculacion.getYear() > 25) {
-    		precio= 0.0;
+		if (potencia < 8) {
+			precio = 25.24;
+    	} else if (potencia < 11.99) {
+    		precio = 68.16;
+    	} else if (potencia < 15.99) {
+    		precio = 143.88;
+    	} else if(potencia <19.99) {
+    		precio = 179.22;
     	} else {
-    		if (potencia < 8) {
-    			precio = 25.24;
-        	} else if (potencia < 11.99) {
-        		precio = 68.16;
-        	} else if (potencia < 15.99) {
-        		precio = 143.88;
-        	} else if(potencia <19.99) {
-        		precio = 179.22;
-        	} else {
-        		precio = 224.0;
-        	}
-    		
-    	}	
+    		precio = 224.0;
+    	}
     	
     	return precio;
     }

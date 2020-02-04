@@ -70,28 +70,20 @@ public class Motocicleta
      * Calcula el impuesto a pagar
      *  @return precio
      */
-    @SuppressWarnings("deprecation")
 	@Override
     public double calculaPrecio() {
-    	Date d = new Date();
     	double precio;
-    	
-    	if(d.getYear()-fecha1Matriculacion.getYear() > 25) {
-    		precio=0.0;
+    	if (cilindrada < 125) {
+    		precio = 8.84;
+    	} else if (cilindrada < 250) {
+    		precio = 15.14;
+    	} else if (cilindrada < 500) {
+    		precio = 30.30;
+    	} else if(cilindrada <1000) {
+    		precio = 60.58;
     	} else {
-	    	if (cilindrada < 125) {
-	    		precio = 8.84;
-	    	} else if (cilindrada < 250) {
-	    		precio = 15.14;
-	    	} else if (cilindrada < 500) {
-	    		precio = 30.30;
-	    	} else if(cilindrada <1000) {
-	    		precio = 60.58;
-	    	} else {
-	    		precio = 121.16;
-	    	}
+    		precio = 121.16;
     	}
-	    	
     	return precio;
     }
 

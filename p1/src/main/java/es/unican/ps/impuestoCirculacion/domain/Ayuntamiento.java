@@ -41,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Ayuntamiento", propOrder = {
-    "vehiculosOrContribuyentesOrFacturas"
+    "vehiculos","contribuyentes","facturas"
 })
 @XmlRootElement
 public class Ayuntamiento {
@@ -74,5 +74,14 @@ public class Ayuntamiento {
 		this.facturas = facturas;
 	}
 
+    public double getPrecioContribuyente(Contribuyente c){
+        double total = 0.0;
+        for (Vehiculo v : vehiculos) {
+            if(((Contribuyente)v.getContribuyente()).getId().equals(c.getId())){
+                total+=v.calculaPrecio();
+            }
+        }
+        return total;
+    }
     
 }
