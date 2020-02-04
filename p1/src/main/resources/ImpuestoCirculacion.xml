@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:ayuntamiento xmlns:tns="http://www.unican.es/ss/ImpuestoCirculacion" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.unican.es/ss/ImpuestoCirculacion ImpuestoCirculacionSchema.xsd ">
+
+  <tns:vehiculos matricula="1111ABC" xsi:type="tns:Motocicleta" cilindrada="100" contribuyente="C1"/>
+  <tns:vehiculos matricula="1111ABC" xsi:type="tns:Turismo" potencia="100" contribuyente="C2"/>
+  <tns:vehiculos matricula="1111ABC" xsi:type="tns:Furgoneta" comercial="true" potencia="100" contribuyente="C3"/>
+  <tns:vehiculos matricula="1111ABC" xsi:type="tns:Motocicleta" cilindrada="100" contribuyente="C2"/>
+  <tns:vehiculos matricula="1111ABC" xsi:type="tns:Turismo" potencia="100" contribuyente="C1"/>
+
+  <tns:contribuyentes id="C1" dni="11111111A" nombre="Francisco"/>
+  <tns:contribuyentes id="C2" dni="11111111B" nombre="Alvaro"/>
+  <tns:contribuyentes id="C3" dni="11111111C" nombre="Patricia"/>
+</tns:ayuntamiento>

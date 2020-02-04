@@ -1,33 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<schema 
-	xmlns="http://www.w3.org/2001/XMLSchema" 
-	targetNamespace="http://www.unican.es/ss/ImpuestoCirculacion" 
-	xmlns:tns="http://www.unican.es/ss/ImpuestoCirculacion" 
-	elementFormDefault="qualified">
-	
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.unican.es/ss/ImpuestoCirculacion" xmlns:tns="http://www.unican.es/ss/ImpuestoCirculacion" elementFormDefault="qualified">
+
 	<complexType name="Turismo">
-		<attribute name="potencia" type="decimal" use="required"></attribute>
+		<complexContent>
+			<extension base="tns:Vehiculo">
+				<attribute name="potencia" type="decimal" use="required"></attribute>
+			</extension>
+		</complexContent>
 	</complexType>
-	
+
+	<complexType name="Motocicleta">
+		<complexContent>
+			<extension base="tns:Vehiculo">
+				<attribute name="cilindrada" type="integer" use="required"></attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="Furgoneta">
+		<complexContent>
+			<extension base="tns:Vehiculo">
+				<attribute name="potencia" type="double" use="required"></attribute>
+				<attribute name="comercial" type="boolean" use="required"></attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<simpleType name="DniType">
+		<restriction base="string">
+			<pattern value="(\d{8})([A-Z]{1})" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MatriculaType">
+		<restriction base="string">
+			<pattern value="(\d{4})([A-Z]{3})" />
+		</restriction>
+	</simpleType>
+
 	<complexType name="Contribuyente">
 		<attribute name="nombre" type="string" use="required"></attribute>
 		<attribute name="apellido1" type="string"></attribute>
 		<attribute name="apellido2" type="string"></attribute>
-		<attribute name="dni" type="string" use="required"></attribute>
+		<attribute name="dni" type="tns:DniType" use="required"></attribute>
+		<attribute name="id" type="ID" use="required"></attribute>
 	</complexType>
-	
-	<complexType name="Motocicleta">
-		<attribute name="cilindrada" type="integer" use="required"></attribute>
-	</complexType>
-	
-	<complexType name="Furgoneta">
-		<attribute name="potencia" type="double" use="required"></attribute>
-		<attribute name="comercial" type="boolean" use="required"></attribute>
-	</complexType>
-	
-	<complexType name="Vehiculo">
-		<attribute name="matricula" type="string" use="required"></attribute>
+
+	<complexType name="Vehiculo" abstract="true">
+		<attribute name="contribuyente" type="IDREF"></attribute>
+		<attribute name="matricula" type="tns:MatriculaType" use="required"></attribute>
 		<attribute name="fecha1Matriculacion" type="date"></attribute>
 	</complexType>
-	
+
+	<complexType name="Ayuntamiento">
+		<choice maxOccurs="unbounded">
+			<element name="vehiculos" type="tns:Vehiculo"></element>
+			<element name="contribuyentes" type="tns:Contribuyente"></element>
+		</choice>
+	</complexType>
+	<element name="ayuntamiento" type="tns:Ayuntamiento"></element>
 </schema>
