@@ -1,6 +1,7 @@
 package es.unican.servicios.p1;
 
 import java.sql.Date;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -69,6 +70,19 @@ public class Handler extends DefaultHandler {
             f.setImporte(Double.valueOf(attributes.getValue("importe")));
             f.setMatricula(attributes.getValue("matricula"));
             ayuntamiento.getFacturas().add(f);
+        }
+    }
+    
+    @Override
+    public void endElement(String uri, String localName, String qName) {
+    	for(Contribuyente c: ayuntamiento.getContribuyentes()){
+            System.out.println("Nombre: "+c.getNombre() + " Total a pagar: " + ayuntamiento.getPrecioContribuyente(c));
+        }
+        for(Factura f: ayuntamiento.getFacturas()){
+            if(f.getMatricula() == null){
+            	DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
+                System.out.println("La factura del impuesto a fecha "+ dateFormat.format(f.getFecha()) +" no es de ninguno de los vehículos del contribuyente");
+            }
         }
     }
     

@@ -78,6 +78,12 @@ public class Ayuntamiento {
 		this.facturas = facturas;
 	}
 
+	/**
+	 * Metodo que retorna el precio total de todos los vehiculos de
+	 * un contribuyente
+	 * @param contribuyente que calcular el precio de todos sus vehiculos
+	 * @return valor total de los precios de todos los vehiculos
+	 */
     public double getPrecioContribuyente(Contribuyente c){
         double total = 0.0;
         for (Vehiculo v : vehiculos) {
@@ -88,6 +94,12 @@ public class Ayuntamiento {
         return total;
 	}
 	
+    /**
+     * Hemos anadido un id a los contribuyentes, dado que no podemos utilizar
+     * el dni porque tiene un formato especifico
+     * @param id de cada contribuyente
+     * @return contribuyente con el id indicado
+     */
 	public Contribuyente gContribuyente(String id){
 		Contribuyente c = null;
 		for (Contribuyente contribuyente : contribuyentes) {

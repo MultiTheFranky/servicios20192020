@@ -8,7 +8,6 @@
 
 package es.unican.ps.impuestoCirculacion.domain;
 
-import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

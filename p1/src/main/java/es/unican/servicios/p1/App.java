@@ -24,7 +24,8 @@ public class App
     public static void main( String[] args )
     {
         /**  PUNTO 5
-         // Creación del JAXBContext
+        // 5ª Parte: Procesamiento de documentos XML con JAXB.
+        // Creación del JAXBContext
         JAXBContext jaxbctx;
 
         try {
@@ -56,24 +57,14 @@ public class App
         } catch (JAXBException e) {
         	e.printStackTrace();
         }*/
+    	
+    	
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
 
             Handler handler = new Handler();
             saxParser.parse("src\\main\\resources\\ImpuestoCirculacion.xml", handler);
-            
-            Ayuntamiento ayunta = handler.getAyuntamiento();
-
-            for(Contribuyente c: ayunta.getContribuyentes()){
-                System.out.println("Nombre: "+c.getNombre() + " Total a pagar: " + ayunta.getPrecioContribuyente(c));
-            }
-            for(Factura f: ayunta.getFacturas()){
-                if(f.getMatricula() == null){
-                	DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
-                    System.out.println("La factura del impuesto a fecha "+ dateFormat.format(f.getFecha()) +" no es de ninguno de los vehículos del contribuyente");
-                }
-            }
             
         } catch (Exception e) { 
             e.printStackTrace();
