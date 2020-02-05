@@ -53,7 +53,7 @@
 	</complexType>
 
 	<complexType name="Factura">
-		<attribute name="matricula" type="tns:MatriculaType" use="required"></attribute>
+		<attribute name="matricula" type="tns:MatriculaType"></attribute>
 		<attribute name="fecha" type="date" use="required"></attribute>
 		<attribute name="importe" type="double" use="required"></attribute>
 	</complexType>

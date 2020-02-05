@@ -53,7 +53,11 @@ public class Ayuntamiento {
     @XmlElements({@XmlElement(name = "facturas", type = Factura.class)})
     protected List<Factura> facturas;
     
-    
+    public Ayuntamiento(){
+		vehiculos = new ArrayList<Vehiculo>();
+		contribuyentes = new ArrayList<Contribuyente>();
+		facturas = new ArrayList<Factura>();
+	}
     
     public List<Vehiculo> getVehiculos() {
 		return vehiculos;
@@ -82,6 +86,16 @@ public class Ayuntamiento {
             }
         }
         return total;
-    }
+	}
+	
+	public Contribuyente gContribuyente(String id){
+		Contribuyente c = null;
+		for (Contribuyente contribuyente : contribuyentes) {
+			if (contribuyente.getId().equals(id)) {
+				c = contribuyente;
+			}
+		}
+		return c;
+	}
     
 }
