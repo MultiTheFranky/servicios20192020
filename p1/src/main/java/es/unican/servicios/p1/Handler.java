@@ -1,9 +1,7 @@
 package es.unican.servicios.p1;
 
-import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
@@ -72,9 +70,8 @@ public class Handler extends DefaultHandler {
             ayuntamiento.getFacturas().add(f);
         }
     }
-    
     @Override
-    public void endElement(String uri, String localName, String qName) {
+    public void endDocument() {
     	for(Contribuyente c: ayuntamiento.getContribuyentes()){
             System.out.println("Nombre: "+c.getNombre() + " Total a pagar: " + ayuntamiento.getPrecioContribuyente(c));
         }
@@ -84,9 +81,5 @@ public class Handler extends DefaultHandler {
                 System.out.println("La factura del impuesto a fecha "+ dateFormat.format(f.getFecha()) +" no es de ninguno de los vehículos del contribuyente");
             }
         }
-    }
-    
-    public Ayuntamiento getAyuntamiento(){
-        return this.ayuntamiento;
     }
  }
