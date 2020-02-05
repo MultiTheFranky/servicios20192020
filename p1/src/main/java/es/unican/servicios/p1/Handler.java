@@ -16,6 +16,7 @@ import es.unican.ps.impuestoCirculacion.domain.Turismo;
 public class Handler extends DefaultHandler {
     
     protected Ayuntamiento ayuntamiento;
+    
     @Override
     public void startDocument() {
         System.out.println("Se comienza a procesar el documento");
@@ -70,6 +71,11 @@ public class Handler extends DefaultHandler {
             ayuntamiento.getFacturas().add(f);
         }
     }
+    
+    /**
+     * Antes de acabar de leer el documento mostramos todos los datos
+     * solicitados en el enunciado
+     */
     @Override
     public void endDocument() {
     	for(Contribuyente c: ayuntamiento.getContribuyentes()){
