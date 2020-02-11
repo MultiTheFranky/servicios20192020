@@ -23,7 +23,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        /**  PUNTO 5
+    	
+        /**
         // 5ª Parte: Procesamiento de documentos XML con JAXB.
         // Creación del JAXBContext
         JAXBContext jaxbctx;
@@ -56,10 +57,12 @@ public class App
 
         } catch (JAXBException e) {
         	e.printStackTrace();
-        }*/
+        }
+        */
     	
     	
         try {
+        	
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
 
