@@ -1,0 +1,24 @@
+[2020-02-11 15:34:13] [info]  [16776] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2020-02-11 15:34:13] [info]  [16776] Installing service 'Tomcat8' name 'Apache Tomcat 8.5 Tomcat8'.
+[2020-02-11 15:34:13] [info]  [16776] Service 'Tomcat8' installed.
+[2020-02-11 15:34:13] [info]  [16776] Apache Commons Daemon procrun finished.
+[2020-02-11 15:34:16] [info]  [15508] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2020-02-11 15:34:16] [info]  [15508] Updating service...
+[2020-02-11 15:34:16] [info]  [15508] Updated service 'Tomcat8'.
+[2020-02-11 15:34:16] [info]  [15508] Finished updating service 'Tomcat8'.
+[2020-02-11 15:34:16] [info]  [15508] Apache Commons Daemon procrun finished.
+[2020-02-11 15:34:16] [info]  [13192] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2020-02-11 15:34:16] [info]  [13192] Updating service...
+[2020-02-11 15:34:16] [info]  [13192] Updated service 'Tomcat8'.
+[2020-02-11 15:34:16] [info]  [13192] Finished updating service 'Tomcat8'.
+[2020-02-11 15:34:16] [info]  [13192] Apache Commons Daemon procrun finished.
+[2020-02-11 15:34:16] [info]  [ 4596] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2020-02-11 15:34:16] [info]  [ 4596] Updating service...
+[2020-02-11 15:34:16] [info]  [ 4596] Updated service 'Tomcat8'.
+[2020-02-11 15:34:16] [info]  [ 4596] Finished updating service 'Tomcat8'.
+[2020-02-11 15:34:16] [info]  [ 4596] Apache Commons Daemon procrun finished.
+[2020-02-11 15:34:17] [info]  [18516] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2020-02-11 15:34:17] [info]  [18516] Updating service...
+[2020-02-11 15:34:17] [info]  [18516] Updated service 'Tomcat8'.
+[2020-02-11 15:34:17] [info]  [18516] Finished updating service 'Tomcat8'.
+[2020-02-11 15:34:17] [info]  [18516] Apache Commons Daemon procrun finished.
