@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	targetNamespace="http://www.unican.es/ss/VolumenArea/" xmlns:tns="http://www.unican.es/ss/VolumenArea/"
+	xmlns:types="http://www.unican.es/ss/VolumenArea/types/" name="VolumenArea">
+	
+	<!-- Abstract section -->
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.unican.es/ss/VolumenArea/types/">
+
+			<xs:complexType name="Dimensiones">
+				<xs:sequence>
+					<xs:element name="alto" type="xs:double" />
+					<xs:element name="ancho" type="xs:double" />
+					<xs:element name="largo" type="xs:double" />
+				</xs:sequence>
+			</xs:complexType>
+
+ 			<xs:complexType name="DatosNoValidos"> 
+ 				<xs:sequence> 
+ 					<xs:element name="error" type="xs:string" /> 
+ 				</xs:sequence> 
+ 			</xs:complexType> 
+
+			<xs:element name="area" type="types:Dimensiones"/>
+			<xs:element name="areaResponse" type="xs:double"/>
+			<xs:element name="volumen" type="types:Dimensiones"/>
+			<xs:element name="volumenResponse" type="xs:double"/>
+			<xs:element name="datosNoValidos" type="types:DatosNoValidos"/>
+
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="AreaRequestMsg">
+		<wsdl:part name="params" element="types:area" />
+	</wsdl:message>
+	<wsdl:message name="AreaResponseMsg">
+		<wsdl:part name="params" element="types:areaResponse" />
+	</wsdl:message>
+	<wsdl:message name="VolumenRequestMsg">
+		<wsdl:part name="params" element="types:volumen" />
+	</wsdl:message>
+	<wsdl:message name="VolumenResponseMsg">
+		<wsdl:part name="params" element="types:volumenResponse" />
+	</wsdl:message>
+	<wsdl:message name="DatosNoValidosException">
+		<wsdl:part name="error" element="types:datosNoValidos" />
+	</wsdl:message>
+	
+	<wsdl:portType name="VolumenAreaInterface">
+		<wsdl:operation name="area">
+			<wsdl:documentation>Retorna el area del objeto dado</wsdl:documentation>
+			<wsdl:input message="tns:AreaRequestMsg" />
+			<wsdl:output message="tns:AreaResponseMsg" />
+			<wsdl:fault name="DatosNoValidosException" message="tns:DatosNoValidosException" />
+		</wsdl:operation>
+		<wsdl:operation name="volumen">
+			<wsdl:documentation>Retorna el volumen del objeto dado
+			</wsdl:documentation>
+			<wsdl:input message="tns:VolumenRequestMsg" />
+			<wsdl:output message="tns:VolumenResponseMsg" />
+			<wsdl:fault name="DatosNoValidosException" message="tns:DatosNoValidosException" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<!-- Concrete section -->
+	<!-- Enlace SOAP -->
+	<wsdl:binding name="VolumenAreaSOAP" type="tns:VolumenAreaInterface">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="area">
+			<soap:operation soapAction="http://www.unican.es/ss/VolumenArea/area" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="DatosNoValidosException">
+				<soap:fault use="literal" name="DatosNoValidosException" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="volumen">
+			<soap:operation soapAction="http://www.unican.es/ss/VolumenArea/volumen" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="DatosNoValidosException">
+				<soap:fault use="literal" name="DatosNoValidosException" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="VolumenArea">
+		<wsdl:port name="SOAPPort" binding="tns:VolumenAreaSOAP">
+			<soap:address location="http://localhost:8080/axis2/services/VolumenArea" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
