@@ -101,7 +101,7 @@ public class VolumenAreaMessageReceiverInOut extends org.apache.axis2.receivers.
             org.apache.axis2.AxisFault f = createAxisFault(e);
 
             if (e.getFaultMessage() != null) {
-                f.setDetail(toOM(e.getFaultMessage(), false));
+                f.setDetail(toOM(e.getFaultMessage(), false, null));
             }
 
             throw f;

@@ -6,8 +6,10 @@
  */
 package es.unican.is2.volumenArea;
 
+import es.unican.ss.volumenarea.types.DatosNoValidos;
+
 /**
- *  VolumenAreaSkeleton java skeleton for the axisService
+ * VolumenAreaSkeleton java skeleton for the axisService
  */
 public class VolumenAreaSkeleton {
     /**
@@ -19,9 +21,14 @@ public class VolumenAreaSkeleton {
      */
     public double area(es.unican.ss.volumenarea.types.Dimensiones area)
         throws DatosNoValidosException {
-        //TODO : fill this with the necessary business logic
-        throw new java.lang.UnsupportedOperationException("Please implement " +
-            this.getClass().getName() + "#area");
+            if (area.getAncho() <0|| area.getLargo()<0) {
+                DatosNoValidosException e = new DatosNoValidosException();
+                DatosNoValidos d = new DatosNoValidos();
+                d.setError("El ancho o el largo no pueden ser negativos");
+                e.setFaultMessage(d);
+                throw e;
+            }
+        return VolumenArea.area(area.getAlto(), area.getAlto(), area.getLargo());
     }
 
     /**
@@ -33,8 +40,13 @@ public class VolumenAreaSkeleton {
      */
     public double volumen(es.unican.ss.volumenarea.types.Dimensiones volumen)
         throws DatosNoValidosException {
-        //TODO : fill this with the necessary business logic
-        throw new java.lang.UnsupportedOperationException("Please implement " +
-            this.getClass().getName() + "#volumen");
+            if(volumen.getAncho()<0||volumen.getLargo()<0){
+                DatosNoValidosException e = new DatosNoValidosException();
+                DatosNoValidos d = new DatosNoValidos();
+                d.setError("El ancho o el largo no pueden ser negativos");
+                e.setFaultMessage(d);
+                throw e;
+            }
+            return VolumenArea.volumen(volumen.getAlto(),volumen.getAncho(),volumen.getLargo());
     }
 }
