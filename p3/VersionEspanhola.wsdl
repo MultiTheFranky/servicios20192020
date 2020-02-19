@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:tns="http://www.unican.es/ss/VersionEspanhola/"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:types="http://www.unican.es/ss/VersionEspanhola/types"
+name="VersionEspanhola" targetNamespace="http://www.unican.es/ss/VersionEspanhola/" >
+
+<!--  ABSTRACT SECTION -->
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.unican.es/ss/VersionEspanhola/types">
+		
+			<xsd:simpleType name="Genero">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="COMEIDA"/>
+					<xsd:enumeration value="DRAMA"/>
+					<xsd:enumeration value="ANIMACION"/>
+					<xsd:enumeration value="ACCION"/>
+					<xsd:enumeration value="TERROR"/>
+				</xsd:restriction>			
+			</xsd:simpleType>
+			
+			<xsd:complexType name="Pelicula">
+				<xsd:sequence>
+					<xsd:element name="titulo" type="xsd:string"/>
+					<xsd:element name="estreno" type="xsd:string"/>
+					<xsd:element name="duracion" type="xsd:int"/>
+					<xsd:element name="genero" type="types:Genero"/>
+					<xsd:sequence>
+						<xsd:element name="protagonista" type="xsd:string" maxOccurs="unbounded"/>
+						<xsd:element name="director" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:element name="peliculasActor" type="xsd:string"/>
+			<xsd:element name="peliculasActorResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="pelicula" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>	
+			
+			<xsd:element name="pelicula" type="xsd:string"/>
+			<xsd:element name="peliculaResponse" type="types:Pelicula"/>
+			
+			<xsd:element name="datoNoDisponible" type="xsd:string"/>		
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="peliculasActorRequest">
+		<wsdl:part name="params" element="types:peliculasActor"/>
+	</wsdl:message>
+	<wsdl:message name="peliculasActorResponse">
+		<wsdl:part name="params" element="types:peliculasActorResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="peliculaRequest">
+		<wsdl:part name="params" element="types:pelicula"/>
+	</wsdl:message>
+	<wsdl:message name="peliculaResponse">
+		<wsdl:part name="params" element="types:peliculaResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="DatoNoDisponibleException">
+		<wsdl:part name="params" element="types:datoNoDisponible"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="IVersionEspanhola">
+		<wsdl:operation name="peliculasActor">
+			<wsdl:input message="tns:peliculasActorRequest"/>
+			<wsdl:output message="tns:peliculasActorResponse"/>
+			<wsdl:fault name="peliculasActorError" message="tns:DatoNoDisponibleException"/>
+		</wsdl:operation>
+		<wsdl:operation name="pelicula">
+		<wsdl:input message="tns:peliculaRequest"/>
+			<wsdl:output message="tns:peliculaResponse"/>
+			<wsdl:fault name="peliculaError" message="tns:DatoNoDisponibleException"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	
+ <!--  CONCRETE SECTION -->
+
+	<wsdl:binding name="VersionEspanholaSOAP" type="tns:IVersionEspanhola">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" stype="document"/>
+		<wsdl:operation name="peliculasActor">
+			<soap:operation style="document"
+                           soapAction="http://www.unican.es/ss/VersionEspanhola/peliculasActor"/>
+		 	<wsdl:input> <soap:body use="literal"/> </wsdl:input>
+		 	<wsdl:output> <soap:body use="literal"/> </wsdl:output>
+		 	<wsdl:fault name="peliculasActorError">
+				<soap:fault name="peliculasActorError" use="literal"/>
+			</wsdl:fault>			
+		</wsdl:operation>
+		<wsdl:operation name="pelicula">
+			<soap:operation style="document"
+                           soapAction="http://www.unican.es/ss/VersionEspanhola/pelicula"/>
+		 	<wsdl:input> <soap:body use="literal"/> </wsdl:input>
+		 	<wsdl:output> <soap:body use="literal"/> </wsdl:output>
+		 	<wsdl:fault name="peliculaError">
+				<soap:fault name="peliculaError" use="literal"/>
+			</wsdl:fault>		
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	
+	<wsdl:service name="VersionEspanhola">
+		<wsdl:port name="VersionEspanholaPort" binding="tns:VersionEspanholaSOAP">
+			<soap:address location="www.example.org/VersionEspanhola"/>
+		</wsdl:port>
+	</wsdl:service>
+  
+</wsdl:definitions>
+
+	
