@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.unican.es/ss/ImpuestoCirculacion" xmlns:ics="http://www.unican.es/ss/ImpuestoCirculacion" elementFormDefault="qualified">
+
+	<xsd:complexType name="Turismo">
+		<xsd:complexContent>
+			<xsd:extension base="ics:Vehiculo">
+				<xsd:attribute name="potencia" type="xsd:decimal" use="required"></xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="Motocicleta">
+		<xsd:complexContent>
+			<xsd:extension base="ics:Vehiculo">
+				<xsd:attribute name="cilindrada" type="xsd:integer" use="required"></xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="Furgoneta">
+		<xsd:complexContent>
+			<xsd:extension base="ics:Vehiculo">
+				<xsd:attribute name="potencia" type="xsd:double" use="required"></xsd:attribute>
+				<xsd:attribute name="comercial" type="xsd:boolean" use="required"></xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:simpleType name="DniType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="(\d{8})([A-Z]{1})" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MatriculaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="(\d{4})([A-Z]{3})" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="Contribuyente">
+		<xsd:attribute name="nombre" type="xsd:string" use="required"></xsd:attribute>
+		<xsd:attribute name="apellido1" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="apellido2" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="dni" type="ics:DniType" use="required"></xsd:attribute>
+		<xsd:attribute name="id" type="xsd:ID" use="required"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="Vehiculo" abstract="true">
+		<xsd:attribute name="contribuyente" type="xsd:IDREF"></xsd:attribute>
+		<xsd:attribute name="matricula" type="ics:MatriculaType" use="required"></xsd:attribute>
+		<xsd:attribute name="fecha1Matriculacion" type="xsd:date"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="Factura">
+		<xsd:attribute name="matricula" type="ics:MatriculaType"></xsd:attribute>
+		<xsd:attribute name="fecha" type="xsd:date" use="required"></xsd:attribute>
+		<xsd:attribute name="importe" type="xsd:double" use="required"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="Ayuntamiento">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element name="vehiculos" type="ics:Vehiculo"></xsd:element>
+			<xsd:element name="contribuyentes" type="ics:Contribuyente"></xsd:element>
+			<xsd:element name="facturas" type="ics:Factura"></xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:element name="ayuntamiento" type="ics:Ayuntamiento"></xsd:element>
+</xsd:schema>
