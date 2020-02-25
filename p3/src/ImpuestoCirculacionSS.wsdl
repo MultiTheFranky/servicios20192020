@@ -1,41 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ics="http://www.unican.es/ss/ImpuestoCirculacion" xmlns:tns="http://www.unican.es/ss/ImpuestoCirculacionSS/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ImpuestoCirculacionSS" targetNamespace="http://www.unican.es/ss/ImpuestoCirculacionSS/">
+<wsdl:definitions
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:ics="http://www.unican.es/ss/ImpuestoCirculacion"
+	xmlns:tns="http://www.unican.es/ss/ImpuestoCirculacionSS/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	name="ImpuestoCirculacionSS"
+	targetNamespace="http://www.unican.es/ss/ImpuestoCirculacionSS/">
 
-	<!--  ABSTRACT SECTION -->
+	<!-- ABSTRACT SECTION -->
 	<wsdl:types>
-		<xsd:schema targetNamespace="http://www.unican.es/ss/ImpuestoCirculacionSS/types">
-			<xsd:import namespace="http://www.unican.es/ss/ImpuestoCirculacion" location="ImpuestoCirculacionSchema.xsd" />
-			<complexType name="listaVehiculos">
-				<choice maxOccurs="unbounded">
-					<element name="vehiculos" type="ics:Vehiculo"></element>
-				</choice>
-			</complexType>
-			<complexType name="datosContribuyente">
-				<choice maxOccurs="unbounded">
-					<element name="nombre" type="xsd:string"></element>
-					<element name="apellido" type="xsd:string"></element>
-					<element name="vehiculos" type="tns:listaVehiculos"></element>
-				</choice>
-			</complexType>
+		<xsd:schema	targetNamespace="http://www.unican.es/ss/ImpuestoCirculacionSS/types/">
+			<xsd:import	namespace="http://www.unican.es/ss/ImpuestoCirculacion"	schemaLocation="ImpuestoCirculacionSchema.xsd" />
+
+			<xsd:complexType name="listaVehiculos">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="vehiculos" type="ics:Vehiculo"></xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+
+			<xsd:complexType name="datosContribuyente">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="nombre" type="xsd:string"></xsd:element>
+					<xsd:element name="apellido" type="xsd:string"></xsd:element>
+					<xsd:element name="vehiculos" type="types:listaVehiculos"></xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+
 			<xsd:element name="contribuyenteNoDisponible" type="xsd:string" />
+			<xsd:element name="valorImpuestoContribuyente" type="xsd:double" />
+
 		</xsd:schema>
 	</wsdl:types>
+	
 	<wsdl:message name="dniContribuyente">
 		<wsdl:part name="params" element="xsd:string" />
 	</wsdl:message>
+	
+	<wsdl:message name="valorContribuyente">
+		<wsdl:part name="params" element="types:valorImpuestoContribuyente"/>
+	</wsdl:message>
+	
 	<wsdl:message name="datosContribuyente">
-		<wsdl:part name="params" element="tns:datosContribuyente" />
+		<wsdl:part name="params" element="types:contribuyenteNoDisponible" />
 	</wsdl:message>
 
-
 	<wsdl:message name="ContribuyenteNoDisponibleException">
-		<wsdl:part name="params" element="tns:contribuyenteNoDisponible" />
+		<wsdl:part name="params" element="types:contribuyenteNoDisponible" />
 	</wsdl:message>
 
 	<wsdl:portType name="IImpuestoCirculacionSS">
-		<wsdl:operation name="peliculvalorImpuestoContribuyenteasActor">
+		<wsdl:operation
+			name="valorImpuestoContribuyente">
 			<wsdl:input message="tns:dniContribuyente" />
-			<wsdl:output message="xsd:double" />
+			<wsdl:output message="tns:valorContribuyente" />
 			<wsdl:fault name="contribuyenteDNIError" message="tns:ContribuyenteNoDisponibleException" />
 		</wsdl:operation>
 		<wsdl:operation name="datosContribuyente">
@@ -45,12 +63,13 @@
 		</wsdl:operation>
 	</wsdl:portType>
 
-	<!--  CONCRETE SECTION -->
+	<!-- CONCRETE SECTION -->
 
 	<wsdl:binding name="ImpuestoCirculacionSSSOAP" type="tns:IImpuestoCirculacionSS">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
 		<wsdl:operation name="valorImpuestoContribuyente">
-			<soap:operation style="document" soapAction="http://www.unican.es/ss/ImpuestoCirculacionSS/valorImpuestoContribuyente" />
+			<soap:operation style="document"
+				soapAction="http://www.unican.es/ss/ImpuestoCirculacionSS/valorImpuestoContribuyente" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -62,7 +81,8 @@
 			</wsdl:fault>
 		</wsdl:operation>
 		<wsdl:operation name="datosContribuyente">
-			<soap:operation style="document" soapAction="http://www.unican.es/ss/ImpuestoCirculacionSS/datosContribuyente" />
+			<soap:operation style="document"
+				soapAction="http://www.unican.es/ss/ImpuestoCirculacionSS/datosContribuyente" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
