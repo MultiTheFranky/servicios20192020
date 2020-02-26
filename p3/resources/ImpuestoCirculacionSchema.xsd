@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ics="http://www.unican.es/ss/ImpuestoCirculacion" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.unican.es/ss/ImpuestoCirculacion">
+    <complexType name="Turismo">
+        <complexContent>
+            <extension base="ics:Vehiculo">
+                <attribute name="potencia" type="decimal" use="required"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="Motocicleta">
+        <complexContent>
+            <extension base="ics:Vehiculo">
+                <attribute name="cilindrada" type="integer" use="required"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="Furgoneta">
+        <complexContent>
+            <extension base="ics:Vehiculo">
+                <attribute name="potencia" type="double" use="required"/>
+                <attribute name="comercial" type="boolean" use="required"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <simpleType name="DniType">
+        <restriction base="string">
+            <pattern value="(\d{8})([A-Z]{1})"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="MatriculaType">
+        <restriction base="string">
+            <pattern value="(\d{4})([A-Z]{3})"/>
+        </restriction>
+    </simpleType>
+    <complexType name="Contribuyente">
+        <attribute name="nombre" type="string" use="required"/>
+        <attribute name="apellido1" type="string"/>
+        <attribute name="apellido2" type="string"/>
+        <attribute name="dni" type="ics:DniType" use="required"/>
+        <attribute name="id" type="ID" use="required"/>
+    </complexType>
+    <complexType abstract="true" name="Vehiculo">
+        <attribute name="contribuyente" type="IDREF"/>
+        <attribute name="matricula" type="ics:MatriculaType" use="required"/>
+        <attribute name="fecha1Matriculacion" type="date"/>
+    </complexType>
+    <complexType name="Factura">
+        <attribute name="matricula" type="ics:MatriculaType"/>
+        <attribute name="fecha" type="date" use="required"/>
+        <attribute name="importe" type="double" use="required"/>
+    </complexType>
+    <complexType name="Ayuntamiento">
+        <choice maxOccurs="unbounded">
+            <element name="vehiculos" type="ics:Vehiculo"/>
+            <element name="contribuyentes" type="ics:Contribuyente"/>
+            <element name="facturas" type="ics:Factura"/>
+        </choice>
+    </complexType>
+    <element name="ayuntamiento" type="ics:Ayuntamiento"/>
+</schema>

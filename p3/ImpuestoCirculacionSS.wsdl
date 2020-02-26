@@ -10,7 +10,7 @@
 
 	<!-- ABSTRACT SECTION -->
 	<wsdl:types>
-		<xsd:schema	targetNamespace="http://www.unican.es/ss/ImpuestoCirculacionSS/types/">
+		<xsd:schema	targetNamespace="http://www.unican.es/ss/ImpuestoCirculacionSS/">
 			<xsd:import	namespace="http://www.unican.es/ss/ImpuestoCirculacion"	schemaLocation="ImpuestoCirculacionSchema.xsd" />
 
 			<xsd:complexType name="listaVehiculos">
@@ -23,7 +23,7 @@
 				<xsd:choice maxOccurs="unbounded">
 					<xsd:element name="nombre" type="xsd:string"></xsd:element>
 					<xsd:element name="apellido" type="xsd:string"></xsd:element>
-					<xsd:element name="vehiculos" type="types:listaVehiculos"></xsd:element>
+					<xsd:element name="vehiculos" type="tns:listaVehiculos"></xsd:element>
 				</xsd:choice>
 			</xsd:complexType>
 
@@ -38,15 +38,15 @@
 	</wsdl:message>
 	
 	<wsdl:message name="valorContribuyente">
-		<wsdl:part name="params" element="types:valorImpuestoContribuyente"/>
+		<wsdl:part name="params" element="tns:valorImpuestoContribuyente"/>
 	</wsdl:message>
 	
 	<wsdl:message name="datosContribuyente">
-		<wsdl:part name="params" element="types:contribuyenteNoDisponible" />
+		<wsdl:part name="params" element="tns:contribuyenteNoDisponible" />
 	</wsdl:message>
 
 	<wsdl:message name="ContribuyenteNoDisponibleException">
-		<wsdl:part name="params" element="types:contribuyenteNoDisponible" />
+		<wsdl:part name="params" element="tns:contribuyenteNoDisponible" />
 	</wsdl:message>
 
 	<wsdl:portType name="IImpuestoCirculacionSS">

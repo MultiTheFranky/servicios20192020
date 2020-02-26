@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.7.9  Built on : Nov 16, 2018 (12:05:37 GMT) -->
+<serviceGroup>
+    <service name="ImpuestoCirculacionSS">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="es.unican.is2.ImpuestoCirculacionSS.ImpuestoCirculacionSSMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">es.unican.is2.ImpuestoCirculacionSS.ImpuestoCirculacionSSSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="valorImpuestoContribuyente" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.unican.es/ss/ImpuestoCirculacionSS/">
+            <actionMapping>http://www.unican.es/ss/ImpuestoCirculacionSS/valorImpuestoContribuyente</actionMapping>
+            <outputActionMapping>http://www.unican.es/ss/ImpuestoCirculacionSS/IImpuestoCirculacionSS/valorImpuestoContribuyenteResponse</outputActionMapping>
+            <faultActionMapping faultName="contribuyenteDNIError">http://www.unican.es/ss/ImpuestoCirculacionSS/IImpuestoCirculacionSS/valorImpuestoContribuyente/Fault/contribuyenteDNIError</faultActionMapping>
+            <faultActionMapping faultName="ContribuyenteNoDisponibleException">http://www.unican.es/ss/ImpuestoCirculacionSS/IImpuestoCirculacionSS/valorImpuestoContribuyente/Fault/contribuyenteDNIError</faultActionMapping>
+            <faultActionMapping faultName="ContribuyenteNoDisponibleException_Exception">http://www.unican.es/ss/ImpuestoCirculacionSS/IImpuestoCirculacionSS/valorImpuestoContribuyente/Fault/contribuyenteDNIError</faultActionMapping>
+        </operation>
+        <operation name="datosContribuyente" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.unican.es/ss/ImpuestoCirculacionSS/">
+            <actionMapping>http://www.unican.es/ss/ImpuestoCirculacionSS/datosContribuyente</actionMapping>
+            <outputActionMapping>http://www.unican.es/ss/ImpuestoCirculacionSS/IImpuestoCirculacionSS/datosContribuyenteResponse</outputActionMapping>
+            <faultActionMapping faultName="contribuyenteDNIError">http://www.unican.es/ss/ImpuestoCirculacionSS/IImpuestoCirculacionSS/datosContribuyente/Fault/contribuyenteDNIError</faultActionMapping>
+            <faultActionMapping faultName="ContribuyenteNoDisponibleException">http://www.unican.es/ss/ImpuestoCirculacionSS/IImpuestoCirculacionSS/datosContribuyente/Fault/contribuyenteDNIError</faultActionMapping>
+            <faultActionMapping faultName="ContribuyenteNoDisponibleException_Exception">http://www.unican.es/ss/ImpuestoCirculacionSS/IImpuestoCirculacionSS/datosContribuyente/Fault/contribuyenteDNIError</faultActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ImpuestoCirculacionSS" targetNamespace="http://www.unican.es/ss/ImpuestoCirculacionSS/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ics="http://www.unican.es/ss/ImpuestoCirculacion" xmlns:tns="http://www.unican.es/ss/ImpuestoCirculacionSS/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.unican.es/ss/ImpuestoCirculacionSS/">
+			<xsd:import namespace="http://www.unican.es/ss/ImpuestoCirculacion" schemaLocation="ImpuestoCirculacionSchema.xsd"/>
+
+			<xsd:complexType name="listaVehiculos">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="vehiculos" type="ics:Vehiculo"/>
+				</xsd:choice>
+			</xsd:complexType>
+
+			<xsd:complexType name="datosContribuyente">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="nombre" type="xsd:string"/>
+					<xsd:element name="apellido" type="xsd:string"/>
+					<xsd:element name="vehiculos" type="tns:listaVehiculos"/>
+				</xsd:choice>
+			</xsd:complexType>
+
+			<xsd:element name="contribuyenteNoDisponible" type="xsd:string"/>
+			<xsd:element name="valorImpuestoContribuyente" type="xsd:double"/>
+
+		</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ContribuyenteNoDisponibleException">
+    <wsdl:part name="params" element="tns:contribuyenteNoDisponible">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="datosContribuyente">
+    <wsdl:part name="params" element="tns:contribuyenteNoDisponible">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="dniContribuyente">
+    <wsdl:part name="params" element="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="valorContribuyente">
+    <wsdl:part name="params" element="tns:valorImpuestoContribuyente">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IImpuestoCirculacionSS">
+    <wsdl:operation name="valorImpuestoContribuyente">
+      <wsdl:input message="tns:dniContribuyente">
+    </wsdl:input>
+      <wsdl:output message="tns:valorContribuyente">
+    </wsdl:output>
+      <wsdl:fault name="contribuyenteDNIError" message="tns:ContribuyenteNoDisponibleException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="datosContribuyente">
+      <wsdl:input message="tns:dniContribuyente">
+    </wsdl:input>
+      <wsdl:output message="tns:datosContribuyente">
+    </wsdl:output>
+      <wsdl:fault name="contribuyenteDNIError" message="tns:ContribuyenteNoDisponibleException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ImpuestoCirculacionSSSOAP" type="tns:IImpuestoCirculacionSS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="valorImpuestoContribuyente">
+      <soap:operation soapAction="http://www.unican.es/ss/ImpuestoCirculacionSS/valorImpuestoContribuyente" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="contribuyenteDNIError">
+        <soap:fault name="contribuyenteDNIError" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="datosContribuyente">
+      <soap:operation soapAction="http://www.unican.es/ss/ImpuestoCirculacionSS/datosContribuyente" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:body use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="contribuyenteDNIError">
+        <soap:fault name="contribuyenteDNIError" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ImpuestoCirculacionSS">
+    <wsdl:port name="ImpuestoCirculacionSSPort" binding="tns:ImpuestoCirculacionSSSOAP">
+      <soap:address location="www.example.org/ImpuestoCirculacionSS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
