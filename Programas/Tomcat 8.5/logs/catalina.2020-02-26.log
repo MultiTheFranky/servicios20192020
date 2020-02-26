@@ -1,0 +1,48 @@
+26-Feb-2020 16:11:30.106 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Nombre de la versión del servidor:   Apache Tomcat/8.5.50
+
+26-Feb-2020 16:11:30.111 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Dec 7 2019 19:19:46 UTC
+26-Feb-2020 16:11:30.114 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Número de versión de servidor:         8.5.50.0
+26-Feb-2020 16:11:30.114 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+26-Feb-2020 16:11:30.114 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Versión de Systema Operativo:      10.0
+
+26-Feb-2020 16:11:30.115 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Arquitectura:          amd64
+
+26-Feb-2020 16:11:30.115 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_221\jre
+26-Feb-2020 16:11:30.115 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_221-b11
+26-Feb-2020 16:11:30.116 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Vededor JVM:     Oracle Corporation
+26-Feb-2020 16:11:30.116 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5
+26-Feb-2020 16:11:30.116 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5
+26-Feb-2020 16:11:30.117 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\conf\logging.properties
+26-Feb-2020 16:11:30.117 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+26-Feb-2020 16:11:30.117 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+26-Feb-2020 16:11:30.118 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+26-Feb-2020 16:11:30.118 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+26-Feb-2020 16:11:30.119 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5
+26-Feb-2020 16:11:30.120 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5
+26-Feb-2020 16:11:30.120 INFORMACIÓN [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\temp
+26-Feb-2020 16:11:30.121 INFORMACIÓN [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: [C:\Program Files\Java\jdk1.8.0_221\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\nodejs\;C:\Program Files\Java\jre1.8.0_221;C:\Users\FranciscoIncentro\Documents\apache-maven-3.6.2\bin;C:\Program Files\Git\;C:\Users\Francisco\AppData\Local\Microsoft\WindowsApps;C:\Users\Francisco\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Francisco\Desktop\Servicios\Programas\apache-ant-1.9.14\bin;C:\Users\Francisco\AppData\Local\Microsoft\WindowsApps;C:\Users\Francisco\AppData\Local\Programs\Microsoft VS Code\bin;.]
+26-Feb-2020 16:11:30.341 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Inicializando el manejador de protocolo ["http-nio-8080"]
+
+26-Feb-2020 16:11:30.669 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+26-Feb-2020 16:11:30.692 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.init Inicializando el manejador de protocolo ["ajp-nio-8009"]
+
+26-Feb-2020 16:11:30.696 INFORMACIÓN [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+26-Feb-2020 16:11:30.697 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1131 ms
+26-Feb-2020 16:11:30.765 INFORMACIÓN [main] org.apache.catalina.core.StandardService.startInternal Arrancando servicio [Catalina]
+26-Feb-2020 16:11:30.765 INFORMACIÓN [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.50
+26-Feb-2020 16:11:30.817 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Despliegue del archivo [C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\webapps\axis2.war] de la aplicación web
+26-Feb-2020 16:11:39.642 INFORMACIÓN [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+26-Feb-2020 16:11:51.888 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\webapps\axis2.war] has finished in [21.069] ms
+26-Feb-2020 16:11:51.890 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Desplegando el directorio [C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\webapps\docs] de la aplicación web
+26-Feb-2020 16:11:51.934 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\webapps\docs] has finished in [44] ms
+26-Feb-2020 16:11:51.935 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Desplegando el directorio [C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\webapps\examples] de la aplicación web
+26-Feb-2020 16:11:53.947 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\webapps\examples] has finished in [2.012] ms
+26-Feb-2020 16:11:53.947 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Desplegando el directorio [C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\webapps\host-manager] de la aplicación web
+26-Feb-2020 16:11:54.013 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\webapps\host-manager] has finished in [66] ms
+26-Feb-2020 16:11:54.014 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Desplegando el directorio [C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\webapps\manager] de la aplicación web
+26-Feb-2020 16:11:54.075 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\webapps\manager] has finished in [61] ms
+26-Feb-2020 16:11:54.077 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Desplegando el directorio [C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\webapps\ROOT] de la aplicación web
+26-Feb-2020 16:11:54.118 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\Francisco\Desktop\Servicios\Programas\Tomcat 8.5\webapps\ROOT] has finished in [42] ms
+26-Feb-2020 16:11:54.129 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+26-Feb-2020 16:11:54.145 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+26-Feb-2020 16:11:54.149 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in 23450 ms

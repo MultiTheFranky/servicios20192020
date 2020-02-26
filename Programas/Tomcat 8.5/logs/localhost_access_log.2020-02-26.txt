@@ -1,0 +1,8 @@
+0:0:0:0:0:0:0:1 - - [26/Feb/2020:16:12:39 +0100] "GET /axis2/services/VolumenArea HTTP/1.1" 500 231
+0:0:0:0:0:0:0:1 - - [26/Feb/2020:16:12:39 +0100] "GET /favicon.ico HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [26/Feb/2020:16:12:45 +0100] "GET /axis2/services/ HTTP/1.1" 500 115
+0:0:0:0:0:0:0:1 - - [26/Feb/2020:16:12:49 +0100] "GET /axis2/services/ HTTP/1.1" 500 115
+0:0:0:0:0:0:0:1 - - [26/Feb/2020:16:12:53 +0100] "GET /axis2/services/ HTTP/1.1" 500 115
+0:0:0:0:0:0:0:1 - - [26/Feb/2020:16:13:08 +0100] "GET /axis2/services/ HTTP/1.1" 500 115
+0:0:0:0:0:0:0:1 - - [26/Feb/2020:16:13:58 +0100] "GET /axis2/services/ HTTP/1.1" 500 115
+0:0:0:0:0:0:0:1 - - [26/Feb/2020:16:15:29 +0100] "GET /axis2/services/ImpuestoCirculacionSS HTTP/1.1" 500 350

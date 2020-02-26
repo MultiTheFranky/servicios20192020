@@ -47,7 +47,7 @@ public abstract class Vehiculo {
     protected String matricula;
     @XmlAttribute(name = "fecha1Matriculacion")
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar fecha1Matriculacion;
+    protected Date fecha1Matriculacion;
 
     /**
      * Obtiene el valor de la propiedad contribuyente.
@@ -102,10 +102,10 @@ public abstract class Vehiculo {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getFecha1Matriculacion() {
+    public Date getFecha1Matriculacion() {
         return fecha1Matriculacion;
     }
 
@@ -114,11 +114,20 @@ public abstract class Vehiculo {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setFecha1Matriculacion(XMLGregorianCalendar value) {
+    public void setFecha1Matriculacion(Date value) {
         this.fecha1Matriculacion = value;
     }
 
+    /**
+     * Calcula el impuesto a pagar. Sera sobreescrito por cada clase hija
+     *  @return precio
+     */
+	public double calculaPrecio () {
+		
+    	return 0.0;
+    }
+    
 }

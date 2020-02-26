@@ -37,42 +37,68 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Ayuntamiento {
 
-    @XmlElements({
-        @XmlElement(name = "vehiculos", type = Vehiculo.class),
-        @XmlElement(name = "contribuyentes", type = Contribuyente.class),
-        @XmlElement(name = "facturas", type = Factura.class)
-    })
-    protected List<Object> vehiculosOrContribuyentesOrFacturas;
+    @XmlElements({@XmlElement(name = "vehiculos", type = Vehiculo.class)})
+    protected List<Vehiculo> vehiculos;
+	@XmlElements({@XmlElement(name = "contribuyentes", type = Contribuyente.class)})
+    protected List<Contribuyente> contribuyentes;
+    @XmlElements({@XmlElement(name = "facturas", type = Factura.class)})
+    protected List<Factura> facturas;
+    
+    public Ayuntamiento(){
+		vehiculos = new ArrayList<Vehiculo>();
+		contribuyentes = new ArrayList<Contribuyente>();
+		facturas = new ArrayList<Factura>();
+	}
+    
+    public List<Vehiculo> getVehiculos() {
+		return vehiculos;
+	}
+	public void setVehiculos(List<Vehiculo> vehiculos) {
+		this.vehiculos = vehiculos;
+	}
+	public List<Contribuyente> getContribuyentes() {
+		return contribuyentes;
+	}
+	public void setContribuyentes(List<Contribuyente> contribuyentes) {
+		this.contribuyentes = contribuyentes;
+	}
+	public List<Factura> getFacturas() {
+		return facturas;
+	}
+	public void setFacturas(List<Factura> facturas) {
+		this.facturas = facturas;
+	}
 
-    /**
-     * Gets the value of the vehiculosOrContribuyentesOrFacturas property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the vehiculosOrContribuyentesOrFacturas property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getVehiculosOrContribuyentesOrFacturas().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Vehiculo }
-     * {@link Contribuyente }
-     * {@link Factura }
-     * 
-     * 
-     */
-    public List<Object> getVehiculosOrContribuyentesOrFacturas() {
-        if (vehiculosOrContribuyentesOrFacturas == null) {
-            vehiculosOrContribuyentesOrFacturas = new ArrayList<Object>();
+	/**
+	 * Metodo que retorna el precio total de todos los vehiculos de
+	 * un contribuyente
+	 * @param contribuyente que calcular el precio de todos sus vehiculos
+	 * @return valor total de los precios de todos los vehiculos
+	 */
+    public double getPrecioContribuyente(Contribuyente c){
+        double total = 0.0;
+        for (Vehiculo v : vehiculos) {
+            if(((Contribuyente)v.getContribuyente()).getId().equals(c.getId())){
+                total+=v.calculaPrecio();
+            }
         }
-        return this.vehiculosOrContribuyentesOrFacturas;
-    }
+        return total;
+	}
+	
+    /**
+     * Hemos anadido un id a los contribuyentes, dado que no podemos utilizar
+     * el dni porque tiene un formato especifico
+     * @param id de cada contribuyente
+     * @return contribuyente con el id indicado
+     */
+	public Contribuyente gContribuyente(String id){
+		Contribuyente c = null;
+		for (Contribuyente contribuyente : contribuyentes) {
+			if (contribuyente.getId().equals(id)) {
+				c = contribuyente;
+			}
+		}
+		return c;
+	}
 
 }
