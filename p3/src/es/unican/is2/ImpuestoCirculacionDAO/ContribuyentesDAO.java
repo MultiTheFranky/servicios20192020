@@ -14,6 +14,7 @@ import es.unican.ss.impuestocirculacion.Vehiculo;
 
 /**
  * Interfaz DAO para los veh�culos
+ * ¡¡ LOS METODOS QUE NO SE UTILIZAN SE DEJAN RETORNANDO UN NULL !!
  */
 public class ContribuyentesDAO implements IContribuyentesDAO {
 

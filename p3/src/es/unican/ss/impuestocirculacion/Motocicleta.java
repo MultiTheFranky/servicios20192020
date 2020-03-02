@@ -58,4 +58,25 @@ public class Motocicleta
         this.cilindrada = value;
     }
 
+    /**
+     * Calcula el impuesto a pagar
+     *  @return precio
+     */
+	@Override
+    public double calculaPrecio() {
+    	double precio;
+    	if (cilindrada < 125) {
+    		precio = 8.84;
+    	} else if (cilindrada < 250) {
+    		precio = 15.14;
+    	} else if (cilindrada < 500) {
+    		precio = 30.30;
+    	} else if(cilindrada <1000) {
+    		precio = 60.58;
+    	} else {
+    		precio = 121.16;
+    	}
+    	return precio;
+    }
+
 }

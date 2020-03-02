@@ -68,4 +68,25 @@ public class Furgoneta
         this.comercial = value;
     }
 
+     /**
+     * Calcula el impuesto a pagar
+     *  @return precio
+     */
+	@Override
+    public double calculaPrecio() {
+    	double precio;
+		if (potencia < 8) {
+			precio = 25.24;
+    	} else if (potencia < 11.99) {
+    		precio = 68.16;
+    	} else if (potencia < 15.99) {
+    		precio = 143.88;
+    	} else if(potencia <19.99) {
+    		precio = 179.22;
+    	} else {
+    		precio = 224.0;
+    	}
+    	return precio;
+    }
+
 }
