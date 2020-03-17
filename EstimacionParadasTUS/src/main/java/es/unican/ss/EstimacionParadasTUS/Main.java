@@ -1,34 +1,22 @@
 package es.unican.ss.EstimacionParadasTUS;
 
-import java.io.InputStream;
-import java.net.URL;
-
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
+import es.unican.ss.EstimacionParadasTUS.Estimaciones.DatosNoDisponibles;
+import es.unican.ss.EstimacionParadasTUS.Estimaciones.ParadaNoValida;
 
 /**
- * Hello world!
  *
  */
-public class Main 
-{
-    public static String URL_LINEAS = "http://datos.santander.es/api/rest/datasets/lineas_bus_secuencia.xml";
-    public static void main( String[] args )
-    {
-        try { 
-        	URL url = new URL(URL_LINEAS);
-        	InputStream stream = url.openStream();
-        	
-            SAXParserFactory factory = SAXParserFactory.newInstance();
-            SAXParser saxParser = factory.newSAXParser();
+public class Main {
 
-            HandlerParadas handler = new HandlerParadas();
-            saxParser.parse(stream, handler);
-            for (Parada parada : handler.paradas) {
-				System.out.println("Nombre: "+parada.getNombreParada()+" Nº: "+parada.getNumeroParada());
-			}
-        } catch (Exception e) {
-            System.err.println("ERROR: "+e.getLocalizedMessage());
-        }
+    public static void main(String[] args) {
+    	Estimaciones est = new Estimaciones();
+    	try {
+			System.out.println(est.calculaTiempo("PADRE MENNI", 62));
+		} catch (ParadaNoValida e) {
+			e.printStackTrace();
+		}
+    	catch (DatosNoDisponibles e) {
+			e.printStackTrace();
+		}
     }
 }
