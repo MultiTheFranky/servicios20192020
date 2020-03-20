@@ -5,7 +5,7 @@
   <groupId>es.unican.ss</groupId>
   <artifactId>EstimacionParadasTUS</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <name>EstimacionParadasTUS</name>
   <url>http://maven.apache.org</url>
