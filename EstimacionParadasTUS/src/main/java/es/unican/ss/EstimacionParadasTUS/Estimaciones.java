@@ -1,3 +1,4 @@
+
 package es.unican.ss.EstimacionParadasTUS;
 
 import java.io.InputStream;
@@ -5,6 +6,11 @@ import java.net.URL;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.ws.Holder;
+
+import org.tempuri.ArrayOfPasoParada;
+import org.tempuri.Dinamica;
+import org.tempuri.DinamicaSoap;
 
 public class Estimaciones {
     public class ParadaNoValida extends Exception {
@@ -17,7 +23,7 @@ public class Estimaciones {
 
     public static String URL_LINEAS = "http://datos.santander.es/api/rest/datasets/lineas_bus_secuencia.xml";
 
-    public int calculaTiempo(String nombreParada, int numeroDeLaLinea) throws ParadaNoValida, DatosNoDisponibles {
+    public Datos calculaTiempo(String nombreParada, String numeroDeLaLinea) throws ParadaNoValida, DatosNoDisponibles {
         try {
             URL url = new URL(URL_LINEAS);
             InputStream stream = url.openStream();
@@ -30,10 +36,22 @@ public class Estimaciones {
             if (handler.parada == null) {
                 throw new ParadaNoValida();
             }
-            return handler.parada.getNumeroParada();
+            System.out.println(handler.parada.getNombreParada()+" "+handler.parada.getNumeroParada());
+            Dinamica dinamicaService = new Dinamica();
+            DinamicaSoap dinamicaPort = dinamicaService.getDinamicaSoap();
+            Holder<ArrayOfPasoParada> pasoParada = new Holder<ArrayOfPasoParada>();
+            Holder<Integer> intParada = new Holder<Integer>();
+            dinamicaPort.getPasoParada(numeroDeLaLinea,
+            		handler.parada.getNombreParada(), intParada, pasoParada);
+
+            Datos resultado = new Datos();
+            resultado.setNombreRuta(pasoParada.value.getPasoParada().get(0).getRuta());
+            resultado.setEstimacion1(pasoParada.value.getPasoParada().get(0).getE1().getMinutos());
+            resultado.setEstimacion2(pasoParada.value.getPasoParada().get(0).getE2().getMinutos());
+            return resultado;
         } catch (Exception e) {
-            System.err.println("ERROR: " + e.getLocalizedMessage());
-            return -1;
+        	e.printStackTrace();
+            return null;
         }
     }
 }

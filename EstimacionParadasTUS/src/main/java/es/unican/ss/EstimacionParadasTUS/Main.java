@@ -6,17 +6,23 @@ import es.unican.ss.EstimacionParadasTUS.Estimaciones.ParadaNoValida;
 /**
  *
  */
-public class Main {
+import javax.jws.WebService;
 
-    public static void main(String[] args) {
+@WebService(targetNamespace="http://www.unican.es/ss/EstimacionParadasTUS", 
+endpointInterface="es.unican.ss.EstimacionParadasTUS.Main")
+public class Main implements IMain {
+
+    public Datos getEstimaciones(String nombreParada, String numeroParada) {
     	Estimaciones est = new Estimaciones();
     	try {
-			System.out.println(est.calculaTiempo("PADRE MENNI", 62));
+			return est.calculaTiempo(nombreParada, numeroParada);
 		} catch (ParadaNoValida e) {
 			e.printStackTrace();
+			return null;
 		}
     	catch (DatosNoDisponibles e) {
 			e.printStackTrace();
+			return null;
 		}
-    }
+	}
 }
