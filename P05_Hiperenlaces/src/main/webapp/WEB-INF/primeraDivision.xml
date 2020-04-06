@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<liga>
+	<equipo>
+		<nombre>Real Madrid</nombre>
+		<puntos>84</puntos>
+		<partidosGanados>26</partidosGanados>
+		<partidosPerdidos>4</partidosPerdidos>
+		<partidosJugados>36</partidosJugados>
+		<jugador>
+			<dorsal>1</dorsal>
+			<goles>0</goles>
+			<nombre>Keilor Navas</nombre>
+			<tAmarillas>2</tAmarillas>
+			<tRojas>0</tRojas>
+		</jugador>
+		<jugador>
+			<dorsal>2</dorsal>
+			<goles>1</goles>
+			<nombre>Sergio Ramos</nombre>
+			<tAmarillas>0</tAmarillas>
+			<tRojas>3</tRojas>
+		</jugador>
+		<jugador>
+			<dorsal>3</dorsal>
+			<goles>7</goles>
+			<nombre>Modric</nombre>
+			<tAmarillas>2</tAmarillas>
+			<tRojas>1</tRojas>
+		</jugador>
+	</equipo>
+	<equipo>
+		<nombre>FC Barcelona</nombre>
+		<puntos>85</puntos>
+		<partidosGanados>27</partidosGanados>
+		<partidosPerdidos>5</partidosPerdidos>
+
+		<partidosJugados>36</partidosJugados>
+		<jugador>
+			<dorsal>1</dorsal>
+			<goles>0</goles>
+			<nombre>Pinto</nombre>
+			<tAmarillas>3</tAmarillas>
+			<tRojas>0</tRojas>
+		</jugador>
+		<jugador>
+			<dorsal>2</dorsal>
+			<goles>5</goles>
+			<nombre>Messi</nombre>
+			<tAmarillas>2</tAmarillas>
+			<tRojas>1</tRojas>
+		</jugador>
+
+	</equipo>
+
+	<equipo>
+		<nombre>Atlético de Madrid</nombre>
+		<puntos>85</puntos>
+		<partidosGanados>27</partidosGanados>
+		<partidosPerdidos>5</partidosPerdidos>
+
+		<partidosJugados>36</partidosJugados>
+		<jugador>
+			<dorsal>1</dorsal>
+			<goles>0</goles>
+			<nombre>Oblac</nombre>
+			<tAmarillas>3</tAmarillas>
+			<tRojas>0</tRojas>
+		</jugador>
+		<jugador>
+			<dorsal>2</dorsal>
+			<goles>7</goles>
+			<nombre>Torres</nombre>
+			<tAmarillas>2</tAmarillas>
+			<tRojas>1</tRojas>
+		</jugador>
+
+	</equipo>
+
+	<equipo>
+		<puntos>85</puntos>
+		<partidosGanados>11</partidosGanados>
+		<partidosPerdidos>14</partidosPerdidos>
+
+		<partidosJugados>36</partidosJugados>
+		<jugador>
+			<dorsal>1</dorsal>
+			<goles>0</goles>
+			<nombre>Diego Alves</nombre>
+			<tAmarillas>3</tAmarillas>
+			<tRojas>0</tRojas>
+		</jugador>
+		<jugador>
+			<dorsal>2</dorsal>
+			<goles>7</goles>
+			<nombre>Negredo</nombre>
+			<tAmarillas>2</tAmarillas>
+			<tRojas>1</tRojas>
+		</jugador>
+		<nombre>Valencia CF</nombre>
+	</equipo>
+</liga>

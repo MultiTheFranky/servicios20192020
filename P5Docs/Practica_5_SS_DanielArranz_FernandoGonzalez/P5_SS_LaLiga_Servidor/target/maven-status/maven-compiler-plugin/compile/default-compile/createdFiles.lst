@@ -1,0 +1,9 @@
+es\unican\ss\types\Equipo.class
+es\unican\ss\services\ListaJugadores.class
+es\unican\ss\services\Equipos$1.class
+es\unican\ss\services\Equipos.class
+es\unican\ss\services\Goleadores.class
+es\unican\ss\types\Jugador.class
+es\unican\ss\services\Goleadores$1.class
+es\unican\ss\daos\ILigaDAO.class
+es\unican\ss\daosImpl\LigaDAO.class
