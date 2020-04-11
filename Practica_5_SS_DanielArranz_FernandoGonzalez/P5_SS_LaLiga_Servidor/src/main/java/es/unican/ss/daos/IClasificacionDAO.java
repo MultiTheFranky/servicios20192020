@@ -11,6 +11,8 @@ public interface IClasificacionDAO {
 	/**
 	 * Retorna el grupo cuyo identificador se pasa como parametro
 	 * 
+	 * ** este metodo sustituye a getEquipos del ejemplo de moodle para
+	 * facilitar nuestro codigo
 	 * @param grupo
 	 * @return El grupo o null si no existe
 	 */
@@ -19,26 +21,35 @@ public interface IClasificacionDAO {
 	/**
 	 * Retorna el equipo cuyo nombre se pasa como parametro y su grupo como ayuda para buscarlo
 	 * 
-	 * @param nombreEquipo Nombre de equipo
+	 * @param equipo Nombre de equipo
 	 * @return El equipo o null si no existe
 	 */
-	public Equipo getEquipo(String grupo,String nombreEquipo);
+	public Equipo getEquipo(String grupo,String equipo);
 	
 	/**
-	 * Retorna el equipo cuyo nombre se para como parametro
+	 * Retorna el equipo cuyo nombre se pasa como parametro
 	 * 
-	 * @param nombreEquipo Nombre de equipo
+	 * @param equipo
 	 * @return El equipo o null si no existe
 	 */
-	public Equipo getEquipo(String nombreEquipo);
+	public Equipo getEquipo(String equipo);
 
 	/**
 	 * Actualiza el equipo con los datos que se pasan como parametro
 	 * 
-	 * @param e Nuevos datos del equipo
+	 * @param e
+	 *            Nuevos datos del equipo
 	 * @return El equipo actualizado o null si no se puede actualizar
 	 */
+
 	public Equipo actualizaEquipo(Equipo e);
+
+	/**
+	 * Retorna la lista completa de jugadores de un grupo de la liga
+	 * 
+	 * @return Lista de jugadores inscritos en la liga
+	 */
+	public List<Jugador> getJugadores(String grupo);
 
 	/**
 	 * Retorna el jugador cuyo equipo y dorsal se pasan como parametros
@@ -48,9 +59,9 @@ public interface IClasificacionDAO {
 	public Jugador getJugador(String equipo, int dorsal);
 
 	/**
-	 * Actualiza el jugador cuyo equipo se pasa como parametros
+	 * Actualiza el jugador cuyo equipo se pasa como par�metro
 	 * 
-	 * @return Jugador actualizado o null si no
+	 * @return Jugador actualizado
 	 */
 	public Jugador actualizaJugador(String equipo, Jugador j);
 	

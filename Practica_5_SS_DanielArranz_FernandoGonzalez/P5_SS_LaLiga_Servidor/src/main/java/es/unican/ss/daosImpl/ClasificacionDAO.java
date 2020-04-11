@@ -47,7 +47,7 @@ public class ClasificacionDAO implements IClasificacionDAO {
 	}
 	
 	@Override
-	public Equipo getEquipo(String grupo,String equipo) {
+	public Equipo getEquipo(String grupo, String equipo) {
 		Equipo result = null;
 		Grupo g = getGrupo(grupo);
 		for (Equipo e : g.getEquipos()) {
@@ -81,9 +81,9 @@ public class ClasificacionDAO implements IClasificacionDAO {
 	}
 	
 	@Override
-	public Equipo actualizaEquipo(Equipo equipo) {
+	public Equipo actualizaEquipo(Equipo e) {
         JAXBContext jaxbctx;
-        Equipo e = null;
+        Equipo equipo = null;
         try {
             jaxbctx = JAXBContext.newInstance(Clasificacion.class);
             Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
@@ -92,9 +92,9 @@ public class ClasificacionDAO implements IClasificacionDAO {
             for (Grupo g : clasificacion.getGrupo()) {
             	for (int i = 0; i < g.getEquipos().size(); i++) {
                     Equipo eq = g.getEquipos().get(i);
-                    if (eq.getNombre().equals(equipo.getNombre())) {
-                        g.getEquipos().set(i, equipo);
-                        e = eq;
+                    if (eq.getNombre().equals(e.getNombre())) {
+                        g.getEquipos().set(i, e);
+                        equipo = eq;
                     }
                 }
 			}
@@ -107,7 +107,22 @@ public class ClasificacionDAO implements IClasificacionDAO {
             j.printStackTrace();
         }
         return e;
-    }
+	}
+	
+	@Override
+	public List<Jugador> getJugadores(String grupo){
+		List<Jugador> lista = new ArrayList<Jugador>();
+
+		Grupo g = getGrupo(grupo);
+
+		for(Equipo e: g.getEquipos()){
+			for(Jugador j: e.getJugadores()){
+				lista.add(j);
+			}
+		}
+
+		return lista;
+	}
 	
 	@Override
 	public Jugador getJugador(String equipo, int dorsal) {
@@ -146,6 +161,34 @@ public class ClasificacionDAO implements IClasificacionDAO {
         return j;
     }
 
+	@Override
+	public boolean eliminaJugador(String equipo, int dorsal) {
+        JAXBContext jaxbctx;
+        Boolean result = false;
+        try {
+            jaxbctx = JAXBContext.newInstance(Clasificacion.class);
+            Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
+            Clasificacion liga = (Clasificacion) unmarshaller.unmarshal(this.getClass().getClassLoader().getResourceAsStream(
+            		"C:\\Users\\Franky\\P5\\clasificacion.xml"));
+            Jugador jugador = getJugador(equipo,dorsal);
+            Equipo e = getEquipo(equipo);
+            for (int i = 0; i < e.getJugadores().size(); i++) {
+                Jugador j = e.getJugadores().get(i);
+                if (j.getNombre().equals(jugador.getNombre())) {
+                    e.getJugadores().remove(i);
+                    result = true;
+                }
+            }
+
+            // Actualiza el xml
+            Marshaller marshaller = jaxbctx.createMarshaller();
+            marshaller.marshal(liga, new File(
+            		"C:\\Users\\Franky\\P5\\clasificacion.xml"));
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+        return result;
+	}
 	
 	@Override
 	public List<Jugador> getRanking(String grupo) {
@@ -183,32 +226,4 @@ public class ClasificacionDAO implements IClasificacionDAO {
 		return jugadores;
 	}
 	
-	@Override
-	public boolean eliminaJugador(String equipo, int dorsal) {
-        JAXBContext jaxbctx;
-        Boolean result = false;
-        try {
-            jaxbctx = JAXBContext.newInstance(Clasificacion.class);
-            Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-            Clasificacion liga = (Clasificacion) unmarshaller.unmarshal(this.getClass().getClassLoader().getResourceAsStream(
-            		"C:\\Users\\Franky\\P5\\clasificacion.xml"));
-            Jugador jugador = getJugador(equipo,dorsal);
-            Equipo e = getEquipo(equipo);
-            for (int i = 0; i < e.getJugadores().size(); i++) {
-                Jugador j = e.getJugadores().get(i);
-                if (j.getNombre().equals(jugador.getNombre())) {
-                    e.getJugadores().remove(i);
-                    result = true;
-                }
-            }
-
-            // Actualiza el xml
-            Marshaller marshaller = jaxbctx.createMarshaller();
-            marshaller.marshal(liga, new File(
-            		"C:\\Users\\Franky\\P5\\clasificacion.xml"));
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
 }
