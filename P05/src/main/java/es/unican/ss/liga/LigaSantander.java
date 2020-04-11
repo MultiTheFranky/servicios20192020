@@ -151,11 +151,33 @@ public class LigaSantander {
 	}
 
 	@GET
-	@Path("/ranking")
+	@Path("/clasificacion/id_grupo/ranking")
 	@Produces("application/xml,application/json")
-	public Response getRankingPorEquipo(@QueryParam("nombreEquipo") String nombre, @Context UriInfo uriInfo) {
+	public Response getRankingPorEquipo(@QueryParam("nombreEquipo") String equipo, @Context UriInfo uriInfo) {
 		Response.ResponseBuilder builder;
 		List<Jugador> jugadores = null;
+		if (ligaSantander.getEquipo(equipo) == null) {
+			builder = Response.status(Response.Status.NOT_FOUND);
+		} else {
+			jugadores = ligaSantander.getEquipo(equipo).getJugadores();
+			jugadores.sort(new Comparator<Jugador>() {
+                public int compare(Jugador o1, Jugador o2) {
+                    return o1.getGoles() - o2.getGoles();
+                };
+            });
+			builder = Response.ok(jugadores);
+		}
+		return builder.build();
+	}
+
+	@GET
+	@Path("/clasificacion/id_grupo/ranking")
+	@Produces("application/xml,application/json")
+	public Response getRanking(@PathParam("nombreEquipo") String nombre, @Context UriInfo uriInfo) {
+		Response.ResponseBuilder builder;
+		List<Jugador> jugadores = null;
+		
+		
 		if (nombre == null) {
 			jugadores = ligaSantander.getJugadores();
 			Collections.sort(jugadores);

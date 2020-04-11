@@ -18,13 +18,11 @@ import es.unican.ss.types.Grupo;
 import es.unican.ss.types.Jugador;
 
 public class ClasificacionDAO implements IClasificacionDAO {
-	
-	
 
 	public ClasificacionDAO() {
-		
+
 	}
-	
+
 	@Override
 	public Grupo getGrupo(String grupo) {
 		JAXBContext jaxbctx;
@@ -33,9 +31,10 @@ public class ClasificacionDAO implements IClasificacionDAO {
 			jaxbctx = JAXBContext.newInstance(Clasificacion.class);
 
 			Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-			Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
+			Clasificacion clasificacion = (Clasificacion) unmarshaller
+					.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
 			for (Grupo g : clasificacion.getGrupo()) {
-				if(g.getId().equals(grupo)) {
+				if (g.getId().equals(grupo)) {
 					result = g;
 				}
 			}
@@ -46,117 +45,160 @@ public class ClasificacionDAO implements IClasificacionDAO {
 
 		return result;
 	}
-	
+
 	@Override
-	public Equipo getEquipo(String grupo,String equipo) {
+	public Equipo getEquipo(String grupo, String equipo) {
 		Equipo result = null;
 		Grupo g = getGrupo(grupo);
-		if(g != null) {
+		if (g != null) {
 			for (Equipo e : g.getEquipos()) {
-				if(e.getNombre().equals(equipo)) {
+				if (e.getNombre().equals(equipo)) {
 					result = e;
 				}
 			}
 		}
 		return result;
 	}
-	
+
 	@Override
 	public Equipo getEquipo(String equipo) {
 		JAXBContext jaxbctx;
-        Equipo result = null;
-        try {
-            jaxbctx = JAXBContext.newInstance(Clasificacion.class);
-            Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-            Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
-            for (Grupo g : clasificacion.getGrupo()) {
-            	for (Equipo e : g.getEquipos()) {
-					if(e.getNombre().equals(equipo)) {
+		Equipo result = null;
+		try {
+			jaxbctx = JAXBContext.newInstance(Clasificacion.class);
+			Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
+			Clasificacion clasificacion = (Clasificacion) unmarshaller
+					.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
+			for (Grupo g : clasificacion.getGrupo()) {
+				for (Equipo e : g.getEquipos()) {
+					if (e.getNombre().equals(equipo)) {
 						result = e;
 					}
 				}
 			}
-        } catch (JAXBException j) {
-            j.printStackTrace();
-        }
-        return result;
+		} catch (JAXBException j) {
+			j.printStackTrace();
+		}
+		return result;
 	}
-	
+
 	@Override
-	public Equipo actualizaEquipo(Equipo equipo) {
-        JAXBContext jaxbctx;
-        Equipo e = null;
-        try {
-            jaxbctx = JAXBContext.newInstance(Clasificacion.class);
-            Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-            Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
-            for (Grupo g : clasificacion.getGrupo()) {
-            	for (int i = 0; i < g.getEquipos().size(); i++) {
-                    Equipo eq = g.getEquipos().get(i);
-                    if (eq.getNombre().equals(equipo.getNombre())) {
-                        g.getEquipos().set(i, equipo);
-                        e = eq;
-                    }
-                }
+	public Equipo actualizaEquipo(Equipo e) {
+		JAXBContext jaxbctx;
+		Equipo equipo = null;
+		try {
+			jaxbctx = JAXBContext.newInstance(Clasificacion.class);
+			Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
+			Clasificacion clasificacion = (Clasificacion) unmarshaller
+					.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
+			for (Grupo g : clasificacion.getGrupo()) {
+				for (int i = 0; i < g.getEquipos().size(); i++) {
+					Equipo eq = g.getEquipos().get(i);
+					if (eq.getNombre().equals(e.getNombre())) {
+						g.getEquipos().set(i, e);
+						equipo = eq;
+					}
+				}
 			}
-            
-            // Actualiza el xml
-            Marshaller marshaller = jaxbctx.createMarshaller();
-            try {
-				marshaller.marshal(clasificacion, new File(
-						getClass().getResource("/clasificacion.xml").toURI()));
+
+			// Actualiza el xml
+			Marshaller marshaller = jaxbctx.createMarshaller();
+			try {
+				marshaller.marshal(clasificacion, new File(getClass().getResource("/clasificacion.xml").toURI()));
 			} catch (URISyntaxException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-        } catch (JAXBException j) {
-            j.printStackTrace();
-        }
-        return e;
-    }
-	
+		} catch (JAXBException j) {
+			j.printStackTrace();
+		}
+		return e;
+	}
+
+	@Override
+	public List<Jugador> getJugadores(String grupo) {
+		List<Jugador> lista = new ArrayList<Jugador>();
+
+		Grupo g = getGrupo(grupo);
+
+		for (Equipo e : g.getEquipos()) {
+			for (Jugador j : e.getJugadores()) {
+				lista.add(j);
+			}
+		}
+
+		return lista;
+	}
+
 	@Override
 	public Jugador getJugador(String equipo, int dorsal) {
-        Jugador j = null;
-        Equipo e = getEquipo(equipo);
-        for (Jugador jugador : e.getJugadores()) {
-            if (jugador.getDorsal() == dorsal) {
-                j = jugador;
-            }
-        }
-        return j;
-    }
-	
+		Jugador j = null;
+		Equipo e = getEquipo(equipo);
+		for (Jugador jugador : e.getJugadores()) {
+			if (jugador.getDorsal() == dorsal) {
+				j = jugador;
+			}
+		}
+		return j;
+	}
+
 	@Override
 	public Jugador actualizaJugador(String equipo, Jugador j) {
-        JAXBContext jaxbctx;
-        try {
-            jaxbctx = JAXBContext.newInstance(Clasificacion.class);
-            Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-            Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
-            Equipo e = getEquipo(equipo);
-            for (int i = 0; i < e.getJugadores().size(); i++) {
-                Jugador jugador = e.getJugadores().get(i);
-                if (j.getNombre().equals(jugador.getNombre())) {
-                    e.getJugadores().set(i, j);
-                }
-            }
-            // Actualiza el xml
-            Marshaller marshaller = jaxbctx.createMarshaller();
-            try {
-				marshaller.marshal(clasificacion, new File(
-						getClass().getResource("/clasificacion.xml").toURI()));
+		JAXBContext jaxbctx;
+		try {
+			jaxbctx = JAXBContext.newInstance(Clasificacion.class);
+			Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
+			Clasificacion clasificacion = (Clasificacion) unmarshaller
+					.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
+			Equipo e = getEquipo(equipo);
+			for (int i = 0; i < e.getJugadores().size(); i++) {
+				Jugador jugador = e.getJugadores().get(i);
+				if (j.getNombre().equals(jugador.getNombre())) {
+					e.getJugadores().set(i, j);
+				}
+			}
+			// Actualiza el xml
+			Marshaller marshaller = jaxbctx.createMarshaller();
+			try {
+				marshaller.marshal(clasificacion, new File(getClass().getResource("/clasificacion.xml").toURI()));
 			} catch (URISyntaxException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-        return j;
-    }
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+		return j;
+	}
 
-	
+	@Override
+	public boolean eliminaJugador(String equipo, int dorsal) {
+		JAXBContext jaxbctx;
+		Boolean result = false;
+		try {
+			jaxbctx = JAXBContext.newInstance(Clasificacion.class);
+			Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
+			Clasificacion liga = (Clasificacion) unmarshaller.unmarshal(
+					this.getClass().getClassLoader().getResourceAsStream("C:\\Users\\Franky\\P5\\clasificacion.xml"));
+			Jugador jugador = getJugador(equipo, dorsal);
+			Equipo e = getEquipo(equipo);
+			for (int i = 0; i < e.getJugadores().size(); i++) {
+				Jugador j = e.getJugadores().get(i);
+				if (j.getNombre().equals(jugador.getNombre())) {
+					e.getJugadores().remove(i);
+					result = true;
+				}
+			}
+
+			// Actualiza el xml
+			Marshaller marshaller = jaxbctx.createMarshaller();
+			marshaller.marshal(liga, new File("C:\\Users\\Franky\\P5\\clasificacion.xml"));
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 	@Override
 	public List<Jugador> getRanking(String grupo) {
 		JAXBContext jaxbctx;
@@ -165,9 +207,10 @@ public class ClasificacionDAO implements IClasificacionDAO {
 			jaxbctx = JAXBContext.newInstance(Clasificacion.class);
 
 			Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-			Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
+			Clasificacion clasificacion = (Clasificacion) unmarshaller
+					.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
 			for (Grupo g : clasificacion.getGrupo()) {
-				if(g.getId().equals(grupo)) {
+				if (g.getId().equals(grupo)) {
 					for (Equipo e : g.getEquipos()) {
 						for (Jugador jugador : e.getJugadores()) {
 							jugadores.add(jugador);
@@ -175,7 +218,7 @@ public class ClasificacionDAO implements IClasificacionDAO {
 					}
 				}
 			}
-			
+
 			jugadores.sort(new Comparator<Jugador>() {
 				public int compare(Jugador o1, Jugador o2) {
 					return o1.getGoles() - o2.getGoles();
@@ -190,37 +233,7 @@ public class ClasificacionDAO implements IClasificacionDAO {
 
 		return jugadores;
 	}
-	
-	@Override
-	public boolean eliminaJugador(String equipo, int dorsal) {
-        JAXBContext jaxbctx;
-        Boolean result = false;
-        try {
-            jaxbctx = JAXBContext.newInstance(Clasificacion.class);
-            Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-            Clasificacion liga = (Clasificacion) unmarshaller.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
-            Jugador jugador = getJugador(equipo,dorsal);
-            Equipo e = getEquipo(equipo);
-            for (int i = 0; i < e.getJugadores().size(); i++) {
-                Jugador j = e.getJugadores().get(i);
-                if (j.getNombre().equals(jugador.getNombre())) {
-                    e.getJugadores().remove(i);
-                    result = true;
-                }
-            }
 
-            // Actualiza el xml
-            Marshaller marshaller = jaxbctx.createMarshaller();
-            try {
-				marshaller.marshal(liga, new File(
-						getClass().getResource("/clasificacion.xml").toURI()));
-			} catch (URISyntaxException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-}
+	}
+
+	
