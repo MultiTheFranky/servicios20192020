@@ -1,6 +1,7 @@
 package es.unican.ss.services;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -13,55 +14,56 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
-import es.unican.ss.daos.ILigaDAO;
-import es.unican.ss.daosImpl.LigaDAO;
+import es.unican.ss.daos.IClasificacionDAO;
+import es.unican.ss.daosImpl.ClasificacionDAO;
 import es.unican.ss.types.Equipo;
+import es.unican.ss.types.Grupo;
 import es.unican.ss.types.Jugador;
 
-@Path("/equipos")
-public class Equipos {
+@Path("/clasificacion")
+public class Clasificacion {
 
-	private List<Equipo> equipos;
-	private ILigaDAO ligaDAO;
+	private IClasificacionDAO clasificacionDao;
 
-	public Equipos() {
-
-		ligaDAO = new LigaDAO();
-		equipos = new LinkedList<Equipo>();
-
+	public Clasificacion() {
+		clasificacionDao = new ClasificacionDAO();
 	}
-
-	// Retornando Response
-
-	// Como es la uribase, no ponemos path
+	//Get clasificacion de un grupo
+	@Path("/{nombreGrupo}")
 	@GET
 	@Produces("application/xml, application/json")
-	public Response getClasificacionEquipos() {
+	public Response getClasificacionEquipos(@PathParam("nombreGrupo") String nombreGrupo) {
 
-		equipos = ligaDAO.getEquipos();
+		Grupo grupo = clasificacionDao.getGrupo(nombreGrupo);
+
+		grupo.getEquipos().sort(new Comparator<Equipo>() {
+			public int compare(Equipo o1, Equipo o2) {
+				return o1.getPuntos() - o2.getPuntos();
+			};
+		});
 
 		Response.ResponseBuilder builder;
 		Response response = null;
-		ordenaEquiposPorPuntos(equipos);
-		builder = Response.ok(equipos);
+		builder = Response.ok(grupo.getEquipos());
 		response = builder.build();
 
 		return response;
 	}
-
-	@Path("/{nombreEquipo}")
+	// Consultar los datos de un equipo
+	@Path("/{nombreGrupo}/{nombreEquipo}")
 	@GET
 	@Produces("application/xml, application/json")
-	public Response getEquipoPorNombre(@PathParam("nombreEquipo") String nombreEquipo) {
+	public Response getEquipoPorNombre(@PathParam("nombreGrupo") String nombreGrupo,@PathParam("nombreEquipo") String nombreEquipo) {
 
 		Response.ResponseBuilder builder;
 		Response response = null;
-		Equipo e = ligaDAO.getEquipo(nombreEquipo);
+		Equipo e = clasificacionDao.getEquipo(nombreGrupo,nombreEquipo);
 
 		if (e == null) {
 			builder = Response.status(Response.Status.NOT_FOUND);
@@ -73,7 +75,27 @@ public class Equipos {
 
 		return response;
 	}
+	// Consultar los datos de un jugador
+	@Path("/{nombreEquipo}/{dorsal}")
+	@GET
+	@Produces("application/xml, application/json")
+	public Response getJugadorPorDorsal(@PathParam("nombreEquipo") String nombreEquipo,@PathParam("nombreEquipo") String dorsal) {
 
+		Response.ResponseBuilder builder;
+		Response response = null;
+		Jugador j = clasificacionDao.getJugador(nombreEquipo, Integer.parseInt(dorsal));
+
+		if (j == null) {
+			builder = Response.status(Response.Status.NOT_FOUND);
+		} else {
+			builder = Response.ok(j);
+		}
+
+		response = builder.build();
+
+		return response;
+	}
+	//Añadir jugador a equipo
 	@Path("/{nombreEquipo}")
 	@POST
 	@Produces("application/xml, application/json")
@@ -82,28 +104,22 @@ public class Equipos {
 
 		Response.ResponseBuilder builder;
 		Response response = null;
-		Equipo equipo = ligaDAO.getEquipo(nombreEquipo);
-		// Primero comprobamos si existe alguien con el dorsal a añadir y si NO existe,
-		// lo añadimos
-
-		Jugador j = getJugadorPorDorsal(equipo, jugador.getDorsal());
-
+		Jugador j = clasificacionDao.getJugador(nombreEquipo, jugador.getDorsal());
 		if (j != null) {
 			builder = Response.status(Response.Status.CONFLICT);
 		} else {
+			Equipo equipo = clasificacionDao.getEquipo(nombreEquipo);
 			equipo.getJugadores().add(jugador);
-			ligaDAO.actualizaEquipo(equipo);
+			clasificacionDao.actualizaEquipo(equipo);
 			UriBuilder linkBuilder = uriInfo.getAbsolutePathBuilder();
-			linkBuilder.path(jugador.getDorsal());
+			linkBuilder.path(String.valueOf(jugador.getDorsal()));
 			URI location = linkBuilder.build();
 			builder = Response.created(location);
 		}
-
 		response = builder.build();
-
 		return response;
 	}
-
+	//Eliminar jugador del equipo
 	@Path("/{nombreEquipo}/{dorsal}")
 	@DELETE
 	@Produces("application/xml, application/json")
@@ -112,17 +128,15 @@ public class Equipos {
 
 		Response.ResponseBuilder builder;
 		Response response = null;
-		Equipo equipo = ligaDAO.getEquipo(nombreEquipo);
-		// Primero comprobamos si existe alguien con el dorsal a añadir y si existe,
-		// lo eliminamos
+		Equipo equipo = clasificacionDao.getEquipo(nombreEquipo);
 
-		Jugador j = getJugadorPorDorsal(equipo, dorsal);
+		Jugador j = clasificacionDao.getJugador(nombreEquipo, Integer.parseInt(dorsal));
 
 		if (j == null) {
 			builder = Response.status(Response.Status.NOT_FOUND);
 		} else {
 			equipo.getJugadores().remove(j);
-			ligaDAO.actualizaEquipo(equipo);
+			clasificacionDao.actualizaEquipo(equipo);
 			builder = Response.ok(equipo);
 		}
 
@@ -130,6 +144,24 @@ public class Equipos {
 
 		return response;
 	}
+
+	//Actualizar un equipo
+	@Path("/{nombreGrupo}/{nombreEquipo}")
+	@PUT
+	@Produces("application/xml, application/json")
+	public Response putEquipo(Equipo equipo) {
+		Response.ResponseBuilder builder;
+		Response response = null;
+		Equipo e = clasificacionDao.actualizaEquipo(equipo);
+		if (e == null) {
+			builder = Response.status(Response.Status.NOT_FOUND);
+		} else {
+			builder = Response.ok(e);
+		}
+		response = builder.build();
+		return response;
+	}
+
 
 	@GET
 	@Path("/{nombreEquipo}/{dorsal}")
@@ -183,7 +215,7 @@ public class Equipos {
 		return response;
 
 	}
-
+	//Actualizar datos jugador
 	@Path("/{nombreEquipo}/{dorsal}")
 	@PUT
 	@Produces("application/xml, application/json")
@@ -193,14 +225,12 @@ public class Equipos {
 		Response.ResponseBuilder builder;
 		Response response = null;
 		Jugador jugador = null;
-		Jugador jugadorAntiguo = null;
-		Equipo equipo = ligaDAO.getEquipo(nombreEquipo);
+		Equipo equipo = clasificacionDao.getEquipo(nombreEquipo);
 
 		if (equipo == null) {
 			builder = Response.status(Response.Status.NOT_FOUND);
 		} else {
-			jugador = getJugadorPorDorsal(equipo, dorsal);
-			jugadorAntiguo = jugador;
+			jugador = clasificacionDao.getJugador(nombreEquipo, Integer.parseInt(dorsal));
 		}
 
 		// Primero comprobamos si existe alguien con el dorsal a añadir y si existe,
@@ -213,17 +243,9 @@ public class Equipos {
 			builder = Response.status(Response.Status.CONFLICT);
 		} else {
 			// Actualizamos los datos del jugador
-			jugador.setGoles(jugadorActualizado.getGoles());
-			jugador.setTarjetasAmarillas(jugadorActualizado.getTarjetasAmarillas());
-			jugador.setTarjetasRojas(jugadorActualizado.getTarjetasRojas());
-
-			equipo.getJugadores().remove(jugadorAntiguo);
-			equipo.getJugadores().add(jugador);
-
-			// Actualizamos en la DAO
-			ligaDAO.actualizaEquipo(equipo);
+			clasificacionDao.actualizaJugador(nombreEquipo, jugadorActualizado);
+			clasificacionDao.actualizaEquipo(equipo);
 			builder = Response.ok(equipo);
-
 		}
 
 		response = builder.build();
@@ -232,30 +254,51 @@ public class Equipos {
 
 	}
 
-	private Jugador getJugadorPorDorsal(Equipo equipo, String dorsal) {
-
-		for (Jugador j : equipo.getJugadores()) {
-			if (j.getDorsal().equals(dorsal)) {
-				return j;
-			}
-		}
-
-		return null;
-	}
-
-	private void ordenaEquiposPorPuntos(List<Equipo> equipos) {
-		Collections.sort(equipos, new Comparator<Equipo>() {
-			@Override
-			public int compare(Equipo e, Equipo temp) {
-				if (e.getPuntos() < temp.getPuntos()) {
-					return 1;
-				} else {
-					// TODO: Golaveraje
-					return -1;
+	//Consultar ranking de goleadores por grupo pasandole un grupo (global)
+	@GET
+	@Path("/{nombreGrupo}/ranking")
+	@Produces("application/xml,application/json")
+	public Response getRankingPorGrupo(@PathParam("nombreGrupo") String nombreGrupo, @Context UriInfo uriInfo) {
+		Response.ResponseBuilder builder;
+		List<Jugador> jugadores = new ArrayList<Jugador>();
+		Grupo g = clasificacionDao.getGrupo(nombreGrupo);
+		if (g == null) {
+			builder = Response.status(Response.Status.NOT_FOUND);
+		}else {
+			for (Equipo e : g.getEquipos()) {
+				for (Jugador jugador : e.getJugadores()) {
+					jugadores.add(jugador);
 				}
-
 			}
-		});
+			jugadores.sort(new Comparator<Jugador>() {
+				public int compare(Jugador o1, Jugador o2) {
+					return o1.getGoles() - o2.getGoles();
+				};
+			});
+			builder = Response.ok(jugadores);
+		}
+		return builder.build();
 	}
 
+
+	//Consultar ranking de goleadores por grupo pasandole un equipo
+	@GET
+	@Path("/{nombreGrupo}/ranking")
+	@Produces("application/xml,application/json")
+	public Response getRankingPorEquipo(@QueryParam("nombreEquipo") String equipo, @Context UriInfo uriInfo) {
+		Response.ResponseBuilder builder;
+		List<Jugador> jugadores = null;
+		if (clasificacionDao.getEquipo(equipo) == null) {
+			builder = Response.status(Response.Status.NOT_FOUND);
+		} else {
+			jugadores = clasificacionDao.getEquipo(equipo).getJugadores();
+			jugadores.sort(new Comparator<Jugador>() {
+				public int compare(Jugador o1, Jugador o2) {
+					return o1.getGoles() - o2.getGoles();
+				};
+			});
+			builder = Response.ok(jugadores);
+		}
+		return builder.build();
+	}
 }
