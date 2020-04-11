@@ -41,13 +41,13 @@ public class Clasificacion {
 
 		grupo.getEquipos().sort(new Comparator<Equipo>() {
 			public int compare(Equipo o1, Equipo o2) {
-				return o1.getPuntos() - o2.getPuntos();
+				return o2.getPuntos() - o1.getPuntos();
 			};
 		});
 
 		Response.ResponseBuilder builder;
 		Response response = null;
-		builder = Response.ok(grupo.getEquipos());
+		builder = Response.ok(grupo);
 		response = builder.build();
 
 		return response;
@@ -74,7 +74,7 @@ public class Clasificacion {
 	}
 	// Consultar los datos de un jugador
 	@GET
-	@Path("clasificacion/{nombreEquipo}/get-jugador/{dorsal}")
+	@Path("clasificacion/{nombreEquipo}/{dorsal}")
 	@Produces("application/xml, application/json")
 	public Response getJugadorPorDorsal(@PathParam("nombreEquipo") String nombreEquipo,@PathParam("dorsal") String dorsal) {
 
@@ -254,7 +254,7 @@ public class Clasificacion {
 			}
 			jugadores.sort(new Comparator<Jugador>() {
 				public int compare(Jugador o1, Jugador o2) {
-					return o1.getGoles() - o2.getGoles();
+					return o2.getGoles() - o1.getGoles();
 				};
 			});
 			builder = Response.ok(jugadores);
@@ -276,7 +276,7 @@ public class Clasificacion {
 			jugadores = clasificacionDao.getEquipo(equipo).getJugadores();
 			jugadores.sort(new Comparator<Jugador>() {
 				public int compare(Jugador o1, Jugador o2) {
-					return o1.getGoles() - o2.getGoles();
+					return o2.getGoles() - o1.getGoles();
 				};
 			});
 			builder = Response.ok(jugadores);

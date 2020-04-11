@@ -50,6 +50,7 @@ public class ClasificacionDAO implements IClasificacionDAO {
 	public Equipo getEquipo(String grupo, String equipo) {
 		Equipo result = null;
 		Grupo g = getGrupo(grupo);
+		System.out.println(g);
 		if (g != null) {
 			for (Equipo e : g.getEquipos()) {
 				if (e.getNombre().equals(equipo)) {
@@ -85,7 +86,6 @@ public class ClasificacionDAO implements IClasificacionDAO {
 	@Override
 	public Equipo actualizaEquipo(Equipo e) {
 		JAXBContext jaxbctx;
-		Equipo equipo = null;
 		try {
 			jaxbctx = JAXBContext.newInstance(Clasificacion.class);
 			Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
@@ -96,7 +96,6 @@ public class ClasificacionDAO implements IClasificacionDAO {
 					Equipo eq = g.getEquipos().get(i);
 					if (eq.getNombre().equals(e.getNombre())) {
 						g.getEquipos().set(i, e);
-						equipo = eq;
 					}
 				}
 			}
@@ -221,7 +220,7 @@ public class ClasificacionDAO implements IClasificacionDAO {
 
 			jugadores.sort(new Comparator<Jugador>() {
 				public int compare(Jugador o1, Jugador o2) {
-					return o1.getGoles() - o2.getGoles();
+					return o2.getGoles() - o1.getGoles();
 				};
 			});
 
