@@ -1,0 +1,118 @@
+11-Apr-2020 12:35:27.647 INFORMACIÓN [http-nio-8080-exec-2] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+11-Apr-2020 12:35:27.647 INFORMACIÓN [http-nio-8080-exec-2] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Global resources are available
+11-Apr-2020 12:35:27.653 INFORMACIÓN [http-nio-8080-exec-2] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 12:36:42.347 INFORMACIÓN [http-nio-8080-exec-5] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 12:36:45.027 INFORMACIÓN [http-nio-8080-exec-10] org.apache.catalina.core.ApplicationContext.log HTMLManager: restart: Reloading web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 12:36:47.366 INFORMACIÓN [http-nio-8080-exec-10] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 12:37:44.046 INFORMACIÓN [http-nio-8080-exec-9] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 12:37:48.263 INFORMACIÓN [http-nio-8080-exec-8] org.apache.catalina.core.ApplicationContext.log HTMLManager: start: Starting web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 12:37:48.263 INFORMACIÓN [http-nio-8080-exec-8] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 12:38:35.845 INFORMACIÓN [http-nio-8080-exec-6] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 12:38:38.582 INFORMACIÓN [http-nio-8080-exec-11] org.apache.catalina.core.ApplicationContext.log HTMLManager: restart: Reloading web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 12:38:40.916 INFORMACIÓN [http-nio-8080-exec-11] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 12:40:28.165 INFORMACIÓN [http-nio-8080-exec-25] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 12:55:48.607 INFORMACIÓN [http-nio-8080-exec-32] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 12:55:50.776 INFORMACIÓN [http-nio-8080-exec-42] org.apache.catalina.core.ApplicationContext.log HTMLManager: restart: Reloading web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 12:55:54.208 INFORMACIÓN [http-nio-8080-exec-42] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 12:59:03.176 INFORMACIÓN [http-nio-8080-exec-47] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 12:59:05.710 INFORMACIÓN [http-nio-8080-exec-52] org.apache.catalina.core.ApplicationContext.log HTMLManager: restart: Reloading web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 12:59:08.162 INFORMACIÓN [http-nio-8080-exec-58] org.apache.catalina.core.ApplicationContext.log HTMLManager: sessions: Session information for web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 12:59:08.162 INFORMACIÓN [http-nio-8080-exec-58] org.apache.catalina.core.ApplicationContext.log HTMLManager: sessions: Session expiration for 30 minutes '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 12:59:08.162 INFORMACIÓN [http-nio-8080-exec-58] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 12:59:08.825 INFORMACIÓN [http-nio-8080-exec-52] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 13:07:36.326 INFORMACIÓN [http-nio-8080-exec-71] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 13:07:38.675 INFORMACIÓN [http-nio-8080-exec-72] org.apache.catalina.core.ApplicationContext.log HTMLManager: restart: Reloading web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 13:07:44.420 INFORMACIÓN [http-nio-8080-exec-73] org.apache.catalina.core.ApplicationContext.log HTMLManager: restart: Reloading web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 13:07:45.512 INFORMACIÓN [http-nio-8080-exec-64] org.apache.catalina.core.ApplicationContext.log HTMLManager: restart: Reloading web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 13:07:49.979 INFORMACIÓN [http-nio-8080-exec-72] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 13:07:49.982 GRAVE [http-nio-8080-exec-73] org.apache.catalina.core.ApplicationContext.log HTMLManager: ManagerServlet.reload[/P5_Servidor-0.0.1-SNAPSHOT]
+	java.lang.IllegalStateException: Aún no se ha arrancado el Contexto [/P5_Servidor-0.0.1-SNAPSHOT]
+		at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3741)
+		at org.apache.catalina.manager.ManagerServlet.reload(ManagerServlet.java:1089)
+		at org.apache.catalina.manager.HTMLManagerServlet.reload(HTMLManagerServlet.java:635)
+		at org.apache.catalina.manager.HTMLManagerServlet.doPost(HTMLManagerServlet.java:212)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.filters.CsrfPreventionFilter.doFilter(CsrfPreventionFilter.java:211)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:109)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:668)
+		at org.apache.catalina.valves.RequestFilterValve.process(RequestFilterValve.java:348)
+		at org.apache.catalina.valves.RemoteAddrValve.invoke(RemoteAddrValve.java:52)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+11-Apr-2020 13:07:49.982 GRAVE [http-nio-8080-exec-64] org.apache.catalina.core.ApplicationContext.log HTMLManager: ManagerServlet.reload[/P5_Servidor-0.0.1-SNAPSHOT]
+	java.lang.IllegalStateException: Aún no se ha arrancado el Contexto [/P5_Servidor-0.0.1-SNAPSHOT]
+		at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3741)
+		at org.apache.catalina.manager.ManagerServlet.reload(ManagerServlet.java:1089)
+		at org.apache.catalina.manager.HTMLManagerServlet.reload(HTMLManagerServlet.java:635)
+		at org.apache.catalina.manager.HTMLManagerServlet.doPost(HTMLManagerServlet.java:212)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.filters.CsrfPreventionFilter.doFilter(CsrfPreventionFilter.java:211)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:109)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:668)
+		at org.apache.catalina.valves.RequestFilterValve.process(RequestFilterValve.java:348)
+		at org.apache.catalina.valves.RemoteAddrValve.invoke(RemoteAddrValve.java:52)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+11-Apr-2020 13:07:49.982 INFORMACIÓN [http-nio-8080-exec-73] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 13:07:49.982 INFORMACIÓN [http-nio-8080-exec-64] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 13:15:55.413 INFORMACIÓN [http-nio-8080-exec-75] org.apache.catalina.core.ApplicationContext.log HTMLManager: restart: Reloading web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 13:16:01.700 INFORMACIÓN [http-nio-8080-exec-84] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 13:26:31.375 INFORMACIÓN [http-nio-8080-exec-75] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 13:26:56.674 INFORMACIÓN [http-nio-8080-exec-88] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 13:26:58.925 INFORMACIÓN [http-nio-8080-exec-91] org.apache.catalina.core.ApplicationContext.log HTMLManager: restart: Reloading web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 13:27:01.629 INFORMACIÓN [http-nio-8080-exec-91] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 13:29:38.948 INFORMACIÓN [http-nio-8080-exec-98] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 13:33:46.414 INFORMACIÓN [http-nio-8080-exec-113] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 13:33:49.383 INFORMACIÓN [http-nio-8080-exec-107] org.apache.catalina.core.ApplicationContext.log HTMLManager: restart: Reloading web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 13:33:51.014 INFORMACIÓN [http-nio-8080-exec-119] org.apache.catalina.core.ApplicationContext.log HTMLManager: sessions: Session information for web application '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 13:33:51.014 INFORMACIÓN [http-nio-8080-exec-119] org.apache.catalina.core.ApplicationContext.log HTMLManager: sessions: Session expiration for 30 minutes '/P5_Servidor-0.0.1-SNAPSHOT'
+11-Apr-2020 13:33:51.014 INFORMACIÓN [http-nio-8080-exec-119] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+11-Apr-2020 13:33:51.951 INFORMACIÓN [http-nio-8080-exec-107] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'

@@ -2,19 +2,16 @@ package es.unican.ss.services;
 
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
@@ -26,7 +23,7 @@ import es.unican.ss.types.Equipo;
 import es.unican.ss.types.Grupo;
 import es.unican.ss.types.Jugador;
 
-@Path("/clasificacion")
+@Path("/")
 public class Clasificacion {
 
 	private IClasificacionDAO clasificacionDao;
@@ -35,8 +32,8 @@ public class Clasificacion {
 		clasificacionDao = new ClasificacionDAO();
 	}
 	//Get clasificacion de un grupo
-	@Path("/{nombreGrupo}")
 	@GET
+	@Path("clasificacion/{nombreGrupo}")
 	@Produces("application/xml, application/json")
 	public Response getClasificacionEquipos(@PathParam("nombreGrupo") String nombreGrupo) {
 
@@ -56,8 +53,8 @@ public class Clasificacion {
 		return response;
 	}
 	// Consultar los datos de un equipo
-	@Path("/{nombreGrupo}/{nombreEquipo}")
 	@GET
+	@Path("clasificacion/{nombreGrupo}/{nombreEquipo}")
 	@Produces("application/xml, application/json")
 	public Response getEquipoPorNombre(@PathParam("nombreGrupo") String nombreGrupo,@PathParam("nombreEquipo") String nombreEquipo) {
 
@@ -76,10 +73,10 @@ public class Clasificacion {
 		return response;
 	}
 	// Consultar los datos de un jugador
-	@Path("/{nombreEquipo}/{dorsal}")
 	@GET
+	@Path("clasificacion/{nombreEquipo}/get-jugador/{dorsal}")
 	@Produces("application/xml, application/json")
-	public Response getJugadorPorDorsal(@PathParam("nombreEquipo") String nombreEquipo,@PathParam("nombreEquipo") String dorsal) {
+	public Response getJugadorPorDorsal(@PathParam("nombreEquipo") String nombreEquipo,@PathParam("dorsal") String dorsal) {
 
 		Response.ResponseBuilder builder;
 		Response response = null;
@@ -96,8 +93,9 @@ public class Clasificacion {
 		return response;
 	}
 	//Añadir jugador a equipo
-	@Path("/{nombreEquipo}")
-	@POST
+	@PUT
+	@Path("clasificacion/{nombreEquipo}")
+	@Consumes("application/xml, application/json")
 	@Produces("application/xml, application/json")
 	public Response anhadeJugadorAEquipo(@PathParam("nombreEquipo") String nombreEquipo, Jugador jugador,
 			@Context UriInfo uriInfo) {
@@ -120,8 +118,8 @@ public class Clasificacion {
 		return response;
 	}
 	//Eliminar jugador del equipo
-	@Path("/{nombreEquipo}/{dorsal}")
 	@DELETE
+	@Path("clasificacion/{nombreEquipo}/{dorsal}")
 	@Produces("application/xml, application/json")
 	public Response eliminaJugadorEquipo(@PathParam("nombreEquipo") String nombreEquipo,
 			@PathParam("dorsal") String dorsal) {
@@ -146,8 +144,9 @@ public class Clasificacion {
 	}
 
 	//Actualizar un equipo
-	@Path("/{nombreGrupo}/{nombreEquipo}")
 	@PUT
+	@Path("clasificacion/{nombreGrupo}/{nombreEquipo}")
+	@Consumes("application/xml, application/json")
 	@Produces("application/xml, application/json")
 	public Response putEquipo(Equipo equipo) {
 		Response.ResponseBuilder builder;
@@ -162,33 +161,15 @@ public class Clasificacion {
 		return response;
 	}
 
-
-	@GET
-	@Path("/{nombreEquipo}/{dorsal}")
-	@Produces("application/xml, application/json")
-	public Response getJugadorEquipo(@PathParam("nombreEquipo") String nombreEquipo,
-			@PathParam("nombreEquipo") String dorsal) {
-		Response.ResponseBuilder builder;
-
-		Jugador jug = ligaDAO.getJugador(nombreEquipo, Integer.parseInt(dorsal));
-
-		if (jug == null) {
-			builder = Response.status(Response.Status.NOT_FOUND);
-			return builder.build();
-		}
-
-		builder = Response.ok(jug);
-		return builder.build();
-	}
-
-	@Path("/{nombreEquipo}")
 	@PUT
+	@Path("clasificacion/{nombreEquipo}/update")
+	@Consumes("application/xml, application/json")
 	@Produces("application/xml, application/json")
 	public Response actualizaEquipoJornada(@PathParam("nombreEquipo") String nombreEquipo, Equipo equipoActualizado) {
 
 		Response.ResponseBuilder builder;
 		Response response = null;
-		Equipo equipo = ligaDAO.getEquipo(nombreEquipo);
+		Equipo equipo = clasificacionDao.getEquipo(nombreEquipo);
 		// Primero comprobamos si existe alguien con el dorsal a añadir y si existe,
 		// lo eliminamos
 
@@ -205,7 +186,7 @@ public class Clasificacion {
 			equipo.setPartidosPerdidos(equipoActualizado.getPartidosPerdidos());
 
 			// Actualizamos en la DAO
-			ligaDAO.actualizaEquipo(equipo);
+			clasificacionDao.actualizaEquipo(equipo);
 			builder = Response.ok(equipo);
 
 		}
@@ -216,8 +197,9 @@ public class Clasificacion {
 
 	}
 	//Actualizar datos jugador
-	@Path("/{nombreEquipo}/{dorsal}")
 	@PUT
+	@Path("clasificacion/{nombreEquipo}/actualiza-jugador/{dorsal}")
+	@Consumes("application/xml, application/json")
 	@Produces("application/xml, application/json")
 	public Response actualizaDatosJugador(@PathParam("nombreEquipo") String nombreEquipo,
 			@PathParam("dorsal") String dorsal, Jugador jugadorActualizado) {
@@ -256,7 +238,7 @@ public class Clasificacion {
 
 	//Consultar ranking de goleadores por grupo pasandole un grupo (global)
 	@GET
-	@Path("/{nombreGrupo}/ranking")
+	@Path("clasificacion/{nombreGrupo}/ranking")
 	@Produces("application/xml,application/json")
 	public Response getRankingPorGrupo(@PathParam("nombreGrupo") String nombreGrupo, @Context UriInfo uriInfo) {
 		Response.ResponseBuilder builder;
@@ -283,9 +265,9 @@ public class Clasificacion {
 
 	//Consultar ranking de goleadores por grupo pasandole un equipo
 	@GET
-	@Path("/{nombreGrupo}/ranking")
+	@Path("clasificacion/{nombreGrupo}/{nombreEquipo}/ranking/")
 	@Produces("application/xml,application/json")
-	public Response getRankingPorEquipo(@QueryParam("nombreEquipo") String equipo, @Context UriInfo uriInfo) {
+	public Response getRankingPorEquipo(@PathParam("nombreEquipo") String equipo, @Context UriInfo uriInfo) {
 		Response.ResponseBuilder builder;
 		List<Jugador> jugadores = null;
 		if (clasificacionDao.getEquipo(equipo) == null) {

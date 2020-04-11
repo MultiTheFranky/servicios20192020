@@ -3,16 +3,16 @@ package es.unican.ss.types;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement(name="tercera")
 public class Clasificacion {
 	
-	private String nombreLiga;
 	private List<Grupo> grupos;
 	
-	public Clasificacion(String nombreLiga) {
-		this.nombreLiga = nombreLiga;
+	public Clasificacion() {
 		grupos = new ArrayList<>();
 	}
-
+	
 	public List<Grupo> getGrupo() {
 		return grupos;
 	}
@@ -20,13 +20,4 @@ public class Clasificacion {
 	public void setGrupo(List<Grupo> grupos) {
 		this.grupos = grupos;
 	}
-
-	public String getNombreClasificacion() {
-		return nombreLiga;
-	}
-
-	public void setNombreClasificacion(String nombreLiga) {
-		this.nombreLiga = nombreLiga;
-	}
-	
 }

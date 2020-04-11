@@ -25,33 +25,29 @@ public class Cliente {
 
 	public static void main(String[] args) {
 
-		// Creación del JAXBContext
 		JAXBContext jaxbctx;
 		Jornada jornada = null;
 		try {
 			jaxbctx = JAXBContext.newInstance(Jornada.class);
-			InputStream jornada37Xml = Cliente.class.getClassLoader().getResourceAsStream("jornada37.xml");
+			InputStream xml = Cliente.class.getClassLoader().getResourceAsStream("jornada37.xml");
 
-			// Procesamos el documento (Unmarshall)
 			Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-			jornada = (Jornada) unmarshaller.unmarshal(jornada37Xml);
+			jornada = (Jornada) unmarshaller.unmarshal(xml);
 
 		} catch (JAXBException e) {
-			System.out.println("Error JAXB");
 			e.printStackTrace();
 
 		}
 
 		int golesEquipoLocal, golesEquipoVisitante;
 		Equipo equipoLocal = null, equipoVisitante = null;
-		// Equipo equipoLocalService = null, equipoVisitanteService = null;
 		for (Partido partido : jornada.getPartidos()) {
 			golesEquipoLocal = partido.getEquipoLocal().getNumGoles();
 			golesEquipoVisitante = partido.getEquipoVisitante().getNumGoles();
 
 			// EQUIPO LOCAL
 			Client clientLocal = ClientBuilder.newClient();
-			WebTarget baseLocal = clientLocal.target("http://localhost:8080/P5_SS_LaLiga_Servidor-0.0.1-SNAPSHOT/");
+			WebTarget baseLocal = clientLocal.target("http://localhost:8080/P5_Servidor-0.0.1-SNAPSHOT/");
 			WebTarget resourceLocal = baseLocal.path("liga/" + partido.getEquipoLocal().getNombreEquipo());
 			Invocation.Builder invocationBuilderLocal = resourceLocal.request(MediaType.APPLICATION_XML);
 			invocationBuilderLocal.accept(MediaType.APPLICATION_XML);
@@ -59,22 +55,23 @@ public class Cliente {
 
 			switch (responseLocal.getStatus()) {
 			case 200:
+				System.out.println("200: EQUIPO LOCAL");
 				equipoLocal = responseLocal.readEntity(Equipo.class);
 				break;
 
 			case 404:
-				System.out.println("EQUIPO LOCAL NO EXISTENTE (ERROR 404)");
+				System.out.println("ERROR 404: Equipo Local not Found");
 				break;
 
 			default:
-				System.out.println("ERROR AL ACTUALIZAR EQUIPO LOCAL");
+				System.out.println("ERROR Unknown");
 				break;
 			}
 
 			// EQUIPO VISITANTE
 			Client clientVisitante = ClientBuilder.newClient();
 			WebTarget baseVisitante = clientVisitante
-					.target("http://localhost:8080/P5_SS_LaLiga_Servidor-0.0.1-SNAPSHOT/");
+					.target("http://localhost:8080/P5_Servidor-0.0.1-SNAPSHOT/");
 			WebTarget resourceVisitante = baseVisitante.path("liga/" + partido.getEquipoVisitante().getNombreEquipo());
 			Invocation.Builder invocationBuilderVisitante = resourceVisitante.request(MediaType.APPLICATION_XML);
 			invocationBuilderVisitante.accept(MediaType.APPLICATION_XML);
@@ -82,15 +79,16 @@ public class Cliente {
 
 			switch (responseVisitante.getStatus()) {
 			case 200:
+				System.out.println("200: EQUIPO VISITANTE");
 				equipoVisitante = responseVisitante.readEntity(Equipo.class);
 				break;
 
 			case 404:
-				System.out.println("EQUIPO VISITANTE NO EXISTENTE (ERROR 404)");
+				System.out.println("ERROR 404: Equipo Local not Found");
 				break;
 
 			default:
-				System.out.println("ERROR AL ACTUALIZAR EQUIPO VISITANTE");
+				System.out.println("ERROR Unknown");
 				break;
 			}
 
@@ -164,29 +162,29 @@ public class Cliente {
 			// EQUIPO LOCAL
 			Client clientLocalPut = ClientBuilder.newClient();
 			WebTarget baseLocalPut = clientLocalPut
-					.target("http://localhost:8080/P5_SS_LaLiga_Servidor-0.0.1-SNAPSHOT/");
+					.target("http://localhost:8080/P5_Servidor-0.0.1-SNAPSHOT/");
 			WebTarget resourceLocalPut = baseLocalPut.path("liga/" + partido.getEquipoLocal().getNombreEquipo());
 			Invocation.Builder invocationBuilderLocalPut = resourceLocalPut.request();
 			Response responseLocalPut = invocationBuilderLocalPut.put(Entity.xml(equipoLocal));
 
 			switch (responseLocalPut.getStatus()) {
 			case 200:
-				System.out.println("EQUIPO LOCAL ACTUALIZADO CORRECTAMENTE");
+				System.out.println("200: UPDATE LOCAL TEAM");
 				break;
 
 			case 404:
-				System.out.println("EQUIPO LOCAL NO EXISTENTE (ERROR 404)");
+				System.out.println("ERROR 404: Equipo Local not Found");
 				break;
 
 			default:
-				System.out.println("ERROR AL ACTUALIZAR EQUIPO LOCAL");
+				System.out.println("ERROR Unknown");
 				break;
 			}
 
 			// EQUIPO VISITANTE
 			Client clientVisitantePut = ClientBuilder.newClient();
 			WebTarget baseVisitantePut = clientVisitantePut
-					.target("http://localhost:8080/P5_SS_LaLiga_Servidor-0.0.1-SNAPSHOT/");
+					.target("http://localhost:8080/P5_Servidor-0.0.1-SNAPSHOT/");
 			WebTarget resourceVisitantePut = baseVisitantePut
 					.path("liga/" + partido.getEquipoVisitante().getNombreEquipo());
 			Invocation.Builder invocationBuilderVisitantePut = resourceVisitantePut.request();
@@ -194,15 +192,15 @@ public class Cliente {
 
 			switch (responseVisitantePut.getStatus()) {
 			case 200:
-				System.out.println("EQUIPO VISITANTE ACTUALIZADO CORRECTAMENTE");
+				System.out.println("200: UPDATE LOCAL TEAM");
 				break;
 
 			case 404:
-				System.out.println("EQUIPO VISITANTE NO EXISTENTE (ERROR 404)");
+				System.out.println("ERROR 404: Equipo Visitante not Found");
 				break;
 
 			default:
-				System.out.println("ERROR AL ACTUALIZAR EQUIPO VISITANTE");
+				System.out.println("ERROR Unknown");
 				break;
 			}
 

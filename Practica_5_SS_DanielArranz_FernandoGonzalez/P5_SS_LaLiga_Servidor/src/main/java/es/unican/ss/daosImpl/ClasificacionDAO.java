@@ -1,6 +1,7 @@
 package es.unican.ss.daosImpl;
 
 import java.io.File;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -17,6 +18,8 @@ import es.unican.ss.types.Grupo;
 import es.unican.ss.types.Jugador;
 
 public class ClasificacionDAO implements IClasificacionDAO {
+	
+	
 
 	public ClasificacionDAO() {
 		
@@ -30,11 +33,9 @@ public class ClasificacionDAO implements IClasificacionDAO {
 			jaxbctx = JAXBContext.newInstance(Clasificacion.class);
 
 			Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-			Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(this.getClass().getClassLoader()
-					.getResourceAsStream("C:\\Users\\Franky\\P5\\clasificacion.xml"));
-
+			Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
 			for (Grupo g : clasificacion.getGrupo()) {
-				if(g.getID().equals(grupo)) {
+				if(g.getId().equals(grupo)) {
 					result = g;
 				}
 			}
@@ -50,9 +51,11 @@ public class ClasificacionDAO implements IClasificacionDAO {
 	public Equipo getEquipo(String grupo,String equipo) {
 		Equipo result = null;
 		Grupo g = getGrupo(grupo);
-		for (Equipo e : g.getEquipos()) {
-			if(e.getNombre().equals(equipo)) {
-				result = e;
+		if(g != null) {
+			for (Equipo e : g.getEquipos()) {
+				if(e.getNombre().equals(equipo)) {
+					result = e;
+				}
 			}
 		}
 		return result;
@@ -65,8 +68,7 @@ public class ClasificacionDAO implements IClasificacionDAO {
         try {
             jaxbctx = JAXBContext.newInstance(Clasificacion.class);
             Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-            Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(this.getClass().getClassLoader().getResourceAsStream(
-            		"C:\\Users\\Franky\\P5\\clasificacion.xml"));
+            Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
             for (Grupo g : clasificacion.getGrupo()) {
             	for (Equipo e : g.getEquipos()) {
 					if(e.getNombre().equals(equipo)) {
@@ -87,8 +89,7 @@ public class ClasificacionDAO implements IClasificacionDAO {
         try {
             jaxbctx = JAXBContext.newInstance(Clasificacion.class);
             Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-            Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(this.getClass().getClassLoader().getResourceAsStream(
-            		"C:\\Users\\Franky\\P5\\clasificacion.xml"));
+            Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
             for (Grupo g : clasificacion.getGrupo()) {
             	for (int i = 0; i < g.getEquipos().size(); i++) {
                     Equipo eq = g.getEquipos().get(i);
@@ -101,8 +102,13 @@ public class ClasificacionDAO implements IClasificacionDAO {
             
             // Actualiza el xml
             Marshaller marshaller = jaxbctx.createMarshaller();
-            marshaller.marshal(clasificacion, new File(
-            		"C:\\Users\\Franky\\P5\\clasificacion.xml"));
+            try {
+				marshaller.marshal(clasificacion, new File(
+						getClass().getResource("/clasificacion.xml").toURI()));
+			} catch (URISyntaxException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
         } catch (JAXBException j) {
             j.printStackTrace();
         }
@@ -127,8 +133,7 @@ public class ClasificacionDAO implements IClasificacionDAO {
         try {
             jaxbctx = JAXBContext.newInstance(Clasificacion.class);
             Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-            Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(this.getClass().getClassLoader().getResourceAsStream(
-            		"C:\\Users\\Franky\\P5\\clasificacion.xml"));
+            Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
             Equipo e = getEquipo(equipo);
             for (int i = 0; i < e.getJugadores().size(); i++) {
                 Jugador jugador = e.getJugadores().get(i);
@@ -138,8 +143,13 @@ public class ClasificacionDAO implements IClasificacionDAO {
             }
             // Actualiza el xml
             Marshaller marshaller = jaxbctx.createMarshaller();
-            marshaller.marshal(clasificacion, new File(
-            		"C:\\Users\\Franky\\P5\\clasificacion.xml"));
+            try {
+				marshaller.marshal(clasificacion, new File(
+						getClass().getResource("/clasificacion.xml").toURI()));
+			} catch (URISyntaxException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
         } catch (JAXBException e) {
             e.printStackTrace();
         }
@@ -155,11 +165,9 @@ public class ClasificacionDAO implements IClasificacionDAO {
 			jaxbctx = JAXBContext.newInstance(Clasificacion.class);
 
 			Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-			Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(this.getClass().getClassLoader()
-					.getResourceAsStream("C:\\Users\\ferna\\Archivos_p5\\primeraDivision.xml"));
-
+			Clasificacion clasificacion = (Clasificacion) unmarshaller.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
 			for (Grupo g : clasificacion.getGrupo()) {
-				if(g.getID().equals(grupo)) {
+				if(g.getId().equals(grupo)) {
 					for (Equipo e : g.getEquipos()) {
 						for (Jugador jugador : e.getJugadores()) {
 							jugadores.add(jugador);
@@ -190,8 +198,7 @@ public class ClasificacionDAO implements IClasificacionDAO {
         try {
             jaxbctx = JAXBContext.newInstance(Clasificacion.class);
             Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
-            Clasificacion liga = (Clasificacion) unmarshaller.unmarshal(this.getClass().getClassLoader().getResourceAsStream(
-            		"C:\\Users\\Franky\\P5\\clasificacion.xml"));
+            Clasificacion liga = (Clasificacion) unmarshaller.unmarshal(getClass().getResourceAsStream("/clasificacion.xml"));
             Jugador jugador = getJugador(equipo,dorsal);
             Equipo e = getEquipo(equipo);
             for (int i = 0; i < e.getJugadores().size(); i++) {
@@ -204,8 +211,13 @@ public class ClasificacionDAO implements IClasificacionDAO {
 
             // Actualiza el xml
             Marshaller marshaller = jaxbctx.createMarshaller();
-            marshaller.marshal(liga, new File(
-            		"C:\\Users\\Franky\\P5\\clasificacion.xml"));
+            try {
+				marshaller.marshal(liga, new File(
+						getClass().getResource("/clasificacion.xml").toURI()));
+			} catch (URISyntaxException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
         } catch (JAXBException e) {
             e.printStackTrace();
         }
