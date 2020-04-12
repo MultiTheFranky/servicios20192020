@@ -3,18 +3,22 @@ package es.unican.ss.types;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+
 public class EquipoPartido {
 
 	private String nombreEquipo;
 	private List<Gol> goles;
-	private List<Tarjeta> tarjetas;
-	private int numGoles;
+	private List<TarjetaAmarilla> tarjetasAmarillas;
+	private List<TarjetaRoja> tarjetasRojas;
 
 	public EquipoPartido() {
 		goles = new ArrayList<Gol>();
-		tarjetas = new ArrayList<Tarjeta>();
+		tarjetasAmarillas = new ArrayList<TarjetaAmarilla>();
+		tarjetasRojas = new ArrayList<TarjetaRoja>();
 	}
-
+	@XmlAttribute(name = "nombre")
 	public String getNombreEquipo() {
 		return nombreEquipo;
 	}
@@ -22,7 +26,7 @@ public class EquipoPartido {
 	public void setNombreEquipo(String nombreEquipo) {
 		this.nombreEquipo = nombreEquipo;
 	}
-
+	@XmlElement(name = "gol")
 	public List<Gol> getGoles() {
 		return goles;
 	}
@@ -30,21 +34,21 @@ public class EquipoPartido {
 	public void setGoles(List<Gol> goles) {
 		this.goles = goles;
 	}
-
-	public List<Tarjeta> getTarjetas() {
-		return tarjetas;
+	@XmlElement(name = "tAmarillas")
+	public List<TarjetaAmarilla> getTarjetasAmarillas() {
+		return tarjetasAmarillas;
 	}
-
-	public void setTarjetas(List<Tarjeta> tarjetas) {
-		this.tarjetas = tarjetas;
+	public void setTarjetasAmarillas(List<TarjetaAmarilla> tarjetasAmarillas) {
+		this.tarjetasAmarillas = tarjetasAmarillas;
 	}
-
-	public int getNumGoles() {
-		return numGoles;
+	@XmlElement(name = "tRojas")
+	public List<TarjetaRoja> getTarjetasRojas() {
+		return tarjetasRojas;
 	}
-
-	public void setNumGoles(int numGoles) {
-		this.numGoles = numGoles;
+	public void setTarjetasRojas(List<TarjetaRoja> tarjetasRojas) {
+		this.tarjetasRojas = tarjetasRojas;
 	}
+	
+	
 	
 }

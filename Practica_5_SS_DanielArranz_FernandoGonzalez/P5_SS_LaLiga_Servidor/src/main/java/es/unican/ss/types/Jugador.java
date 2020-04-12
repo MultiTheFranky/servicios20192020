@@ -57,7 +57,7 @@ public class Jugador {
 		this.goles = goles;
 	}
 	
-	@XmlElement
+	@XmlElement(name = "tAmarillas")
 	public int getTarjetasAmarillas() {
 		return tarjetasAmarillas;
 	}
@@ -66,7 +66,7 @@ public class Jugador {
 		this.tarjetasAmarillas = tarjetasAmarillas;
 	}
 	
-	@XmlElement
+	@XmlElement(name = "tRojas")
 	public int getTarjetasRojas() {
 		return tarjetasRojas;
 	}

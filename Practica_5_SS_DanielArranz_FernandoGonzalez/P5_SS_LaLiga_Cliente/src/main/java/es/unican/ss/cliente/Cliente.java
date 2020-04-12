@@ -16,8 +16,8 @@ import javax.xml.bind.Unmarshaller;
 import es.unican.ss.types.Gol;
 import es.unican.ss.types.Jornada;
 import es.unican.ss.types.Partido;
-import es.unican.ss.types.Tarjeta;
-import es.unican.ss.types.TipoTarjeta;
+import es.unican.ss.types.TarjetaAmarilla;
+import es.unican.ss.types.TarjetaRoja;
 import es.unican.ss.typesservice.Equipo;
 import es.unican.ss.typesservice.Jugador;
 
@@ -29,26 +29,25 @@ public class Cliente {
 		Jornada jornada = null;
 		try {
 			jaxbctx = JAXBContext.newInstance(Jornada.class);
-			InputStream xml = Cliente.class.getClassLoader().getResourceAsStream("jornada37.xml");
-
+			InputStream xml = Cliente.class.getResourceAsStream("/jornada37.xml");
 			Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
 			jornada = (Jornada) unmarshaller.unmarshal(xml);
 
 		} catch (JAXBException e) {
 			e.printStackTrace();
-
+			
 		}
-
+		
 		int golesEquipoLocal, golesEquipoVisitante;
 		Equipo equipoLocal = null, equipoVisitante = null;
 		for (Partido partido : jornada.getPartidos()) {
-			golesEquipoLocal = partido.getEquipoLocal().getNumGoles();
-			golesEquipoVisitante = partido.getEquipoVisitante().getNumGoles();
+			golesEquipoLocal = partido.getEquipoLocal().getGoles().size();
+			golesEquipoVisitante = partido.getEquipoVisitante().getGoles().size();
 
 			// EQUIPO LOCAL
 			Client clientLocal = ClientBuilder.newClient();
 			WebTarget baseLocal = clientLocal.target("http://localhost:8080/P5_Servidor-0.0.1-SNAPSHOT/");
-			WebTarget resourceLocal = baseLocal.path("liga/" + partido.getEquipoLocal().getNombreEquipo());
+			WebTarget resourceLocal = baseLocal.path("clasificacion/"+ jornada.getGrupo() + "/" + partido.getEquipoLocal().getNombreEquipo());
 			Invocation.Builder invocationBuilderLocal = resourceLocal.request(MediaType.APPLICATION_XML);
 			invocationBuilderLocal.accept(MediaType.APPLICATION_XML);
 			Response responseLocal = invocationBuilderLocal.get();
@@ -64,7 +63,7 @@ public class Cliente {
 				break;
 
 			default:
-				System.out.println("ERROR Unknown");
+				System.out.println("ERROR "+responseLocal.getStatus());
 				break;
 			}
 
@@ -72,7 +71,7 @@ public class Cliente {
 			Client clientVisitante = ClientBuilder.newClient();
 			WebTarget baseVisitante = clientVisitante
 					.target("http://localhost:8080/P5_Servidor-0.0.1-SNAPSHOT/");
-			WebTarget resourceVisitante = baseVisitante.path("liga/" + partido.getEquipoVisitante().getNombreEquipo());
+			WebTarget resourceVisitante = baseVisitante.path("clasificacion/" + jornada.getGrupo() + "/" + partido.getEquipoVisitante().getNombreEquipo());
 			Invocation.Builder invocationBuilderVisitante = resourceVisitante.request(MediaType.APPLICATION_XML);
 			invocationBuilderVisitante.accept(MediaType.APPLICATION_XML);
 			Response responseVisitante = invocationBuilderVisitante.get();
@@ -84,11 +83,11 @@ public class Cliente {
 				break;
 
 			case 404:
-				System.out.println("ERROR 404: Equipo Local not Found");
+				System.out.println("ERROR 404: Equipo Visitante not Found");
 				break;
 
 			default:
-				System.out.println("ERROR Unknown");
+				System.out.println("ERROR "+responseVisitante.getStatus());
 				break;
 			}
 
@@ -113,27 +112,35 @@ public class Cliente {
 			// ACTUALIZAMOS TARJETAS
 
 			// EQUIPO LOCAL
-			for (Tarjeta tarjeta : partido.getEquipoLocal().getTarjetas()) {
+			for (TarjetaAmarilla tarjeta : partido.getEquipoLocal().getTarjetasAmarillas()) {
 				for (Jugador jugador : equipoLocal.getJugadores()) {
-					if (jugador.getDorsal().equalsIgnoreCase(tarjeta.getDorsal())) {
-						if (tarjeta.getTipoTarjeta() == TipoTarjeta.AMARILLA) {
-							jugador.setTarjetasAmarillas(jugador.getTarjetasAmarillas() + 1);
-						} else if (tarjeta.getTipoTarjeta() == TipoTarjeta.ROJA) {
-							jugador.setTarjetasRojas(jugador.getTarjetasRojas() + 1);
-						}
+					if (jugador.getDorsal() == Integer.parseInt(tarjeta.getDorsal())) {
+						jugador.setTarjetasAmarillas(jugador.getTarjetasAmarillas() + 1);
+					}
+				}
+			}
+			
+			for (TarjetaRoja tarjeta : partido.getEquipoLocal().getTarjetasRojas()) {
+				for (Jugador jugador : equipoLocal.getJugadores()) {
+					if (jugador.getDorsal() == Integer.parseInt(tarjeta.getDorsal())) {
+						jugador.setTarjetasRojas(jugador.getTarjetasRojas() + 1);
 					}
 				}
 			}
 
 			// EQUIPO VISITANTE
-			for (Tarjeta tarjeta : partido.getEquipoVisitante().getTarjetas()) {
-				for (Jugador jugador : equipoLocal.getJugadores()) {
-					if (jugador.getDorsal().equalsIgnoreCase(tarjeta.getDorsal())) {
-						if (tarjeta.getTipoTarjeta() == TipoTarjeta.AMARILLA) {
-							jugador.setTarjetasAmarillas(jugador.getTarjetasAmarillas() + 1);
-						} else if (tarjeta.getTipoTarjeta() == TipoTarjeta.ROJA) {
-							jugador.setTarjetasRojas(jugador.getTarjetasRojas() + 1);
-						}
+			for (TarjetaAmarilla tarjeta : partido.getEquipoVisitante().getTarjetasAmarillas()) {
+				for (Jugador jugador : equipoVisitante.getJugadores()) {
+					if (jugador.getDorsal() == Integer.parseInt(tarjeta.getDorsal())) {
+						jugador.setTarjetasAmarillas(jugador.getTarjetasAmarillas() + 1);
+					}
+				}
+			}
+			
+			for (TarjetaRoja tarjeta : partido.getEquipoVisitante().getTarjetasRojas()) {
+				for (Jugador jugador : equipoVisitante.getJugadores()) {
+					if (jugador.getDorsal() == Integer.parseInt(tarjeta.getDorsal())) {
+						jugador.setTarjetasRojas(jugador.getTarjetasRojas() + 1);
 					}
 				}
 			}
@@ -143,7 +150,7 @@ public class Cliente {
 			// EQUIPO LOCAL
 			for (Gol gol : partido.getEquipoLocal().getGoles()) {
 				for (Jugador jugador : equipoLocal.getJugadores()) {
-					if (jugador.getDorsal().equalsIgnoreCase(gol.getDorsal())) {
+					if (jugador.getDorsal() == Integer.parseInt(gol.getDorsal())) {
 						jugador.setGoles(jugador.getGoles() + 1);
 					}
 				}
@@ -152,7 +159,7 @@ public class Cliente {
 			// EQUIPO VISITANTE
 			for (Gol gol : partido.getEquipoVisitante().getGoles()) {
 				for (Jugador jugador : equipoVisitante.getJugadores()) {
-					if (jugador.getDorsal().equalsIgnoreCase(gol.getDorsal())) {
+					if (jugador.getDorsal() == Integer.parseInt(gol.getDorsal())) {
 						jugador.setGoles(jugador.getGoles() + 1);
 					}
 				}
@@ -163,10 +170,10 @@ public class Cliente {
 			Client clientLocalPut = ClientBuilder.newClient();
 			WebTarget baseLocalPut = clientLocalPut
 					.target("http://localhost:8080/P5_Servidor-0.0.1-SNAPSHOT/");
-			WebTarget resourceLocalPut = baseLocalPut.path("liga/" + partido.getEquipoLocal().getNombreEquipo());
+			WebTarget resourceLocalPut = baseLocalPut.path("clasificacion/" + jornada.getGrupo() + "/" + partido.getEquipoLocal().getNombreEquipo()+"/update");
 			Invocation.Builder invocationBuilderLocalPut = resourceLocalPut.request();
 			Response responseLocalPut = invocationBuilderLocalPut.put(Entity.xml(equipoLocal));
-
+			
 			switch (responseLocalPut.getStatus()) {
 			case 200:
 				System.out.println("200: UPDATE LOCAL TEAM");
@@ -177,7 +184,7 @@ public class Cliente {
 				break;
 
 			default:
-				System.out.println("ERROR Unknown");
+				System.out.println("ERROR "+responseLocalPut.getStatus());
 				break;
 			}
 
@@ -186,13 +193,13 @@ public class Cliente {
 			WebTarget baseVisitantePut = clientVisitantePut
 					.target("http://localhost:8080/P5_Servidor-0.0.1-SNAPSHOT/");
 			WebTarget resourceVisitantePut = baseVisitantePut
-					.path("liga/" + partido.getEquipoVisitante().getNombreEquipo());
+					.path("clasificacion/" + jornada.getGrupo() + "/" + partido.getEquipoVisitante().getNombreEquipo()+"/update");
 			Invocation.Builder invocationBuilderVisitantePut = resourceVisitantePut.request();
 			Response responseVisitantePut = invocationBuilderVisitantePut.put(Entity.xml(equipoVisitante));
 
 			switch (responseVisitantePut.getStatus()) {
 			case 200:
-				System.out.println("200: UPDATE LOCAL TEAM");
+				System.out.println("200: UPDATE VISITANTE TEAM");
 				break;
 
 			case 404:
@@ -200,7 +207,7 @@ public class Cliente {
 				break;
 
 			default:
-				System.out.println("ERROR Unknown");
+				System.out.println("ERROR "+responseVisitantePut.getStatus());
 				break;
 			}
 

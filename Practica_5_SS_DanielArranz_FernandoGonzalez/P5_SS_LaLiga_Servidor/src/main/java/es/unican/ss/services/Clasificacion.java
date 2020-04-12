@@ -35,9 +35,9 @@ public class Clasificacion {
 	@GET
 	@Path("clasificacion/{nombreGrupo}")
 	@Produces("application/xml, application/json")
-	public Response getClasificacionEquipos(@PathParam("nombreGrupo") String nombreGrupo) {
+	public Response getClasificacionEquipos(@PathParam("nombreGrupo") String idGrupo) {
 
-		Grupo grupo = clasificacionDao.getGrupo(nombreGrupo);
+		Grupo grupo = clasificacionDao.getGrupo(idGrupo);
 
 		grupo.getEquipos().sort(new Comparator<Equipo>() {
 			public int compare(Equipo o1, Equipo o2) {
@@ -74,7 +74,7 @@ public class Clasificacion {
 	}
 	// Consultar los datos de un jugador
 	@GET
-	@Path("clasificacion/{nombreEquipo}/{dorsal}")
+	@Path("clasificacion/{nombreEquipo}/{dorsal}/getJugadorPorDorsal")
 	@Produces("application/xml, application/json")
 	public Response getJugadorPorDorsal(@PathParam("nombreEquipo") String nombreEquipo,@PathParam("dorsal") String dorsal) {
 
@@ -94,7 +94,7 @@ public class Clasificacion {
 	}
 	//Añadir jugador a equipo
 	@PUT
-	@Path("clasificacion/{nombreEquipo}")
+	@Path("clasificacion/{nombreEquipo}/{dorsal}/add")
 	@Consumes("application/xml, application/json")
 	@Produces("application/xml, application/json")
 	public Response anhadeJugadorAEquipo(@PathParam("nombreEquipo") String nombreEquipo, Jugador jugador,
@@ -162,7 +162,7 @@ public class Clasificacion {
 	}
 
 	@PUT
-	@Path("clasificacion/{nombreEquipo}/update")
+	@Path("clasificacion/{nombreGrupo}/{nombreEquipo}/update")
 	@Consumes("application/xml, application/json")
 	@Produces("application/xml, application/json")
 	public Response actualizaEquipoJornada(@PathParam("nombreEquipo") String nombreEquipo, Equipo equipoActualizado) {
@@ -184,6 +184,15 @@ public class Clasificacion {
 			equipo.setPartidosGanados(equipoActualizado.getPartidosGanados());
 			equipo.setPartidosJugados(equipoActualizado.getPartidosJugados());
 			equipo.setPartidosPerdidos(equipoActualizado.getPartidosPerdidos());
+			
+			for (int i = 0; i < equipo.getJugadores().size(); i++) {
+				Jugador j = equipo.getJugadores().get(i);
+				Jugador newJ = equipoActualizado.getJugadores().get(i);
+				//System.out.println("Jugador "+j.getNombre()+" Goles: "+j.getGoles() + " -> "+newJ.getGoles() +" Amarillas: "+j.getTarjetasAmarillas() + " -> "+newJ.getTarjetasAmarillas() +" Rojas: "+j.getTarjetasRojas() + " -> "+newJ.getTarjetasRojas());
+				j.setGoles(newJ.getGoles());
+				j.setTarjetasAmarillas(newJ.getTarjetasAmarillas());
+				j.setTarjetasRojas(newJ.getTarjetasRojas());
+			}
 
 			// Actualizamos en la DAO
 			clasificacionDao.actualizaEquipo(equipo);

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jornada num="37" grupo="3">
+	<partido>
+		<local nombre="Laredo">
+			<gol dorsal="2" minuto="38"/>
+			<gol dorsal="3" minuto="25"/>
+			<tAmarillas dorsal="2" minuto="40"/>
+			<tAmarillas dorsal="1" minuto="60"/>
+			<tAmarillas dorsal="3" minuto="90"/>
+		</local>
+		<visitante nombre= "Gimnástica">
+			<gol dorsal="1" minuto="5"/>
+			<gol dorsal="2" minuto="20"/>
+			<gol dorsal="1" minuto="40"/>
+			<gol dorsal="2" minuto="70"/>
+			<tRojas dorsal="1" minuto="70"/>
+		</visitante>
+	</partido>
+	
+	<partido>
+		<local nombre="Escobedo">
+			<gol dorsal="1" minuto="3"/>
+			<gol dorsal="2" minuto="25"/>
+			<gol dorsal="1" minuto="70"/>
+			<gol dorsal="3" minuto="72"/>
+			<tAmarillas dorsal="1" minuto="90"/>
+			<tAmarillas dorsal="2" minuto="60"/>
+		</local>
+		<visitante nombre= "Selaya">
+			<gol dorsal="1" minuto="2"/>
+			<gol dorsal="3" minuto="82"/>
+			<tRojas dorsal="1" minuto="76"/>
+		</visitante>
+	</partido>
+	
+</jornada>
