@@ -1,6 +1,7 @@
 package es.unican.ss.representations;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.core.UriInfo;
@@ -19,32 +20,25 @@ public class EquipoRepresentation {
 	private int partidosGanados;
 	private int partidosPerdidos;
 	private int partidosJugados;
+	private int puntos;
+
+	private AtomLink atomLink;
 
 	public EquipoRepresentation(UriInfo uriInfo, Equipo equipo) {
-
-		// Informacion adicional
+		jugadores = new ArrayList<>();
 		nombreEquipo = equipo.getNombre();
+		puntos = equipo.getPuntos();
 		partidosGanados = equipo.getPartidosGanados();
 		partidosPerdidos = equipo.getPartidosPerdidos();
 		partidosJugados = equipo.getPartidosJugados();
 
-		AtomLink atomLink = null;
 		for (Jugador j : equipo.getJugadores()) {
-			URI uri = uriInfo.getAbsolutePathBuilder().path(j.getDorsal()).build();
+			URI uri = uriInfo.getAbsolutePathBuilder().path(String.valueOf(j.getDorsal())).build();
 			atomLink = new AtomLink("jugador", uri.toString());
 			jugadores.add(atomLink);
 		}
-
 	}
-
-	public List<AtomLink> getJugadores() {
-		return jugadores;
-	}
-
-	public void setJugadores(List<AtomLink> jugadores) {
-		this.jugadores = jugadores;
-	}
-
+	@XmlElement
 	public String getNombreEquipo() {
 		return nombreEquipo;
 	}
@@ -52,7 +46,7 @@ public class EquipoRepresentation {
 	public void setNombreEquipo(String nombreEquipo) {
 		this.nombreEquipo = nombreEquipo;
 	}
-
+	@XmlElement
 	public int getPartidosGanados() {
 		return partidosGanados;
 	}
@@ -60,7 +54,7 @@ public class EquipoRepresentation {
 	public void setPartidosGanados(int partidosGanados) {
 		this.partidosGanados = partidosGanados;
 	}
-
+	@XmlElement
 	public int getPartidosPerdidos() {
 		return partidosPerdidos;
 	}
@@ -68,13 +62,37 @@ public class EquipoRepresentation {
 	public void setPartidosPerdidos(int partidosPerdidos) {
 		this.partidosPerdidos = partidosPerdidos;
 	}
-
+	@XmlElement
 	public int getPartidosJugados() {
 		return partidosJugados;
 	}
 
 	public void setPartidosJugados(int partidosJugados) {
 		this.partidosJugados = partidosJugados;
+	}
+	@XmlElement
+	public List<AtomLink> getJugadores() {
+		return jugadores;
+	}
+
+	public void setJugadores(List<AtomLink> jugadores) {
+		this.jugadores = jugadores;
+	}
+	@XmlElement
+	public int getPuntos() {
+		return puntos;
+	}
+
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
+	}
+	@XmlElement
+	public AtomLink getAtomLink() {
+		return atomLink;
+	}
+
+	public void setAtomLink(AtomLink atomLink) {
+		this.atomLink = atomLink;
 	}
 
 }

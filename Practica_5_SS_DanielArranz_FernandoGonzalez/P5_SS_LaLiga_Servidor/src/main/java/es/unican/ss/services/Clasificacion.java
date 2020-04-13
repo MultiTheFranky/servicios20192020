@@ -22,6 +22,7 @@ import es.unican.ss.daosImpl.ClasificacionDAO;
 import es.unican.ss.types.Equipo;
 import es.unican.ss.types.Grupo;
 import es.unican.ss.types.Jugador;
+import es.unican.ss.types.Ranking;
 
 @Path("/")
 public class Clasificacion {
@@ -266,7 +267,9 @@ public class Clasificacion {
 					return o2.getGoles() - o1.getGoles();
 				};
 			});
-			builder = Response.ok(jugadores);
+			Ranking r = new Ranking();
+			r.setJugadores(jugadores);
+			builder = Response.ok(r);
 		}
 		return builder.build();
 	}

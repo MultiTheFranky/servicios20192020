@@ -8,7 +8,7 @@ public class Jugador {
 
 	private String nombre;
 
-	private String dorsal;
+	private int dorsal;
 
 	private int goles;
 
@@ -21,7 +21,7 @@ public class Jugador {
 	}
 	
 
-	public Jugador(String nombre, String dorsal, int goles, int tarjetasAmarillas, int tarjetasRojas) {
+	public Jugador(String nombre, int dorsal, int goles, int tarjetasAmarillas, int tarjetasRojas) {
 		this.nombre = nombre;
 		this.dorsal = dorsal;
 		this.goles = goles;
@@ -40,11 +40,11 @@ public class Jugador {
 	}
 	
 	@XmlElement
-	public String getDorsal() {
+	public int getDorsal() {
 		return dorsal;
 	}
 
-	public void setDorsal(String dorsal) {
+	public void setDorsal(int dorsal) {
 		this.dorsal = dorsal;
 	}
 	
@@ -57,7 +57,7 @@ public class Jugador {
 		this.goles = goles;
 	}
 	
-	@XmlElement
+	@XmlElement(name = "tAmarillas")
 	public int getTarjetasAmarillas() {
 		return tarjetasAmarillas;
 	}
@@ -66,7 +66,7 @@ public class Jugador {
 		this.tarjetasAmarillas = tarjetasAmarillas;
 	}
 	
-	@XmlElement
+	@XmlElement(name = "tRojas")
 	public int getTarjetasRojas() {
 		return tarjetasRojas;
 	}

@@ -1,6 +1,7 @@
 package es.unican.ss.representations;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.core.UriInfo;
@@ -17,6 +18,7 @@ public class ClasificacionRepresentation {
 
 	public ClasificacionRepresentation(UriInfo uriInfo, List<Equipo> equiposClasificacion) {
 		AtomLink atomLink = null;
+		equipos = new ArrayList<>();
 		for (Equipo e : equiposClasificacion) {
 			URI uri = uriInfo.getAbsolutePathBuilder().path(e.getNombre()).build();
 			atomLink = new AtomLink("equipo", uri.toString());

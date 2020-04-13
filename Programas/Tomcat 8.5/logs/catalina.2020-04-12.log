@@ -129,3 +129,14 @@ WARNING: A resource model has ambiguous (sub-)resource method for HTTP method PU
 12-Apr-2020 13:43:04.491 INFORMACIÓN [localhost-startStop-17] org.apache.catalina.startup.HostConfig.deployWAR Despliegue del archivo [C:\Users\Franky\Desktop\Servicios\servicios20192020\Programas\Tomcat 8.5\webapps\P5_Servidor-0.0.1-SNAPSHOT.war] de la aplicación web
 12-Apr-2020 13:43:06.770 INFORMACIÓN [localhost-startStop-17] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
 12-Apr-2020 13:43:07.445 INFORMACIÓN [localhost-startStop-17] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\Franky\Desktop\Servicios\servicios20192020\Programas\Tomcat 8.5\webapps\P5_Servidor-0.0.1-SNAPSHOT.war] has finished in [2.954] ms
+12-Apr-2020 13:49:10.333 INFORMACIÓN [Thread-8] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+12-Apr-2020 13:49:10.385 INFORMACIÓN [Thread-8] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+12-Apr-2020 13:49:10.433 INFORMACIÓN [Thread-8] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+12-Apr-2020 13:49:10.467 INFORMACIÓN [localhost-startStop-18] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: el servlet de JAX-WS se ha destruido
+12-Apr-2020 13:49:10.468 INFORMACIÓN [localhost-startStop-18] com.sun.xml.ws.server.WSEndpointImpl.closeManagedObjectManager Closing Metro monitoring root: com.sun.metro:pp=/,type=WSEndpoint,name=/DemoJAXWS-HelloWorldService-HelloWorldPort
+12-Apr-2020 13:49:10.469 INFORMACIÓN [localhost-startStop-18] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: el listener de contexto de JAX-WS se ha destruido
+12-Apr-2020 13:49:10.469 INFORMACIÓN [localhost-startStop-18] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: el listener de contexto de JAX-WS se ha destruido
+12-Apr-2020 13:49:10.473 INFORMACIÓN [Thread-8] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+12-Apr-2020 13:49:10.474 INFORMACIÓN [Thread-8] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+12-Apr-2020 13:49:10.475 INFORMACIÓN [Thread-8] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+12-Apr-2020 13:49:10.476 INFORMACIÓN [Thread-8] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
