@@ -120,3 +120,14 @@
 13-Apr-2020 12:34:57.712 INFORMACIÓN [http-nio-8080-exec-82] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/P5_Servidor_Hiperenlaces-0.0.1-SNAPSHOT]
 13-Apr-2020 12:34:59.615 INFORMACIÓN [http-nio-8080-exec-82] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
 13-Apr-2020 12:35:00.253 INFORMACIÓN [http-nio-8080-exec-82] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+13-Apr-2020 12:37:24.655 INFORMACIÓN [Thread-8] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+13-Apr-2020 12:37:24.709 INFORMACIÓN [Thread-8] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+13-Apr-2020 12:37:24.760 INFORMACIÓN [Thread-8] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+13-Apr-2020 12:37:24.805 INFORMACIÓN [localhost-startStop-14] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: el servlet de JAX-WS se ha destruido
+13-Apr-2020 12:37:24.806 INFORMACIÓN [localhost-startStop-14] com.sun.xml.ws.server.WSEndpointImpl.closeManagedObjectManager Closing Metro monitoring root: com.sun.metro:pp=/,type=WSEndpoint,name=/DemoJAXWS-HelloWorldService-HelloWorldPort
+13-Apr-2020 12:37:24.811 INFORMACIÓN [localhost-startStop-14] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: el listener de contexto de JAX-WS se ha destruido
+13-Apr-2020 12:37:24.812 INFORMACIÓN [localhost-startStop-14] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: el listener de contexto de JAX-WS se ha destruido
+13-Apr-2020 12:37:24.825 INFORMACIÓN [Thread-8] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+13-Apr-2020 12:37:24.827 INFORMACIÓN [Thread-8] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+13-Apr-2020 12:37:24.827 INFORMACIÓN [Thread-8] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+13-Apr-2020 12:37:24.828 INFORMACIÓN [Thread-8] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
