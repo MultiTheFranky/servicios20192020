@@ -4,6 +4,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import es.unican.ss.services.Clasificacion;
 import es.unican.ss.types.Jugador;
 @XmlRootElement(name="jugador")
 public class JugadorRepresentation {
@@ -25,7 +26,7 @@ public class JugadorRepresentation {
 		nombre = jugador.getNombre();
 		tarjetasAmarillas = jugador.getTarjetasAmarillas();
 		tarjetasRojas = jugador.getTarjetasRojas();
-		System.out.println(jugador.getEquipo());
+		jugador.setEquipo(Clasificacion.clasificacionDao.getEquipoJugador(jugador));
 		String selfURI = uriInfo.getBaseUriBuilder().path("jugador/"+jugador.getEquipo().getNombre()+"/"+dorsal).toString();
 		setSelf(new AtomLink("self", selfURI));
 	}

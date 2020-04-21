@@ -3,8 +3,6 @@ package es.unican.ss.types;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import es.unican.ss.services.Clasificacion;
-
 @XmlRootElement(name="jugador")
 public class Jugador {
 
@@ -21,7 +19,6 @@ public class Jugador {
 	private Equipo equipo;
 
 	public Jugador() {
-
 	}
 	
 
@@ -31,7 +28,6 @@ public class Jugador {
 		this.goles = goles;
 		this.tarjetasAmarillas = tarjetasAmarillas;
 		this.tarjetasRojas = tarjetasRojas;
-		this.equipo = Clasificacion.clasificacionDao.getEquipoJugador(this);
 	}
 
 
@@ -79,17 +75,13 @@ public class Jugador {
 	public void setTarjetasRojas(int tarjetasRojas) {
 		this.tarjetasRojas = tarjetasRojas;
 	}
-
-	@XmlElement(name = "equipo")
+	
 	public Equipo getEquipo() {
 		return equipo;
 	}
-
-
+	
 	public void setEquipo(Equipo equipo) {
 		this.equipo = equipo;
 	}
-	
-	
 
 }

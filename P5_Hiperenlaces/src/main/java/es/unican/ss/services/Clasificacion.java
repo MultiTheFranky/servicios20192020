@@ -20,7 +20,6 @@ import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
 import es.unican.ss.daosImpl.ClasificacionDAO;
-import es.unican.ss.representations.AtomLink;
 import es.unican.ss.representations.EquipoRepresentation;
 import es.unican.ss.representations.GrupoRepresentation;
 import es.unican.ss.representations.JugadorRepresentation;
@@ -56,9 +55,6 @@ public class Clasificacion {
 			});
 
 			GrupoRepresentation grupoRep = new GrupoRepresentation(uriInfo, grupo);
-			for (AtomLink er : grupoRep.getEquipos()) {
-				System.out.println(er.getHref());
-			}
 			builder = Response.ok(grupoRep);
 			response = builder.build();
 		}else {
@@ -201,7 +197,6 @@ public class Clasificacion {
 			for (int i = 0; i < equipo.getJugadores().size(); i++) {
 				Jugador j = equipo.getJugadores().get(i);
 				Jugador newJ = equipoActualizado.getJugadores().get(i);
-				//System.out.println("Jugador "+j.getNombre()+" Goles: "+j.getGoles() + " -> "+newJ.getGoles() +" Amarillas: "+j.getTarjetasAmarillas() + " -> "+newJ.getTarjetasAmarillas() +" Rojas: "+j.getTarjetasRojas() + " -> "+newJ.getTarjetasRojas());
 				j.setGoles(newJ.getGoles());
 				j.setTarjetasAmarillas(newJ.getTarjetasAmarillas());
 				j.setTarjetasRojas(newJ.getTarjetasRojas());
@@ -282,9 +277,6 @@ public class Clasificacion {
 			Ranking r = new Ranking(g);
 			r.setJugadores(jugadores);
 			RankingRepresentationGrupo rr = new RankingRepresentationGrupo(r, uriInfo, index);
-			for (JugadorRepresentation jugador : rr.getJugadores()) {
-				System.out.println(jugador.getNombre());
-			}
 			builder = Response.ok(rr);
 		}
 		return builder.build();
@@ -309,10 +301,8 @@ public class Clasificacion {
 			});
 			Ranking r = new Ranking();
 			r.setJugadores(jugadores);
+			r.setEquipo(clasificacionDao.getEquipo(equipo));
 			RankingRepresentationEquipo rr = new RankingRepresentationEquipo(r, uriInfo, index,grupo);
-			for (JugadorRepresentation jugador : rr.getJugadores()) {
-				System.out.println(jugador.getNombre());
-			}
 			builder = Response.ok(rr);
 		}
 		return builder.build();

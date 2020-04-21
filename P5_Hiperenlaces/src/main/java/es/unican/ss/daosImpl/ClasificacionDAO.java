@@ -266,7 +266,7 @@ public class ClasificacionDAO implements IClasificacionDAO {
 				for (Grupo g : clasificacion.getGrupo()) {
 					for (Equipo e : g.getEquipos()) {
 						for (Jugador je : e.getJugadores()) {
-							if(je.equals(j)) {
+							if(je.getNombre().equals(j.getNombre()) && je.getDorsal() == j.getDorsal()) {
 								return e;
 							}
 						}

@@ -23,7 +23,16 @@ public class RankingRepresentationEquipo {
 
 	public RankingRepresentationEquipo(Ranking ranking, UriInfo uriInfo, int index, String grupo) {
 		jugadores = new ArrayList<JugadorRepresentation>();
-		for (int i = index; i<index+NUM_JUGADORES; i++) {
+		int limit = 0;
+		if(index > ranking.getJugadores().size()) { //Eliminar si la funcionalidad requerida es que no se vean jugadores si el index es superior al numero de jugadores
+			index = 0;
+		}
+		if((NUM_JUGADORES + index) > ranking.getJugadores().size()) {
+			limit = ranking.getJugadores().size();
+		}else {
+			limit = NUM_JUGADORES + index;
+		}
+		for (int i = index; i<limit; i++) {
 			JugadorRepresentation jugador = new JugadorRepresentation(uriInfo, ranking.getJugadores().get(i));
 			jugadores.add(jugador);
 		}

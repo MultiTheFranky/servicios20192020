@@ -1,6 +1,5 @@
 package es.unican.ss.representations;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +13,7 @@ import es.unican.ss.types.Jugador;
 @XmlRootElement(name = "equipo")
 public class EquipoRepresentation {
 
-	@XmlElement(name = "link")
-	private List<AtomLink> jugadores;
+	private List<JugadorRepresentation> jugadores;
 	private String nombreEquipo;
 	private int partidosGanados;
 	private int partidosPerdidos;
@@ -35,12 +33,10 @@ public class EquipoRepresentation {
 		partidosJugados = equipo.getPartidosJugados();
 
 		for (Jugador j : equipo.getJugadores()) {
-			URI uri = uriInfo.getAbsolutePathBuilder().path(nombreEquipo+"/"+String.valueOf(j.getDorsal())).build();
-			atomLink = new AtomLink("jugador", uri.toString());
-			jugadores.add(atomLink);
+			jugadores.add(new JugadorRepresentation(uriInfo, j));
 		}
 	}
-	@XmlElement
+	@XmlElement(name="equipo")
 	public String getNombreEquipo() {
 		return nombreEquipo;
 	}
@@ -72,12 +68,12 @@ public class EquipoRepresentation {
 	public void setPartidosJugados(int partidosJugados) {
 		this.partidosJugados = partidosJugados;
 	}
-	@XmlElement
-	public List<AtomLink> getJugadores() {
+	@XmlElement(name = "jugadores")
+	public List<JugadorRepresentation> getJugadores() {
 		return jugadores;
 	}
 
-	public void setJugadores(List<AtomLink> jugadores) {
+	public void setJugadores(List<JugadorRepresentation> jugadores) {
 		this.jugadores = jugadores;
 	}
 	@XmlElement
@@ -88,7 +84,7 @@ public class EquipoRepresentation {
 	public void setPuntos(int puntos) {
 		this.puntos = puntos;
 	}
-	@XmlElement
+	
 	public AtomLink getAtomLink() {
 		return atomLink;
 	}

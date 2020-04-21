@@ -88,7 +88,7 @@ public class Equipo {
 		this.partidosJugados = partidosJugados;
 	}
 	
-	@XmlElement(name = "jugador")
+	@XmlElement(name = "jugador", type = Jugador.class)
 	public List<Jugador> getJugadores() {
 		return jugadores;
 	}
@@ -96,5 +96,4 @@ public class Equipo {
 	public void setJugadores(List<Jugador> jugadores) {
 		this.jugadores = jugadores;
 	}
-
 }
