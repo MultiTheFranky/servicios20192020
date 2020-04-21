@@ -33,7 +33,7 @@ public class EquipoRepresentation {
 		partidosJugados = equipo.getPartidosJugados();
 
 		for (Jugador j : equipo.getJugadores()) {
-			URI uri = uriInfo.getAbsolutePathBuilder().path(String.valueOf(j.getDorsal())).build();
+			URI uri = uriInfo.getAbsolutePathBuilder().path(nombreEquipo+"/"+String.valueOf(j.getDorsal())).build();
 			atomLink = new AtomLink("jugador", uri.toString());
 			jugadores.add(atomLink);
 		}

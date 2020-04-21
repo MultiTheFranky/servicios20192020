@@ -20,7 +20,7 @@ import es.unican.ss.types.Jugador;
 
 public class ClasificacionDAO implements IClasificacionDAO {
 
-	public static final String XML_DIR = "C:\\Users\\Franky\\Documents\\clasificacion.xml";
+	public static final String XML_DIR = "D:\\Documentos\\clasificacion.xml";
 
 	public ClasificacionDAO() {
 

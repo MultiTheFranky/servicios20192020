@@ -20,6 +20,7 @@ import javax.ws.rs.core.UriInfo;
 import es.unican.ss.daos.IClasificacionDAO;
 import es.unican.ss.daosImpl.ClasificacionDAO;
 import es.unican.ss.representations.EquipoRepresentation;
+import es.unican.ss.representations.GrupoRepresentation;
 import es.unican.ss.representations.JugadorRepresentation;
 import es.unican.ss.representations.RankingRepresentation;
 import es.unican.ss.types.Equipo;
@@ -39,7 +40,7 @@ public class Clasificacion {
 	@GET
 	@Path("clasificacion/{nombreGrupo}")
 	@Produces("application/xml, application/json")
-	public Response getClasificacionEquipos(@PathParam("nombreGrupo") String idGrupo) {
+	public Response getClasificacionEquipos(@PathParam("nombreGrupo") String idGrupo, @Context UriInfo uriInfo) {
 
 		Grupo grupo = clasificacionDao.getGrupo(idGrupo);
 		Response response = null;
@@ -49,9 +50,10 @@ public class Clasificacion {
 					return o2.getPuntos() - o1.getPuntos();
 				};
 			});
-
+			
+			GrupoRepresentation grupoRep = new GrupoRepresentation(uriInfo, grupo);
 			Response.ResponseBuilder builder;
-			builder = Response.ok(grupo);
+			builder = Response.ok(grupoRep);
 			response = builder.build();
 		}
 		return response;
@@ -64,18 +66,16 @@ public class Clasificacion {
 	public Response getEquipoPorNombre(@Context UriInfo uriInfo,@PathParam("nombreGrupo") String nombreGrupo,@PathParam("nombreEquipo") String nombreEquipo) {
 
 		Response.ResponseBuilder builder;
-		Response response = null;
 		Equipo e = clasificacionDao.getEquipo(nombreGrupo,nombreEquipo);
 
 		if (e == null) {
 			builder = Response.status(Response.Status.NOT_FOUND);
 		} else {
-			builder = Response.ok(new EquipoRepresentation(uriInfo,e));
+			EquipoRepresentation equipoRep = new EquipoRepresentation(uriInfo,e);
+			builder = Response.ok(equipoRep);
 		}
 
-		response = builder.build();
-
-		return response;
+		return builder.build();
 	}
 	// Consultar los datos de un jugador
 	@GET

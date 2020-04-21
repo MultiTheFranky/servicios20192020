@@ -8,31 +8,29 @@ import javax.ws.rs.core.UriInfo;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import es.unican.ss.types.Equipo;
+import es.unican.ss.types.Grupo;
 
 @XmlRootElement(name = "clasificacion")
 public class ClasificacionRepresentation {
 	
 	@XmlElement(name = "link")
-	private List<AtomLink> equipos;
+	private List<AtomLink> grupos;
 
-	public ClasificacionRepresentation(UriInfo uriInfo, List<Equipo> equiposClasificacion) {
+	public ClasificacionRepresentation(UriInfo uriInfo, List<Grupo> listaGrupos) {
 		AtomLink atomLink = null;
-		equipos = new ArrayList<>();
-		for (Equipo e : equiposClasificacion) {
-			URI uri = uriInfo.getAbsolutePathBuilder().path(e.getNombre()).build();
+		grupos = new ArrayList<>();
+		for (Grupo g : listaGrupos) {
+			URI uri = uriInfo.getAbsolutePathBuilder().path(g.getNombre()).build();
 			atomLink = new AtomLink("equipo", uri.toString());
-			equipos.add(atomLink);
+			grupos.add(atomLink);
 		}
-		
 	}
 
-	public List<AtomLink> getEquipos() {
-		return equipos;
+	public List<AtomLink> getGrupos() {
+		return grupos;
 	}
 
-	public void setEquipos(List<AtomLink> equipos) {
-		this.equipos = equipos;
+	public void setGrupos(List<AtomLink> grupos) {
+		this.grupos = grupos;
 	}
-
 }
