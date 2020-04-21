@@ -5,7 +5,6 @@ es\unican\ss\types\Grupo.class
 es\unican\ss\types\Clasificacion.class
 es\unican\ss\types\Ranking.class
 es\unican\ss\services\Clasificacion$3.class
-es\unican\ss\representations\RankingRepresentation.class
 es\unican\ss\daos\IClasificacionDAO.class
 es\unican\ss\services\Clasificacion$1.class
 es\unican\ss\representations\JugadorRepresentation.class

@@ -1,14 +1,15 @@
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\AtomLink.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\JugadorRepresentation.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\types\Jugador.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\EquipoRepresentation.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\RankingRepresentation.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\daosImpl\ClasificacionDAO.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\types\Equipo.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\GrupoRepresentation.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\types\Ranking.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\services\Clasificacion.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\types\Grupo.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\ClasificacionRepresentation.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\daos\IClasificacionDAO.java
-C:\Users\lamad\Desktop\repositorio con fran\P5_Hiperenlaces\src\main\java\es\unican\ss\types\Clasificacion.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\AtomLink.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\daos\IClasificacionDAO.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\types\Ranking.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\EquipoRepresentation.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\ClasificacionRepresentation.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\types\Grupo.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\types\Jugador.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\RankingRepresentationEquipo.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\types\Clasificacion.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\services\Clasificacion.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\daosImpl\ClasificacionDAO.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\RankingRepresentationGrupo.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\types\Equipo.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\JugadorRepresentation.java
+C:\Users\Franky\Desktop\Servicios\servicios20192020\P5_Hiperenlaces\src\main\java\es\unican\ss\representations\GrupoRepresentation.java

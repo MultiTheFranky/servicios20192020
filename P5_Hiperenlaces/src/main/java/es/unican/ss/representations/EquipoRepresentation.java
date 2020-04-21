@@ -23,6 +23,8 @@ public class EquipoRepresentation {
 	private int puntos;
 
 	private AtomLink atomLink;
+	
+	public EquipoRepresentation() {}
 
 	public EquipoRepresentation(UriInfo uriInfo, Equipo equipo) {
 		jugadores = new ArrayList<>();

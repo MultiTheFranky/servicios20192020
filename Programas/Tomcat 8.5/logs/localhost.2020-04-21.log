@@ -227,3 +227,867 @@
 		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 		at java.lang.Thread.run(Thread.java:748)
+21-Apr-2020 16:03:24.855 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+21-Apr-2020 16:03:24.856 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+21-Apr-2020 16:03:24.857 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@3ce80156')
+21-Apr-2020 16:03:43.633 GRAVE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [javax.ws.rs.core.Application] en el contexto con ruta [/P5_Servidor-0.0.1-SNAPSHOT] lanzó la excepción [java.lang.NullPointerException] con causa raíz
+	java.lang.NullPointerException
+		at es.unican.ss.services.Clasificacion.getClasificacionEquipos(Clasificacion.java:43)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+		at java.lang.reflect.Method.invoke(Unknown Source)
+		at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)
+		at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+		at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+		at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+		at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+		at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+		at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+21-Apr-2020 16:48:30.989 INFORMACIÓN [localhost-startStop-17] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+21-Apr-2020 16:48:30.989 INFORMACIÓN [localhost-startStop-17] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+21-Apr-2020 16:48:45.408 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:48:45.411 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:48:45.411 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:48:48.863 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'com.sun.xml.ws.transport.http.servlet.WSServletContextListener'
+21-Apr-2020 16:48:48.863 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:48:48.870 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:48:48.870 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:48:50.711 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:48:50.711 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:48:50.711 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:48:53.261 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:48:53.261 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:48:53.261 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:48:55.236 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:48:55.236 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:48:55.236 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:48:56.652 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'listeners.ContextListener'
+21-Apr-2020 16:48:56.653 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'listeners.SessionListener'
+21-Apr-2020 16:48:56.654 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'async.AsyncStockContextListener'
+21-Apr-2020 16:48:56.655 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'websocket.drawboard.DrawboardContextListener'
+21-Apr-2020 16:48:56.655 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:48:56.655 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+21-Apr-2020 16:48:56.655 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+21-Apr-2020 16:48:56.656 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@340b9703')
+21-Apr-2020 16:48:56.657 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:48:56.657 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Set Character Encoding'
+21-Apr-2020 16:48:56.658 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Compression Filter'
+21-Apr-2020 16:48:56.661 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Request Dumper Filter'
+21-Apr-2020 16:48:56.662 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:48:56.662 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Timing Filter'
+21-Apr-2020 16:48:57.946 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:48:57.946 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:48:57.946 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:51:58.858 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:51:58.858 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:51:58.863 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:51:58.863 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:51:58.872 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:51:58.872 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:51:58.883 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:51:58.883 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:51:58.888 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:51:58.888 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Set Character Encoding'
+21-Apr-2020 16:51:58.888 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Compression Filter'
+21-Apr-2020 16:51:58.888 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Request Dumper Filter'
+21-Apr-2020 16:51:58.888 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:51:58.888 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Timing Filter'
+21-Apr-2020 16:51:58.888 INFORMACIÓN [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+21-Apr-2020 16:51:58.888 INFORMACIÓN [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+21-Apr-2020 16:51:58.892 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:51:58.892 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:51:58.902 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:51:58.902 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:52:06.933 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:52:06.934 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:52:06.935 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:52:10.385 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'com.sun.xml.ws.transport.http.servlet.WSServletContextListener'
+21-Apr-2020 16:52:10.385 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:52:10.393 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:52:10.393 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:52:12.295 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:52:12.296 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:52:12.296 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:52:14.821 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:52:14.821 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:52:14.821 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:52:16.771 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:52:16.772 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:52:16.772 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:52:18.215 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'listeners.ContextListener'
+21-Apr-2020 16:52:18.216 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'listeners.SessionListener'
+21-Apr-2020 16:52:18.217 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'async.AsyncStockContextListener'
+21-Apr-2020 16:52:18.218 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'websocket.drawboard.DrawboardContextListener'
+21-Apr-2020 16:52:18.218 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:52:18.218 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+21-Apr-2020 16:52:18.218 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+21-Apr-2020 16:52:18.219 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@130b9f06')
+21-Apr-2020 16:52:18.220 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:52:18.220 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Set Character Encoding'
+21-Apr-2020 16:52:18.221 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Compression Filter'
+21-Apr-2020 16:52:18.222 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Request Dumper Filter'
+21-Apr-2020 16:52:18.223 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:52:18.223 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Timing Filter'
+21-Apr-2020 16:52:19.544 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:52:19.545 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:52:19.545 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:06.281 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:56:06.281 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:06.286 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:56:06.287 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:06.295 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:56:06.295 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:06.307 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:56:06.307 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:06.311 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:56:06.311 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Set Character Encoding'
+21-Apr-2020 16:56:06.311 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Compression Filter'
+21-Apr-2020 16:56:06.311 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Request Dumper Filter'
+21-Apr-2020 16:56:06.311 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:06.312 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Timing Filter'
+21-Apr-2020 16:56:06.312 INFORMACIÓN [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+21-Apr-2020 16:56:06.312 INFORMACIÓN [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+21-Apr-2020 16:56:06.316 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:56:06.316 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:06.333 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:56:06.333 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:14.029 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:56:14.036 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:56:14.037 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:17.468 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'com.sun.xml.ws.transport.http.servlet.WSServletContextListener'
+21-Apr-2020 16:56:17.468 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:56:17.476 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:56:17.476 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:19.297 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:56:19.303 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:56:19.303 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:21.780 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:56:21.788 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:56:21.788 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:23.665 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:56:23.671 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:56:23.671 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:25.059 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'listeners.ContextListener'
+21-Apr-2020 16:56:25.060 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'listeners.SessionListener'
+21-Apr-2020 16:56:25.061 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'async.AsyncStockContextListener'
+21-Apr-2020 16:56:25.062 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'websocket.drawboard.DrawboardContextListener'
+21-Apr-2020 16:56:25.062 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:56:25.062 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+21-Apr-2020 16:56:25.062 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+21-Apr-2020 16:56:25.063 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@340b9703')
+21-Apr-2020 16:56:25.068 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:56:25.068 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Set Character Encoding'
+21-Apr-2020 16:56:25.070 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Compression Filter'
+21-Apr-2020 16:56:25.072 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Request Dumper Filter'
+21-Apr-2020 16:56:25.072 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:25.072 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Timing Filter'
+21-Apr-2020 16:56:26.342 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:56:26.349 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:56:26.349 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:58:39.038 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:58:39.038 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:58:39.051 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:58:39.051 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:58:39.074 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:58:39.074 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:58:39.091 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:58:39.091 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:58:39.101 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:58:39.101 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Set Character Encoding'
+21-Apr-2020 16:58:39.101 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Compression Filter'
+21-Apr-2020 16:58:39.101 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Request Dumper Filter'
+21-Apr-2020 16:58:39.101 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:58:39.101 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Timing Filter'
+21-Apr-2020 16:58:39.104 INFORMACIÓN [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+21-Apr-2020 16:58:39.104 INFORMACIÓN [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+21-Apr-2020 16:58:39.121 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:58:39.121 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:58:39.145 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:58:39.145 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:01:21.020 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 17:01:21.027 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 17:01:21.027 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:01:24.515 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'com.sun.xml.ws.transport.http.servlet.WSServletContextListener'
+21-Apr-2020 17:01:24.515 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 17:01:24.525 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 17:01:24.525 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:01:26.436 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 17:01:26.443 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 17:01:26.443 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:01:29.017 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 17:01:29.023 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 17:01:29.023 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:01:30.954 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 17:01:30.960 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 17:01:30.960 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:01:32.414 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'listeners.ContextListener'
+21-Apr-2020 17:01:32.414 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'listeners.SessionListener'
+21-Apr-2020 17:01:32.415 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'async.AsyncStockContextListener'
+21-Apr-2020 17:01:32.416 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart  Configuring event listener class 'websocket.drawboard.DrawboardContextListener'
+21-Apr-2020 17:01:32.417 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 17:01:32.417 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+21-Apr-2020 17:01:32.417 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+21-Apr-2020 17:01:32.417 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@340b9703')
+21-Apr-2020 17:01:32.423 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 17:01:32.423 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Set Character Encoding'
+21-Apr-2020 17:01:32.425 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Compression Filter'
+21-Apr-2020 17:01:32.426 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Request Dumper Filter'
+21-Apr-2020 17:01:32.427 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:01:32.427 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Timing Filter'
+21-Apr-2020 17:01:33.730 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 17:01:33.737 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 17:01:33.737 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:06:38.219 DETALLADO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 17:06:38.219 DETALLADO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:06:40.067 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 17:06:40.073 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 17:06:40.073 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:09:30.781 DETALLADO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 17:09:30.781 DETALLADO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:09:32.701 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 17:09:32.708 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 17:09:32.708 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:09:41.184 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 17:09:41.184 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:09:41.189 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 17:09:41.189 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:09:41.201 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 17:09:41.202 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:09:41.209 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 17:09:41.209 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:09:41.216 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 17:09:41.216 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Set Character Encoding'
+21-Apr-2020 17:09:41.216 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Compression Filter'
+21-Apr-2020 17:09:41.216 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Request Dumper Filter'
+21-Apr-2020 17:09:41.216 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:09:41.216 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Timing Filter'
+21-Apr-2020 17:09:41.220 INFORMACIÓN [localhost-startStop-3] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+21-Apr-2020 17:09:41.220 INFORMACIÓN [localhost-startStop-3] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+21-Apr-2020 17:09:41.225 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 17:09:41.225 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:09:41.243 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 17:09:41.243 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:10:08.349 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+21-Apr-2020 17:10:08.349 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+21-Apr-2020 17:10:08.350 INFORMACIÓN [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@30ee2b3f')
+21-Apr-2020 18:00:52.605 GRAVE [http-nio-8080-exec-28] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [javax.ws.rs.core.Application] en el contexto con ruta [/P5_Servidor_Hiperenlaces-0.0.1-SNAPSHOT] lanzó la excepción [java.lang.NullPointerException] con causa raíz
+	java.lang.NullPointerException
+		at es.unican.ss.representations.JugadorRepresentation.<init>(JugadorRepresentation.java:30)
+		at es.unican.ss.representations.RankingRepresentationGrupo.<init>(RankingRepresentationGrupo.java:27)
+		at es.unican.ss.services.Clasificacion.getRankingPorGrupo(Clasificacion.java:286)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+		at java.lang.reflect.Method.invoke(Unknown Source)
+		at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)
+		at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+		at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+		at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+		at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+		at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+		at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+21-Apr-2020 18:02:51.235 GRAVE [http-nio-8080-exec-21] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [javax.ws.rs.core.Application] en el contexto con ruta [/P5_Servidor_Hiperenlaces-0.0.1-SNAPSHOT] lanzó la excepción [java.lang.NullPointerException] con causa raíz
+	java.lang.NullPointerException
+		at es.unican.ss.representations.JugadorRepresentation.<init>(JugadorRepresentation.java:30)
+		at es.unican.ss.representations.RankingRepresentationGrupo.<init>(RankingRepresentationGrupo.java:27)
+		at es.unican.ss.services.Clasificacion.getRankingPorGrupo(Clasificacion.java:286)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+		at java.lang.reflect.Method.invoke(Unknown Source)
+		at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)
+		at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+		at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+		at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+		at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+		at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+		at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+21-Apr-2020 18:14:59.079 GRAVE [http-nio-8080-exec-39] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [javax.ws.rs.core.Application] en el contexto con ruta [/P5_Servidor_Hiperenlaces-0.0.1-SNAPSHOT] lanzó la excepción [java.lang.NullPointerException] con causa raíz
+	java.lang.NullPointerException
+		at es.unican.ss.representations.JugadorRepresentation.<init>(JugadorRepresentation.java:30)
+		at es.unican.ss.representations.RankingRepresentationGrupo.<init>(RankingRepresentationGrupo.java:27)
+		at es.unican.ss.services.Clasificacion.getRankingPorGrupo(Clasificacion.java:286)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+		at java.lang.reflect.Method.invoke(Unknown Source)
+		at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)
+		at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+		at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+		at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+		at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+		at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+		at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+21-Apr-2020 18:14:59.804 GRAVE [http-nio-8080-exec-36] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [javax.ws.rs.core.Application] en el contexto con ruta [/P5_Servidor_Hiperenlaces-0.0.1-SNAPSHOT] lanzó la excepción [java.lang.NullPointerException] con causa raíz
+	java.lang.NullPointerException
+		at es.unican.ss.representations.JugadorRepresentation.<init>(JugadorRepresentation.java:30)
+		at es.unican.ss.representations.RankingRepresentationGrupo.<init>(RankingRepresentationGrupo.java:27)
+		at es.unican.ss.services.Clasificacion.getRankingPorGrupo(Clasificacion.java:286)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+		at java.lang.reflect.Method.invoke(Unknown Source)
+		at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)
+		at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+		at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+		at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+		at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+		at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+		at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+21-Apr-2020 18:15:10.184 GRAVE [http-nio-8080-exec-44] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [javax.ws.rs.core.Application] en el contexto con ruta [/P5_Servidor_Hiperenlaces-0.0.1-SNAPSHOT] lanzó la excepción [java.lang.NullPointerException] con causa raíz
+	java.lang.NullPointerException
+		at es.unican.ss.representations.JugadorRepresentation.<init>(JugadorRepresentation.java:30)
+		at es.unican.ss.representations.RankingRepresentationGrupo.<init>(RankingRepresentationGrupo.java:27)
+		at es.unican.ss.services.Clasificacion.getRankingPorGrupo(Clasificacion.java:286)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+		at java.lang.reflect.Method.invoke(Unknown Source)
+		at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)
+		at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+		at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+		at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+		at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+		at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+		at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+21-Apr-2020 18:17:10.130 GRAVE [http-nio-8080-exec-52] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [javax.ws.rs.core.Application] en el contexto con ruta [/P5_Servidor_Hiperenlaces-0.0.1-SNAPSHOT] lanzó la excepción [java.lang.NullPointerException] con causa raíz
+	java.lang.NullPointerException
+		at es.unican.ss.representations.JugadorRepresentation.<init>(JugadorRepresentation.java:29)
+		at es.unican.ss.representations.RankingRepresentationGrupo.<init>(RankingRepresentationGrupo.java:27)
+		at es.unican.ss.services.Clasificacion.getRankingPorGrupo(Clasificacion.java:284)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+		at java.lang.reflect.Method.invoke(Unknown Source)
+		at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)
+		at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+		at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+		at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+		at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+		at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+		at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+21-Apr-2020 18:17:10.912 GRAVE [http-nio-8080-exec-49] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [javax.ws.rs.core.Application] en el contexto con ruta [/P5_Servidor_Hiperenlaces-0.0.1-SNAPSHOT] lanzó la excepción [java.lang.NullPointerException] con causa raíz
+	java.lang.NullPointerException
+		at es.unican.ss.representations.JugadorRepresentation.<init>(JugadorRepresentation.java:29)
+		at es.unican.ss.representations.RankingRepresentationGrupo.<init>(RankingRepresentationGrupo.java:27)
+		at es.unican.ss.services.Clasificacion.getRankingPorGrupo(Clasificacion.java:284)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+		at java.lang.reflect.Method.invoke(Unknown Source)
+		at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)
+		at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+		at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+		at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+		at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+		at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+		at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+21-Apr-2020 18:17:11.267 GRAVE [http-nio-8080-exec-45] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [javax.ws.rs.core.Application] en el contexto con ruta [/P5_Servidor_Hiperenlaces-0.0.1-SNAPSHOT] lanzó la excepción [java.lang.NullPointerException] con causa raíz
+	java.lang.NullPointerException
+		at es.unican.ss.representations.JugadorRepresentation.<init>(JugadorRepresentation.java:29)
+		at es.unican.ss.representations.RankingRepresentationGrupo.<init>(RankingRepresentationGrupo.java:27)
+		at es.unican.ss.services.Clasificacion.getRankingPorGrupo(Clasificacion.java:284)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+		at java.lang.reflect.Method.invoke(Unknown Source)
+		at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)
+		at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+		at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+		at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+		at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+		at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+		at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+21-Apr-2020 18:21:16.535 GRAVE [http-nio-8080-exec-56] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [javax.ws.rs.core.Application] en el contexto con ruta [/P5_Servidor_Hiperenlaces-0.0.1-SNAPSHOT] lanzó la excepción [java.lang.NullPointerException] con causa raíz
+	java.lang.NullPointerException
+		at es.unican.ss.representations.JugadorRepresentation.<init>(JugadorRepresentation.java:29)
+		at es.unican.ss.representations.RankingRepresentationGrupo.<init>(RankingRepresentationGrupo.java:27)
+		at es.unican.ss.services.Clasificacion.getRankingPorGrupo(Clasificacion.java:284)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+		at java.lang.reflect.Method.invoke(Unknown Source)
+		at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)
+		at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+		at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+		at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+		at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+		at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+		at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+21-Apr-2020 18:24:24.345 GRAVE [http-nio-8080-exec-67] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [javax.ws.rs.core.Application] en el contexto con ruta [/P5_Servidor_Hiperenlaces-0.0.1-SNAPSHOT] lanzó la excepción [java.lang.NullPointerException] con causa raíz
+	java.lang.NullPointerException
+		at es.unican.ss.representations.JugadorRepresentation.<init>(JugadorRepresentation.java:29)
+		at es.unican.ss.representations.RankingRepresentationGrupo.<init>(RankingRepresentationGrupo.java:27)
+		at es.unican.ss.services.Clasificacion.getRankingPorGrupo(Clasificacion.java:284)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+		at java.lang.reflect.Method.invoke(Unknown Source)
+		at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)
+		at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+		at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+		at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+		at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+		at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+		at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)
+21-Apr-2020 18:24:24.997 GRAVE [http-nio-8080-exec-66] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [javax.ws.rs.core.Application] en el contexto con ruta [/P5_Servidor_Hiperenlaces-0.0.1-SNAPSHOT] lanzó la excepción [java.lang.NullPointerException] con causa raíz
+	java.lang.NullPointerException
+		at es.unican.ss.representations.JugadorRepresentation.<init>(JugadorRepresentation.java:29)
+		at es.unican.ss.representations.RankingRepresentationGrupo.<init>(RankingRepresentationGrupo.java:27)
+		at es.unican.ss.services.Clasificacion.getRankingPorGrupo(Clasificacion.java:284)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+		at java.lang.reflect.Method.invoke(Unknown Source)
+		at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)
+		at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)
+		at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+		at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+		at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+		at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+		at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+		at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+		at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+		at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Unknown Source)

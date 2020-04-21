@@ -252,5 +252,33 @@ public class ClasificacionDAO implements IClasificacionDAO {
 
 		return jugadores;
 	}
+	
+	public Equipo getEquipoJugador(Jugador j) {
+		JAXBContext jaxbctx;
+		try {
+			jaxbctx = JAXBContext.newInstance(Clasificacion.class);
+
+			Unmarshaller unmarshaller = jaxbctx.createUnmarshaller();
+			File clasificacionFile = new File(XML_DIR);
+			Clasificacion clasificacion;
+			try {
+				clasificacion = (Clasificacion) unmarshaller.unmarshal(new FileInputStream(clasificacionFile));
+				for (Grupo g : clasificacion.getGrupo()) {
+					for (Equipo e : g.getEquipos()) {
+						for (Jugador je : e.getJugadores()) {
+							if(je.equals(j)) {
+								return e;
+							}
+						}
+					}
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

@@ -15,6 +15,7 @@ public class ClasificacionRepresentation {
 	
 	@XmlElement(name = "link")
 	private List<AtomLink> grupos;
+	public ClasificacionRepresentation() {}
 
 	public ClasificacionRepresentation(UriInfo uriInfo, List<Grupo> listaGrupos) {
 		AtomLink atomLink = null;

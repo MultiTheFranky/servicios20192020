@@ -1,0 +1,36 @@
+21-Apr-2020 16:48:56.691 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:48:56.691 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:48:56.691 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:48:56.691 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'SetCharacterEncoding'
+21-Apr-2020 16:48:56.691 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'CSRF'
+21-Apr-2020 16:51:58.890 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:51:58.890 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:51:58.890 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'SetCharacterEncoding'
+21-Apr-2020 16:51:58.890 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'CSRF'
+21-Apr-2020 16:52:18.246 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:52:18.246 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:52:18.246 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:52:18.246 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'SetCharacterEncoding'
+21-Apr-2020 16:52:18.246 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'CSRF'
+21-Apr-2020 16:56:06.314 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:56:06.314 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:06.314 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'SetCharacterEncoding'
+21-Apr-2020 16:56:06.314 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'CSRF'
+21-Apr-2020 16:56:25.090 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 16:56:25.096 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 16:56:25.096 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:56:25.096 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'SetCharacterEncoding'
+21-Apr-2020 16:56:25.096 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'CSRF'
+21-Apr-2020 16:58:39.107 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 16:58:39.107 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 16:58:39.107 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'SetCharacterEncoding'
+21-Apr-2020 16:58:39.107 DETALLADO [localhost-startStop-2] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'CSRF'
+21-Apr-2020 17:01:32.447 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.listenerStart Sending application start events
+21-Apr-2020 17:01:32.449 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart Starting filters
+21-Apr-2020 17:01:32.449 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:01:32.449 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'SetCharacterEncoding'
+21-Apr-2020 17:01:32.449 DETALLADO [localhost-startStop-1] org.apache.catalina.core.StandardContext.filterStart  Starting filter 'CSRF'
+21-Apr-2020 17:09:41.221 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop Stopping filters
+21-Apr-2020 17:09:41.221 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'Tomcat WebSocket (JSR356) Filter'
+21-Apr-2020 17:09:41.221 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'SetCharacterEncoding'
+21-Apr-2020 17:09:41.221 DETALLADO [localhost-startStop-3] org.apache.catalina.core.StandardContext.filterStop  Stopping filter 'CSRF'

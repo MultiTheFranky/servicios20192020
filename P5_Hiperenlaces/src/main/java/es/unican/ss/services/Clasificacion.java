@@ -12,17 +12,20 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
-import es.unican.ss.daos.IClasificacionDAO;
 import es.unican.ss.daosImpl.ClasificacionDAO;
+import es.unican.ss.representations.AtomLink;
 import es.unican.ss.representations.EquipoRepresentation;
 import es.unican.ss.representations.GrupoRepresentation;
 import es.unican.ss.representations.JugadorRepresentation;
-import es.unican.ss.representations.RankingRepresentation;
+import es.unican.ss.representations.RankingRepresentationEquipo;
+import es.unican.ss.representations.RankingRepresentationGrupo;
 import es.unican.ss.types.Equipo;
 import es.unican.ss.types.Grupo;
 import es.unican.ss.types.Jugador;
@@ -31,7 +34,7 @@ import es.unican.ss.types.Ranking;
 @Path("/")
 public class Clasificacion {
 
-	private IClasificacionDAO clasificacionDao;
+	public static ClasificacionDAO clasificacionDao;
 
 	public Clasificacion() {
 		clasificacionDao = new ClasificacionDAO();
@@ -44,17 +47,22 @@ public class Clasificacion {
 
 		Grupo grupo = clasificacionDao.getGrupo(idGrupo);
 		Response response = null;
+		Response.ResponseBuilder builder;
 		if(grupo != null) {
 			grupo.getEquipos().sort(new Comparator<Equipo>() {
 				public int compare(Equipo o1, Equipo o2) {
 					return o2.getPuntos() - o1.getPuntos();
 				};
 			});
-			
+
 			GrupoRepresentation grupoRep = new GrupoRepresentation(uriInfo, grupo);
-			Response.ResponseBuilder builder;
+			for (AtomLink er : grupoRep.getEquipos()) {
+				System.out.println(er.getHref());
+			}
 			builder = Response.ok(grupoRep);
 			response = builder.build();
+		}else {
+			builder = Response.status(Status.NOT_FOUND);
 		}
 		return response;
 		
@@ -79,7 +87,7 @@ public class Clasificacion {
 	}
 	// Consultar los datos de un jugador
 	@GET
-	@Path("clasificacion/{nombreEquipo}/{dorsal}/getJugadorPorDorsal")
+	@Path("jugador/{nombreEquipo}/{dorsal}")
 	@Produces("application/xml, application/json")
 	public Response getJugadorPorDorsal(@Context UriInfo uriInfo,@PathParam("nombreEquipo") String nombreEquipo,@PathParam("dorsal") String dorsal) {
 
@@ -254,7 +262,7 @@ public class Clasificacion {
 	@GET
 	@Path("clasificacion/{nombreGrupo}/ranking")
 	@Produces("application/xml,application/json")
-	public Response getRankingPorGrupo(@Context UriInfo uriInfo,@PathParam("nombreGrupo") String nombreGrupo) {
+	public Response getRankingPorGrupo(@Context UriInfo uriInfo,@PathParam("nombreGrupo") String nombreGrupo,@QueryParam(value = "index") int index) {
 		Response.ResponseBuilder builder;
 		List<Jugador> jugadores = new ArrayList<Jugador>();
 		Grupo g = clasificacionDao.getGrupo(nombreGrupo);
@@ -271,9 +279,9 @@ public class Clasificacion {
 					return o2.getGoles() - o1.getGoles();
 				};
 			});
-			Ranking r = new Ranking();
+			Ranking r = new Ranking(g);
 			r.setJugadores(jugadores);
-			RankingRepresentation rr = new RankingRepresentation(r, uriInfo, 0);
+			RankingRepresentationGrupo rr = new RankingRepresentationGrupo(r, uriInfo, index);
 			for (JugadorRepresentation jugador : rr.getJugadores()) {
 				System.out.println(jugador.getNombre());
 			}
@@ -287,7 +295,7 @@ public class Clasificacion {
 	@GET
 	@Path("clasificacion/{nombreGrupo}/{nombreEquipo}/ranking/")
 	@Produces("application/xml,application/json")
-	public Response getRankingPorEquipo(@PathParam("nombreEquipo") String equipo, @Context UriInfo uriInfo) {
+	public Response getRankingPorEquipo(@PathParam("nombreGrupo") String grupo,@PathParam("nombreEquipo") String equipo, @Context UriInfo uriInfo,@QueryParam(value = "index") int index) {
 		Response.ResponseBuilder builder;
 		List<Jugador> jugadores = null;
 		if (clasificacionDao.getEquipo(equipo) == null) {
@@ -301,7 +309,7 @@ public class Clasificacion {
 			});
 			Ranking r = new Ranking();
 			r.setJugadores(jugadores);
-			RankingRepresentation rr = new RankingRepresentation(r, uriInfo, 0);
+			RankingRepresentationEquipo rr = new RankingRepresentationEquipo(r, uriInfo, index,grupo);
 			for (JugadorRepresentation jugador : rr.getJugadores()) {
 				System.out.println(jugador.getNombre());
 			}

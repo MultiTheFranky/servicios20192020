@@ -15,6 +15,9 @@ public class JugadorRepresentation {
 	private String nombre;
 	private int tarjetasAmarillas;
 	private int tarjetasRojas;
+	
+	
+	public JugadorRepresentation() {}
 
 	public JugadorRepresentation(UriInfo uriInfo, Jugador jugador) {
 		dorsal = jugador.getDorsal();
@@ -22,8 +25,8 @@ public class JugadorRepresentation {
 		nombre = jugador.getNombre();
 		tarjetasAmarillas = jugador.getTarjetasAmarillas();
 		tarjetasRojas = jugador.getTarjetasRojas();
-		
-		String selfURI = uriInfo.getAbsolutePathBuilder().path(String.valueOf(dorsal)).toString();
+		System.out.println(jugador.getEquipo());
+		String selfURI = uriInfo.getBaseUriBuilder().path("jugador/"+jugador.getEquipo().getNombre()+"/"+dorsal).toString();
 		setSelf(new AtomLink("self", selfURI));
 	}
 
