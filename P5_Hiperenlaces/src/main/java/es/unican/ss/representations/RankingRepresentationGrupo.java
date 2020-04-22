@@ -23,7 +23,7 @@ public class RankingRepresentationGrupo {
 
 	public RankingRepresentationGrupo(Ranking ranking, UriInfo uriInfo, int index) {
 		jugadores = new ArrayList<JugadorRepresentation>();
-		for (int i = index; i<index+NUM_JUGADORES; i++) {
+		for (int i = index; i<index+NUM_JUGADORES-1; i++) {
 			JugadorRepresentation jugador = new JugadorRepresentation(uriInfo, ranking.getJugadores().get(i));
 			jugadores.add(jugador);
 		}
