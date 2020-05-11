@@ -20,7 +20,7 @@
               xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
               version="1.0">
 <!--
-  NOTE:  By default, no user is included in the "manager-gui" role required
+  NOTE:  By default, no user is included in the "admin-gui" role required
   to operate the "/manager/html" web application.  If you wish to use this app,
   you must define such a user - the username and password are arbitrary. It is
   strongly recommended that you do NOT use one of the users in the commented out
@@ -34,6 +34,8 @@
   examples web application, do not forget to remove the <!.. ..> that surrounds
   them. You will also need to set the passwords to something appropriate.
 -->
+  <role rolename="admin-gui"/>
+  <user username="admin" password="admin" roles="admin-gui"/>
   <role rolename="manager-gui"/>
   <user username="admin" password="admin" roles="manager-gui"/>
 </tomcat-users>
