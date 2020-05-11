@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [05/May/2020:15:27:31 +0200] "GET / HTTP/1.1" 200 11414
+0:0:0:0:0:0:0:1 - admin [05/May/2020:15:27:35 +0200] "GET /manager/html HTTP/1.1" 200 25871
+0:0:0:0:0:0:0:1 - - [05/May/2020:15:27:39 +0200] "GET /P5_Servidor-0.0.1-SNAPSHOT/ HTTP/1.1" 404 641
+0:0:0:0:0:0:0:1 - - [05/May/2020:15:27:44 +0200] "GET /P5_Servidor-0.0.1-SNAPSHOT/clasificacion/1 HTTP/1.1" 200 933
+0:0:0:0:0:0:0:1 - - [05/May/2020:15:27:48 +0200] "GET /P5_Servidor-0.0.1-SNAPSHOT/clasificacion/Compostela/3/getJugadorPorDorsal HTTP/1.1" 200 174

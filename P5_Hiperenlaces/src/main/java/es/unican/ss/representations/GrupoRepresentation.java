@@ -1,6 +1,5 @@
 package es.unican.ss.representations;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,31 +15,28 @@ import es.unican.ss.types.Grupo;
 @XmlAccessorType(value = XmlAccessType.PROPERTY)
 public class GrupoRepresentation {
 	
-	private List<AtomLink> equipos;
+	private List<EquipoRepresentationGrupo> equipos;
 
 	private String nombre;
 	private String id;
-	
+
 	public GrupoRepresentation() {}
 	
 	
 	public GrupoRepresentation(UriInfo uriInfo, Grupo g) {
-		AtomLink atomLink = null;
-		equipos = new ArrayList<>();
 		id = g.getId();
 		nombre = g.getNombre();
+		equipos = new ArrayList<>();
 		for (Equipo e : g.getEquipos()) {
-			URI uri = uriInfo.getAbsolutePathBuilder().path(e.getNombre()).build();
-			atomLink = new AtomLink("equipo", uri.toString());
-			equipos.add(atomLink);
+			equipos.add(new EquipoRepresentationGrupo(uriInfo, e));
 		}
 	}
 	@XmlElement(name = "equipo")
-	public List<AtomLink> getEquipos() {
+	public List<EquipoRepresentationGrupo> getEquipos() {
 		return equipos;
 	}
 
-	public void setEquipos(List<AtomLink> equipos) {
+	public void setEquipos(List<EquipoRepresentationGrupo> equipos) {
 		this.equipos = equipos;
 	}
 	@XmlElement
@@ -51,6 +47,7 @@ public class GrupoRepresentation {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 	@XmlElement
 	public String getId() {
 		return id;
@@ -59,5 +56,7 @@ public class GrupoRepresentation {
 	public void setId(String id) {
 		this.id = id;
 	}
+
+	
 
 }
