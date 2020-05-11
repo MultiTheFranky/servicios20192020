@@ -1,0 +1,7 @@
+24-Apr-2020 16:29:23.262 INFORMACIÓN [http-nio-8080-exec-1] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+24-Apr-2020 16:29:23.262 INFORMACIÓN [http-nio-8080-exec-1] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Global resources are available
+24-Apr-2020 16:29:23.937 INFORMACIÓN [http-nio-8080-exec-1] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+24-Apr-2020 19:17:09.450 INFORMACIÓN [http-nio-8080-exec-7] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+24-Apr-2020 19:17:09.451 INFORMACIÓN [http-nio-8080-exec-7] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Global resources are available
+24-Apr-2020 19:17:09.469 INFORMACIÓN [http-nio-8080-exec-7] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+24-Apr-2020 19:18:07.026 INFORMACIÓN [http-nio-8080-exec-3] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
