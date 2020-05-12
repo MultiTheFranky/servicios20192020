@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:tns="http://www.unican.es/ss/EstimacionTUSBPELArtifacts" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://tempuri.org/" name="EstimacionTUSBPELArtifacts" targetNamespace="http://www.unican.es/ss/EstimacionTUSBPELArtifacts" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <plnk:partnerLinkType name="dinamicaPLD">
+    <plnk:role name="Dinamica" portType="wsdl:DinamicaSoap"/>
+  </plnk:partnerLinkType>
+  <import location="dinamica.wsdl" namespace="http://tempuri.org/"/>
+</definitions>
