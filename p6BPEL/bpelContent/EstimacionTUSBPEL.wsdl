@@ -32,8 +32,8 @@
             <element name="estimacionPasoResponse">
                 <complexType>
                     <sequence>
-                        <element name="parada1" type="int"/>
-                        <element name="parada2" type="int"/>
+                        <element name="estimacion1" type="int"/>
+                        <element name="estimacion2" type="int"/>
                     </sequence>
                 </complexType>
             </element>
