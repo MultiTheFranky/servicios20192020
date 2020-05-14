@@ -42,21 +42,4 @@
 				location="http://localhost:8080/InfoParadas-0.0.1" />
 		</port>
 	</service>
-	<!--  
-	<message name="infoParadaRequestMsg">
-		<part name="parameters" element="tns:infoParada" />
-	</message>
-	<message name="infoParadaResponseMsg">
-		<part name="parameters" element="tns:infoParadaResponse" />
-	</message>
-	<portType name="InfoParadasInterface">
-		<operation name="estimacionPaso">
-			<input message="tns:infoParadaRequestMsg"></input>
-			<output message="tns:infoParadaResponseMsg"></output>
-		</operation>
-	</portType>
-	<plnk:partnerLinkType name="InfoParadasPLT">
-		<plnk:role name="InfoParadasProvider" portType="tns:InfoParadasInterface"/>
-	</plnk:partnerLinkType>
-	-->
 </definitions>
