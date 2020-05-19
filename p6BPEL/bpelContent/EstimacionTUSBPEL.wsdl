@@ -62,17 +62,11 @@
     <portType name="estimacionPaso">
         <operation name="estimacionPaso">
             <input message="tns:EstimacionTUSBPELRequestMessage"/>
+            <output message="tns:EstimacionTUSBPELResponseMessage"/>
         </operation>
     </portType>
 
-    <!-- portType implemented by the requester of EstimacionTUSBPEL BPEL process 
-         for asynchronous callback purposes
-         -->
-    <portType name="estimacionPasoCallback">
-        <operation name="onResult">
-            <input message="tns:EstimacionTUSBPELResponseMessage"/>
-        </operation>
-    </portType>
+  
 
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -82,7 +76,6 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
     <plnk:partnerLinkType name="EstimacionTUSBPEL">
         <plnk:role name="EstimacionTUSBPELProvider" portType="tns:estimacionPaso"/>
-        <plnk:role name="EstimacionTUSBPELRequester" portType="tns:estimacionPasoCallback"/>
     </plnk:partnerLinkType>   
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -101,16 +94,6 @@
         </operation>
     </binding>
 
-    <binding name="EstimacionTUSBPELCallbackBinding" type="tns:estimacionPasoCallback">
-        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-        <operation name="onResult">
-            <soap:operation
-    			soapAction="http://www.unican.es/ss/EstimacionTUSBPEL/onResult"/>
-            <input>
-                <soap:body use="literal"/>
-            </input>
-        </operation>
-    </binding>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      SERVICE DEFINITION - A service groups a set of ports into
@@ -122,9 +105,4 @@
         </port>
     </service>
 
-    <service name="EstimacionTUSBPELServiceCallback">
-        <port name="EstimacionTUSBPELPortCallbackPort" binding="tns:EstimacionTUSBPELCallbackBinding">
-    		<soap:address location="http://localhost:8080/oda/processes/EstimacionTUSBPELCallback"/>
-        </port>
-    </service>
 </definitions>

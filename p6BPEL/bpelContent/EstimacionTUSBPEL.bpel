@@ -34,8 +34,7 @@
 			the client role are automatically set using WS-Addressing. -->
 		<bpel:partnerLink name="client"
 			partnerLinkType="tns:EstimacionTUSBPEL"
-			myRole="EstimacionTUSBPELProvider"
-			partnerRole="EstimacionTUSBPELRequester" />
+			myRole="EstimacionTUSBPELProvider"/>
 		<bpel:partnerLink name="InfoParadasPL"
 			partnerLinkType="ns1:InfoParadasPLT"
 			partnerRole="InfoParadasProvider"></bpel:partnerLink>
@@ -198,6 +197,35 @@
 		</bpel:assign>
         
         <bpel:invoke name="dinamica" partnerLink="DinamicaPL" operation="GetPasoParada" portType="dinamica:DinamicaSoap" inputVariable="DinamicaPLRequest" outputVariable="DinamicaPLResponse"></bpel:invoke>
+        
+        
+        <bpel:assign validate="no" name="Assign2">
+            <bpel:copy>
+                <bpel:from><bpel:literal><tns:estimacionPasoResponse xmlns:tns="http://www.unican.es/ss/EstimacionTUSBPEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <tns:estimacion1>0</tns:estimacion1>
+  <tns:estimacion2>0</tns:estimacion2>
+</tns:estimacionPasoResponse>
+</bpel:literal></bpel:from>
+                <bpel:to variable="output" part="payload"></bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+                <bpel:from part="parameters" variable="dinamicaOutput">
+                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[dinamica:XGetPasoParadaResult/dinamica:PasoParada[1]/dinamica:e1/dinamica:minutos]]></bpel:query>
+                </bpel:from>
+                <bpel:to part="payload" variable="output">
+                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:estimacion1]]></bpel:query>
+                </bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+                <bpel:from part="parameters" variable="dinamicaOutput">
+                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[dinamica:XGetPasoParadaResult/dinamica:PasoParada[1]/dinamica:e2/dinamica:minutos]]></bpel:query>
+                </bpel:from>
+                <bpel:to part="payload" variable="output">
+                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:estimacion2]]></bpel:query>
+                </bpel:to>
+            </bpel:copy>
+        </bpel:assign>
+        <bpel:reply name="replyOutput" partnerLink="client" operation="estimacionPaso" variable="output"></bpel:reply>
         
     </bpel:sequence>
 </bpel:process>
