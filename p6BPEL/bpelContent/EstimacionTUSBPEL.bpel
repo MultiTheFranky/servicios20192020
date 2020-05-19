@@ -10,15 +10,14 @@
 	xmlns:dinamica="http://tempuri.org/"
 	xmlns:ns1="http://infoParadas.ss.unican.es/">
 	<!-- Import the client WSDL -->
-    <bpel:import
+	<bpel:import
 		namespace="http://www.unican.es/ss/EstimacionTUSBPEL"
 		location="EstimacionTUSBPEL.wsdl"
 		importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
 	<bpel:import location="InfoParadas.wsdl"
 		namespace="http://www.unican.es/ss/InfoParadas"
 		importType="http://schemas.xmlsoap.org/wsdl/" />
-	<bpel:import 
-		namespace="http://infoParadas.ss.unican.es/"
+	<bpel:import namespace="http://infoParadas.ss.unican.es/"
 		location="InfoParadas2.wsdl"
 		importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
 	<bpel:import location="dinamica.wsdl"
@@ -38,10 +37,12 @@
 			myRole="EstimacionTUSBPELProvider"
 			partnerRole="EstimacionTUSBPELRequester" />
 		<bpel:partnerLink name="InfoParadasPL"
-			partnerLinkType="ns1:InfoParadasPLT" partnerRole="InfoParadasProvider"></bpel:partnerLink>
-        
-        <bpel:partnerLink name="DinamicaPL" partnerLinkType="dinamica:dinamicaPLD" partnerRole="Dinamica"></bpel:partnerLink>
-    </bpel:partnerLinks>
+			partnerLinkType="ns1:InfoParadasPLT"
+			partnerRole="InfoParadasProvider"></bpel:partnerLink>
+
+		<bpel:partnerLink name="DinamicaPL"
+			partnerLinkType="dinamica:dinamicaPLD" partnerRole="Dinamica"></bpel:partnerLink>
+	</bpel:partnerLinks>
 
 	<!-- ================================================================= -->
 	<!-- VARIABLES -->
@@ -56,10 +57,16 @@
 			callback -->
 		<bpel:variable name="output"
 			messageType="tns:EstimacionTUSBPELResponseMessage" />
-        <bpel:variable name="datosParadaInput" messageType="ns1:numParada"></bpel:variable>
-        <bpel:variable name="numParadaOutput" messageType="ns1:numParadaResponse"></bpel:variable>
-        <bpel:variable name="dinamicaInput" messageType="dinamica:XGetPasoParadaSoapIn"></bpel:variable>
-        <bpel:variable name="dinamicaOutput" messageType="dinamica:XGetPasoParadaSoapOut"></bpel:variable>
+		<bpel:variable name="datosParadaInput"
+			messageType="ns1:numParada"></bpel:variable>
+		<bpel:variable name="numParadaOutput"
+			messageType="ns1:numParadaResponse"></bpel:variable>
+		<bpel:variable name="dinamicaInput"
+			messageType="dinamica:XGetPasoParadaSoapIn"></bpel:variable>
+		<bpel:variable name="dinamicaOutput"
+			messageType="dinamica:XGetPasoParadaSoapOut"></bpel:variable>
+        <bpel:variable name="DinamicaPLResponse" messageType="dinamica:GetPasoParadaSoapOut"></bpel:variable>
+        <bpel:variable name="DinamicaPLRequest" messageType="dinamica:GetPasoParadaSoapIn"></bpel:variable>
     </bpel:variables>
 
 	<!-- ================================================================= -->
@@ -74,90 +81,124 @@
 		<bpel:receive name="receiveInput" partnerLink="client"
 			portType="tns:estimacionPaso" operation="estimacionPaso"
 			variable="input" createInstance="yes" />
-        <bpel:assign validate="no" name="Assign">
-            <bpel:copy>
-                <bpel:from><bpel:literal><tns:estimacionPasoResponse xmlns:tns="http://www.unican.es/ss/EstimacionTUSBPEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <tns:parada>tns:parada</tns:parada>
-</tns:estimacionPasoResponse>
-</bpel:literal></bpel:from>
-                <bpel:to variable="output" part="payload"></bpel:to>
-            </bpel:copy>
-            <bpel:copy>
-                <bpel:from><bpel:literal><tns:numParada xmlns:tns="http://infoParadas.ss.unican.es/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <arg0>arg0</arg0>
-  <arg1>arg1</arg1>
-</tns:numParada>
-</bpel:literal></bpel:from>
-                <bpel:to variable="datosParadaInput" part="parameters"></bpel:to>
-            </bpel:copy>
-            <bpel:copy>
-                <bpel:from part="payload" variable="input">
-                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:parada]]></bpel:query>
-                </bpel:from>
-                <bpel:to part="parameters" variable="datosParadaInput">
-                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[arg0]]></bpel:query>
-                </bpel:to>
-            </bpel:copy>
-            <bpel:copy>
-                <bpel:from part="payload" variable="input">
-                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:linea]]></bpel:query>
-                </bpel:from>
-                <bpel:to part="parameters" variable="datosParadaInput">
-                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[arg1]]></bpel:query>
-                </bpel:to>
-            </bpel:copy>
-            
-            
-            
-        </bpel:assign>
-		
+		<bpel:assign validate="no" name="Assign">
+			<bpel:copy>
+				<bpel:from>
+					<bpel:literal>
+						<tns:estimacionPasoResponse
+							xmlns:tns="http://www.unican.es/ss/EstimacionTUSBPEL"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+							<tns:parada>tns:parada</tns:parada>
+						</tns:estimacionPasoResponse>
+					</bpel:literal>
+				</bpel:from>
+				<bpel:to variable="output" part="payload"></bpel:to>
+			</bpel:copy>
+			<bpel:copy>
+				<bpel:from>
+					<bpel:literal>
+						<tns:numParada
+							xmlns:tns="http://infoParadas.ss.unican.es/"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+							<arg0>arg0</arg0>
+							<arg1>arg1</arg1>
+						</tns:numParada>
+					</bpel:literal>
+				</bpel:from>
+				<bpel:to variable="datosParadaInput" part="parameters"></bpel:to>
+			</bpel:copy>
+			<bpel:copy>
+				<bpel:from part="payload" variable="input">
+					<bpel:query
+						queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:parada]]></bpel:query>
+				</bpel:from>
+				<bpel:to part="parameters" variable="datosParadaInput">
+					<bpel:query
+						queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[arg0]]></bpel:query>
+				</bpel:to>
+			</bpel:copy>
+			<bpel:copy>
+				<bpel:from part="payload" variable="input">
+					<bpel:query
+						queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:linea]]></bpel:query>
+				</bpel:from>
+				<bpel:to part="parameters" variable="datosParadaInput">
+					<bpel:query
+						queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[arg1]]></bpel:query>
+				</bpel:to>
+			</bpel:copy>
+
+
+
+		</bpel:assign>
+
 		<!-- Asynchronous callback to the requester. Note: the callback location 
 			and correlation id is transparently handled using WS-addressing. -->
-		
 
-        <bpel:assign validate="no" name="Assign1">
-            <bpel:copy>
-                <bpel:from><bpel:literal><tns:estimacionPasoResponse xmlns:tns="http://www.unican.es/ss/EstimacionTUSBPEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <tns:estimacion1>0</tns:estimacion1>
-  <tns:estimacion2>0</tns:estimacion2>
-</tns:estimacionPasoResponse>
-</bpel:literal></bpel:from>
-                <bpel:to variable="output" part="payload"></bpel:to>
-            </bpel:copy>
-            <bpel:copy>
-                <bpel:from><bpel:literal><tns:numParadaResponse xmlns:tns="http://infoParadas.ss.unican.es/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <return>return</return>
-</tns:numParadaResponse>
-</bpel:literal></bpel:from>
-                <bpel:to variable="numParadaOutput" part="parameters"></bpel:to>
-            </bpel:copy>
-            <bpel:copy>
-                <bpel:from part="parameters" variable="dinamicaInput">
-                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[dinamica:parada]]></bpel:query>
-                </bpel:from>
-                <bpel:to part="parameters" variable="numParadaOutput">
-                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[return]]></bpel:query>
-                </bpel:to>
-            </bpel:copy>
-            
-            
-            <bpel:copy>
-                <bpel:from part="parameters" variable="dinamicaOutput">
-                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[dinamica:XGetPasoParadaResult/dinamica:PasoParada[1]/dinamica:e1/dinamica:minutos]]></bpel:query>
-                </bpel:from>
-                <bpel:to part="payload" variable="output">
-                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:estimacion1]]></bpel:query>
-                </bpel:to>
-            </bpel:copy>
-            <bpel:copy>
-                <bpel:from part="parameters" variable="dinamicaOutput">
-                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[dinamica:XGetPasoParadaResult/dinamica:PasoParada[1]/dinamica:e2/dinamica:minutos]]></bpel:query>
-                </bpel:from>
-                <bpel:to part="payload" variable="output">
-                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:estimacion2]]></bpel:query>
-                </bpel:to>
-            </bpel:copy>
-        </bpel:assign>
+
+		<bpel:invoke name="infoParada" partnerLink="InfoParadasPL" operation="numParada" inputVariable="datosParadaInput" outputVariable="numParadaOutput"></bpel:invoke>
+		<bpel:assign validate="no" name="Assign1">
+			<bpel:copy>
+				<bpel:from>
+					<bpel:literal>
+						<tns:estimacionPasoResponse
+							xmlns:tns="http://www.unican.es/ss/EstimacionTUSBPEL"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+							<tns:estimacion1>0</tns:estimacion1>
+							<tns:estimacion2>0</tns:estimacion2>
+						</tns:estimacionPasoResponse>
+					</bpel:literal>
+				</bpel:from>
+				<bpel:to variable="output" part="payload"></bpel:to>
+			</bpel:copy>
+			<bpel:copy>
+				<bpel:from>
+					<bpel:literal>
+						<tns:numParadaResponse
+							xmlns:tns="http://infoParadas.ss.unican.es/"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+							<return>return</return>
+						</tns:numParadaResponse>
+					</bpel:literal>
+				</bpel:from>
+				<bpel:to variable="numParadaOutput" part="parameters"></bpel:to>
+			</bpel:copy>
+			<bpel:copy>
+				<bpel:from part="parameters" variable="dinamicaInput">
+					<bpel:query
+						queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[dinamica:parada]]></bpel:query>
+				</bpel:from>
+				<bpel:to part="parameters" variable="numParadaOutput">
+					<bpel:query
+						queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[return]]></bpel:query>
+				</bpel:to>
+			</bpel:copy>
+
+
+			<bpel:copy>
+				<bpel:from part="parameters" variable="dinamicaOutput">
+					<bpel:query
+						queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[dinamica:XGetPasoParadaResult/dinamica:PasoParada[1]/dinamica:e1/dinamica:minutos]]></bpel:query>
+				</bpel:from>
+				<bpel:to part="payload" variable="output">
+					<bpel:query
+						queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:estimacion1]]></bpel:query>
+				</bpel:to>
+			</bpel:copy>
+			<bpel:copy>
+				<bpel:from part="parameters" variable="dinamicaOutput">
+					<bpel:query
+						queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[dinamica:XGetPasoParadaResult/dinamica:PasoParada[1]/dinamica:e2/dinamica:minutos]]></bpel:query>
+				</bpel:from>
+				<bpel:to part="payload" variable="output">
+					<bpel:query
+						queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:estimacion2]]></bpel:query>
+				</bpel:to>
+			</bpel:copy>
+		</bpel:assign>
+        
+        <bpel:invoke name="dinamica" partnerLink="DinamicaPL" operation="GetPasoParada" portType="dinamica:DinamicaSoap" inputVariable="DinamicaPLRequest" outputVariable="DinamicaPLResponse"></bpel:invoke>
+        
     </bpel:sequence>
 </bpel:process>
 
