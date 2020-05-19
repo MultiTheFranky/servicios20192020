@@ -18,15 +18,7 @@
   </extensions>
   <extensions>
     <extendedObject href="EstimacionTUSBPEL.bpel#/"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1589476007393"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.2"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.4"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1589897321856"/>
   </extensions>
   <extensions>
     <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.1"/>
@@ -57,7 +49,7 @@
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.3"/>
+    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.2"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
   </extensions>
   <extensions>
@@ -69,27 +61,23 @@
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.3/@copy.2"/>
+    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.2/@copy.2"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.3/@copy.1"/>
+    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.2/@copy.1"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.3/@copy.3"/>
+    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.2/@copy.3"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.3/@copy.0"/>
+    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.2/@copy.0"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.3/@copy.4"/>
+    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.2/@copy.4"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.5"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
   </extensions>
 </extensionmodel:ExtensionMap>

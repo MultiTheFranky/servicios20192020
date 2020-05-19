@@ -8,12 +8,8 @@
 	xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
 	xmlns:infop="http://www.unican.es/ss/InfoParadas"
 	xmlns:dinamica="http://tempuri.org/"
-	xmlns:ns1="http://infoParadas.ss.unican.es/" xmlns:ns2="http://www.unican.es/ss/EstimacionTUSBPELArtifacts">
+	xmlns:ns1="http://infoParadas.ss.unican.es/">
 	<!-- Import the client WSDL -->
-	<bpel:imion = EstimacionTUSBPEL.wdl "
-		namespace="http://www.unican.es/ss/EstimacionTUSBPEL"
-		importType="http://schemas.xmlsoap.org/wsdl/" />
-    <bpel:import namespace="http://www.unican.es/ss/EstimacionTUSBPELArtifacts" location="EstimacionTUSBPELArtifacts.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
     <bpel:import
 		namespace="http://www.unican.es/ss/EstimacionTUSBPEL"
 		location="EstimacionTUSBPEL.wsdl"
@@ -28,7 +24,6 @@
 	<bpel:import location="dinamica.wsdl"
 		namespace="http://tempuri.org/"
 		importType="http://schemas.xmlsoap.org/wsdl/" />
-
 
 	<!-- ================================================================= -->
 	<!-- PARTNERLINKS -->
@@ -45,7 +40,7 @@
 		<bpel:partnerLink name="InfoParadasPL"
 			partnerLinkType="ns1:InfoParadasPLT" partnerRole="InfoParadasProvider"></bpel:partnerLink>
         
-        <bpel:partnerLink name="DinamicaPL" partnerLinkType="ns2:dinamicaPLD" partnerRole="Dinamica"></bpel:partnerLink>
+        <bpel:partnerLink name="DinamicaPL" partnerLinkType="dinamica:dinamicaPLD" partnerRole="Dinamica"></bpel:partnerLink>
     </bpel:partnerLinks>
 
 	<!-- ================================================================= -->
@@ -77,7 +72,7 @@
 		<!-- Receive input from requestor. Note: This maps to operation defined 
 			in EstimacionTUSBPEL.wsdl -->
 		<bpel:receive name="receiveInput" partnerLink="client"
-			portType="tns:EstimacionTUSBPEL" operation="estimacionPaso"
+			portType="tns:estimacionPaso" operation="estimacionPaso"
 			variable="input" createInstance="yes" />
         <bpel:assign validate="no" name="Assign">
             <bpel:copy>
@@ -115,7 +110,6 @@
             
             
         </bpel:assign>
-        <bpel:invoke name="infoParada"></bpel:invoke>
 		
 		<!-- Asynchronous callback to the requester. Note: the callback location 
 			and correlation id is transparently handled using WS-addressing. -->
@@ -164,10 +158,6 @@
                 </bpel:to>
             </bpel:copy>
         </bpel:assign>
-        <bpel:invoke name="dinamica"></bpel:invoke>
-        
-        
-        <bpel:reply name="ReplyOutput"></bpel:reply>
     </bpel:sequence>
 </bpel:process>
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1 (UNKNOWN_BRANCH-false; 2015-01-15T16:53:43+0100) JAXWS-RI/2.2.10 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. -->
+<xs:schema xmlns:tns="http://infoParadas.ss.unican.es/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://infoParadas.ss.unican.es/">
+
+<xs:element name="ParadaNoValidaException" type="tns:ParadaNoValidaException"/>
+
+<xs:element name="numParada" type="tns:numParada"/>
+
+<xs:element name="numParadaResponse" type="tns:numParadaResponse"/>
+
+<xs:complexType name="numParada">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="numParadaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ParadaNoValidaException">
+<xs:sequence>
+<xs:element name="faultMessage" type="tns:ParadaNoValida" minOccurs="0"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ParadaNoValida">
+<xs:sequence>
+<xs:element name="error" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
