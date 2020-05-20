@@ -18,7 +18,7 @@
   </extensions>
   <extensions>
     <extendedObject href="EstimacionTUSBPEL.bpel#/"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1589982517159"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1589899600702"/>
   </extensions>
   <extensions>
     <extendedObject href="EstimacionTUSBPEL.bpel#//@activity/@activities.1"/>
