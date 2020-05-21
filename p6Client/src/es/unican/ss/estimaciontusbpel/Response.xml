@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<message>
+	<parameters>
+		<ns2:numParadaResponse
+			xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"
+			xmlns:ns2="http://infoParadas.ss.unican.es/">
+			<return>25</return>
+		</ns2:numParadaResponse>
+	</parameters>
+</message>
